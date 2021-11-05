@@ -8,6 +8,10 @@ app.get('/', (req, res) => {
   res.send('App MindSet already running')
 })
 
+// Admin resource 
+app.get('/admins', admins.getAdmins)
+app.get('/admin/edit', admins.editAdmin)
+
 app.listen(port, () => {
   console.log(`App MindSet listening at http://localhost:${port}`)
 })
