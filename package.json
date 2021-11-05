@@ -1,0 +1,24 @@
+{
+  "name": "basd-mindset",
+  "version": "1.0.0",
+  "description": "Week 08",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolasviola/BaSD-MindSet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolasviola/BaSD-MindSet/issues"
+  },
+  "homepage": "https://github.com/nicolasviola/BaSD-MindSet#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14"
+  }
+}
