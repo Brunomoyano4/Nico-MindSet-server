@@ -10,7 +10,10 @@ app.get('/', (req, res) => {
 
 // Admin resource 
 app.get('/admins', admins.getAdmins)
+app.get('/admin', admins.getOneAdmin)
 app.get('/admin/edit', admins.editAdmin)
+app.get('/admin/delete', admins.deleteAdmin)
+
 
 app.listen(port, () => {
   console.log(`App MindSet listening at http://localhost:${port}`)
