@@ -5,6 +5,16 @@ const getAdmins = (req, res) => {
 	res.status(200).json(Admins)
 }
 
+const getOneAdmin = (req, res) => {
+	const adminIndex = Admins.findIndex((item) => item.id === req.query.id)
+    if (adminIndex != -1){ 
+        res.status(200).json(Admins[adminIndex])
+    } 
+    else {
+        res.status(400).json({ msg: `No admin with the Id of ${req.query.id}`})
+    }
+}
+
 const editAdmin = (req, res) => {
 	const adminIndex = Admins.findIndex((item) => item.id === req.query.id)
 	if(adminIndex !== -1) {
@@ -28,7 +38,32 @@ const editAdmin = (req, res) => {
 	}
 }
 
+const deleteAdmin = (req,res) => {
+
+	const adminIndex = Admins.findIndex((item) => item.id === req.query.id)
+    if (adminIndex !== -1) {
+        res.status(202).send({
+          msg: `Admin with id ${req.query.id} deleted`
+        });
+    Admins.splice(adminIndex, 1)
+	fs.writeFile('./data/admins.json', JSON.stringify(Admins), {}, (error) => {
+		if(error) {
+			res.status(400).send(error)
+		} else {
+			res.status(200).json(Admins[adminIndex])
+		}
+	});
+    } 
+    else {
+    res.status(400).json({ msg: `No admin with the id of ${req.query.id}` });
+    }
+}
+
+
 module.exports = {
 	getAdmins,
+	getOneAdmin,
 	editAdmin,
+	deleteAdmin
+
 }
