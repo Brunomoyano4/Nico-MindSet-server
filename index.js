@@ -18,7 +18,7 @@ app.get('/admin/delete', admins.deleteAdmin)
 app.get('/postulants', postulants.getPostulants)
 app.get('/postulant', postulants.getOnePostulant)
 app.get('/postulants/edit', postulants.editPostulants)
-//app.get('/postulants/delete', postulants.deletePostulants)
+app.get('/postulants/delete', postulants.deletePostulants)
 //app.get('/postulants/create', postulants.createPostulant)
 
 app.listen(port, () => {

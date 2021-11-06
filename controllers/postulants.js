@@ -45,8 +45,30 @@ const editPostulants = (req, res) => {
 	}
 }
 
+const deletePostulants = (req, res) => {
+
+	const postulantIndex = Postulants.findIndex((item) => item.id === parseInt(req.query.id))
+	if (postulantIndex !== -1) {
+		res.status(202).send({
+			msg: `Postulant with id ${req.query.id} deleted`
+		});
+		Postulants.splice(postulantIndex, 1)
+		fs.writeFile('./data/postulants.json', JSON.stringify(Postulants), {}, (error) => {
+			if (error) {
+				res.status(400).send(error)
+			} else {
+				res.status(200).json(Postulants[postulantIndex])
+			}
+		});
+	}
+	else {
+		res.status(400).json({ msg: `No postulant with the id of ${req.query.id}` });
+	}
+}
+
 module.exports = {
 	getPostulants,
 	getOnePostulant,
-	editPostulants
+	editPostulants,
+	deletePostulants
 } 
