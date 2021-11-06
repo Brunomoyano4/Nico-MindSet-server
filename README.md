@@ -14,7 +14,7 @@ Mindset is a sample backend server for Radium Rocket's BaSD-2021 course
 6. Access to the repo's folder.
 7. Open a terminal in project folder
 8. On the command line run the following command: npm install
-9. To start the project on your local environment run the command: run npm start
+9. To start the project on your local environment run the command: npm run start
 
 ---
 
