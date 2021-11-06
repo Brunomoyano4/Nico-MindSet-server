@@ -66,9 +66,97 @@ const deletePostulants = (req, res) => {
 	}
 }
 
+const createPostulant = (req, res) =>{
+	const postulantIndex=Postulants.length+1
+	const newPostulantIndex=postulantIndex.toString()
+	if(req.query.first_name==undefined){
+		res.status(400).send({
+			msg: `Please enter a name`
+		});
+	} 
+	else if(req.query.last_name==undefined){
+		res.status(400).send({
+			msg: `Please enter a last name`
+		});
+	}
+	else if(req.query.user_name==undefined){
+		res.status(400).send({
+			msg: `Please enter an user name`
+		});
+	}
+	else if(req.query.email==undefined){
+		res.status(400).send({
+			msg: `Please enter an email`
+		});
+	}
+	else if(req.query.password==undefined){
+		res.status(400).send({
+			msg: `Please enter a password`
+		});
+	}
+	else if(req.query.birth_date==undefined){
+		res.status(400).send({
+			msg: `Please enter a birth_date`
+		});
+	}
+	else if(req.query.street==undefined || req.query.street_number==undefined ){
+		res.status(400).send({
+			msg: `Please enter a street adress`
+		});
+	}
+	else if(req.query.city==undefined){
+		res.status(400).send({
+			msg: `Please enter a city`
+		});
+	}
+	else if(req.query.postal_code==undefined){
+		res.status(400).send({
+			msg: `Please enter a postal_code`
+		});
+	}
+	else if(req.query.province==undefined){
+		res.status(400).send({
+			msg: `Please enter a province`
+		});
+	}
+	else if(req.query.country==undefined){
+		res.status(400).send({
+			msg: `Please enter a country`
+		});
+	}
+	else if(req.query.telephone==undefined){
+		res.status(400).send({
+			msg: `Please enter a telephone`
+		});
+	}
+	else{
+		const newPostulant={
+			id:parseInt(newPostulantIndex),
+			first_name: req.query.first_name,
+			last_name: req.query.last_name,
+			user_name: req.query.user_name,
+			email: req.query.email,
+			password: req.query.password,
+			birth_date:req.query.birth_date,
+			street:req.query.street,
+			street_number:req.query.street_number,
+			city:req.query.city,
+			postal_code:req.query.postal_code,
+			province:req.query.province,
+			country:req.query.country,
+			telephone:req.query.telephone
+		}
+		res.status(202).send({
+			msg: `Postulant with id ${newPostulantIndex} created`
+		});
+		Postulants.push(newPostulant)
+	}		
+}
+
 module.exports = {
 	getPostulants,
 	getOnePostulant,
 	editPostulants,
-	deletePostulants
+	deletePostulants,
+	createPostulant
 } 
