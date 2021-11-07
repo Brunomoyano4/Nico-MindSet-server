@@ -63,6 +63,8 @@ const deletePostulants = (req, res) => {
 }
 
 const createPostulant = (req, res) => {
+	console.log(req.query.experience)
+	//console.log("experience",JSON.parse(req.query.experience))
 	const postulantId = ((Postulants[Postulants.length - 1].id) + 1).toString()
 	if (!req.query.first_name) {
 		res.status(400).send({
@@ -139,7 +141,8 @@ const createPostulant = (req, res) => {
 			postal_code: req.query.postal_code,
 			province: req.query.province,
 			country: req.query.country,
-			telephone: req.query.telephone
+			telephone: req.query.telephone,
+			//experience: req.query.experience
 		}
 		res.status(202).send({
 			msg: `Postulant with id ${postulantId} created`
