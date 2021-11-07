@@ -1,0 +1,107 @@
+[
+    {
+        "id": "1",
+        "clientId": "2",
+        "job": "Graphic Designer",
+        "description": "Graphic Designers create and influence branding, which can help to sell products and services to thousands – sometimes millions – of customers from all around the world. Read more about this exciting career, find out the duties of a graphic designer and what it takes to succeed in the role.",
+        "createdAt": "1636240010398"
+    },
+    {
+        "id": "2",
+        "clientID": "2",
+        "job": "Scrum Master",
+        "description": "A scrum master helps oversee the scrum and development team. They are knowledgeable in Agile methodology and scrum and able to educate others. They also act as a buffer between the scrum team and product owner and maintain a safe working environment for the team by helping with conflict resolution.",
+        "createdAt": "1636240009398"
+    },
+    {
+        "id": "3",
+        "clientId": "3",
+        "job": "Staff Accountant",
+        "description": "A Staff Accountant is an entry or mid-level accounting professional who is responsible for maintaining financial records at a business, usually as part of a team. Their duties include confirming compliance with IRS rules, reconciling bank statements and balancing the ledger for regular reports.",
+        "createdAt": "1636239010398"
+    },
+    {
+        "id": "4",
+        "clientId": "5",
+        "job": "Research Associate",
+        "description": "Research Associates help companies increase workload and improve products. They gather data, design tests and help ensure that information is being properly recorded and assessed. They may participate in clean up and administrative duties as well.",
+        "createdAt": "1636040010398"
+    },
+    {
+        "id": "5",
+        "clientId": "3",
+        "job": "Quality Engineer",
+        "description": "A Quality Engineer is responsible for the generation of a strategic plan to improve the business processes and increase production output. Duties include creating the company's quality standards and testing systems to reflect efficiency, reliability and performance.",
+        "createdAt": "1636220010398"
+    },
+    {
+        "id": "6",
+        "clientId": "2",
+        "job": "Computer Systems Analyst",
+        "description": "Computer Systems Analysts research the hardware and software that are part of an organization’s computer systems in addition to the ways in which the systems are being used. As well, they need to analyze the work being done by an organization to identify the ways in which it best can be served by a computer system.",
+        "createdAt": "1636240000398"
+    },
+    {
+        "id": "7",
+        "clientId": "1",
+        "job": "Recruiter",
+        "description": "Recruiters are responsible for meet hiring goals by filling open positions with talented and qualified candidates. They are generally responsible for the full life cycle of the recruiting process. This entails sourcing and screening candidates, coordinating the interview process, and facilitating offers and employment negotiations, all while ensuring candidates have a pleasant experience.",
+        "createdAt": "1635240010398"
+    },
+    {
+        "id": "8",
+        "clientId": "1",
+        "job": "Business Systems Development Analyst",
+        "description": "Business Systems Analysts oversee the analysis and development of a company's business operations. Also known as Systems Analysts, these highly-analytical specialists have both business and technical expertise. Duties include analyzing requirements, estimating the cost, and establishing system protocols.",
+        "createdAt": "1636240006398"
+    },
+    {
+        "id": "9",
+        "clientId": "7",
+        "job": "Human Resources Manager",
+        "description": "Human Resources Managers plan, coordinate, and direct the administrative functions of an organization. They oversee the recruiting, interviewing, and hiring of new staff; consult with top executives on strategic planning; and serve as a link between an organization's management and its employees.",
+        "createdAt": "1636230010398"
+    },
+    {
+        "id": "10",
+        "clientId": "6",
+        "job": "VP Sales",
+        "description": "VP of Sales candidates are experienced leaders responsible for directing their organization's sales team to meet and exceed goals. They work with senior leaders to determine and set those sales goals for the month, quarter, year, and so on, and create strategies to reach them.",
+        "createdAt": "1635430010398"
+    },
+    {
+        "id": "11",
+        "clientId": "2",
+        "job": "Administrative Assistant",
+        "description": "Most Administrative Assistant duties revolve around managing and distributing information within an office. This generally includes answering phones, taking memos and maintaining files. Administrative assistants may also be in charge of sending and receiving correspondence, as well as greeting clients and customers.",
+        "createdAt": "1636230012398"
+    },
+    {
+        "id": "12",
+        "clientId": "2",
+        "job": "Software Test Engineer",
+        "description": "Software Test Engineers are responsible for designing and implementing test procedures to ensure that software programs work as intended. They are mostly hired by software development companies to ensure that products perform to specifications before being released to the public.",
+        "createdAt": "1636220010398"
+    },
+    {
+        "id": "13",
+        "clientId": "5",
+        "job": "Automation Specialist",
+        "description": "An Automation Specialist is an individual who develops web-based programs that automate a company's or an organization's operating data and machinery. These individuals test the performance of operating systems and equipment, install electrical parts, and inspect equipment for issues or defects.",
+        "createdAt": "1636230010198"
+    },
+    {
+        "id": "14",
+        "clientId": "4",
+        "job": "Web Developer",
+        "description": "Web Developers design and build websites. They are typically responsible for the appearance, of the site and technical aspects, such as site speed and how much traffic the site can handle. Web developers may also create site content that requires technical features.",
+        "createdAt": "1636210010398"
+    },
+    {
+        "id": "15",
+        "clientId": "6",
+        "job": "Senior Financial Analyst",
+        "description": "Senior Financial Analysts perform a variety of financial activities including budgeting, forecasting, building financial models, assisting with financial planning, performing research and analysis, preparing reports, and assisting with close processes.",
+        "createdAt": "1636230012398"
+    }
+]

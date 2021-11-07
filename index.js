@@ -3,7 +3,6 @@ const admins = require('./controllers/admins')
 const positions = require('./controllers/positions')
 const applications = require('./controllers/applications')
 
-
 const app = express()
 const port = 3000
 
@@ -23,6 +22,7 @@ app.get('/positions', positions.getPositions)
 app.get('/position', positions.getOnePosition)
 app.get('/position/create', positions.createPosition)
 app.get('/position/delete', positions.deletePosition)
+app.get('/position/update', positions.updatePosition)
 
 // Applications resource
 
