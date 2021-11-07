@@ -3,11 +3,20 @@ const Psychologists = require('../data/psychologists.json')
 const getPsychologistIndex = (req) => {
   return (Psychologists.findIndex((item) => item.id === req.query.id))
 }
+const writeFile = (file, obj) => {
+  fs.writeFile(file, JSON.stringify(obj), {}, (error) => {
+    if (error) {
+      res.status(400).send(error)
+    }
+  })
+}
 
+// Get All Psychologysts
 const getPsychologists = (req, res) => {
 	res.status(200).json(Psychologists);
 }
 
+// Get One Psychologysts
 const getOnePsychologist = (req, res) => {
 	const psychologistIndex = getPsychologistIndex(req);
 	if (psychologistIndex != -1) {
@@ -18,11 +27,16 @@ const getOnePsychologist = (req, res) => {
 	}
 }
 
-// Create Psychologyst
+// Create New Psychologyst
 const createPsychologist = (req,res) => {
+  if (Object.keys(req.query).length === 0){
+    return res.status(400).send({
+      msg: 'Missing all files'
+  });
+  }
   if (!req.query?.first_name){
     return res.status(400).send({
-        msg: 'The first name is missing'
+      msg: 'The first name is missing'
     });
   }
   else if (!req.query?.last_name){
@@ -64,18 +78,13 @@ const createPsychologist = (req,res) => {
   }
 
   Psychologists.push(newPsychologist);
-  fs.writeFile('./data/psychologists.json', JSON.stringify(Psychologists), {}, (error) => {
-    if (error) {
-      res.status(400).send(error)
-    } else {
-      res.status(201).json(Psychologists[psychologistIndex])
-    }
-  });
+  writeFile('./data/psychologists.json', Psychologists)
   return res.status(201).send({
-      msg: 'Psychologist Created'
+    msg: 'Psychologist Created'
   })
 }
 
+// Edit Existing Psychologist
 const editPsychologist = (req, res) => {
 	const psychologistIndex = getPsychologistIndex(req);
 	if (psychologistIndex != -1) {
@@ -99,6 +108,7 @@ const editPsychologist = (req, res) => {
 	}
 }
 
+// Delete Existing Psychologist
 const deletePsychologist = (req, res) => {
 	const psychologistIndex = getPsychologistIndex(req);
 	if (psychologistIndex != -1) {
@@ -118,7 +128,6 @@ const deletePsychologist = (req, res) => {
 		res.status(404).send('Psychologist not found');
 	}
 }
-
 
 module.exports = {
 	getPsychologists,
