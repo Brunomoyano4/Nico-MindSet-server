@@ -29,7 +29,7 @@ const editPostulants = (req, res) => {
 			postal_code: req.query.postal_code || Postulants[postulantIndex].postal_code,
 			province_code: req.query.province || Postulants[postulantIndex].province,
 			country: req.query.country || Postulants[postulantIndex].country,
-			telephone: req.query.country || Postulants[postulantIndex].telephone,
+			telephone: req.query.telephone || Postulants[postulantIndex].telephone,
 		}
 		fs.writeFile('./data/postulants.json', JSON.stringify(Postulants), {}, (error) => {
 			if (error) {
