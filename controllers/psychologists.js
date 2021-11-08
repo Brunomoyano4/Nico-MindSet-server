@@ -22,7 +22,7 @@ const getPsychologists = (req, res) => {
 
 const getOnePsychologist = (req, res) => {
   const psychologistIndex = getPsychologistIndex(req);
-  if (psychologistIndex != -1) {
+  if (psychologistIndex !== -1) {
     return res.status(200).json(Psychologists[psychologistIndex]);
   }
   return res.status(400).json({ msg: `No psychologist with the Id of ${req.query.id}` });
@@ -67,7 +67,7 @@ const createPsychologist = (req,res) => {
     password,
   } = req.query;
   const newPsychologist = {
-    id: (parseInt((Psychologists.length) + 1)).toString(),
+    id: (parseInt(Psychologists[Psychologists.length - 1].id) + 1).toString(),
     first_name,
     last_name,
     user_name,
@@ -80,7 +80,7 @@ const createPsychologist = (req,res) => {
 
 const editPsychologist = (req, res) => {
   const psychologistIndex = getPsychologistIndex(req);
-  if (psychologistIndex != -1) {
+  if (psychologistIndex !== -1) {
     Psychologists[psychologistIndex] = {
       id: Psychologists[psychologistIndex].id,
       first_name: req.query.first_name || Psychologists[psychologistIndex].first_name,
@@ -96,7 +96,7 @@ const editPsychologist = (req, res) => {
 
 const deletePsychologist = (req, res) => {
 	const psychologistIndex = getPsychologistIndex(req);
-	if (psychologistIndex != -1) {
+	if (psychologistIndex !== -1) {
     Psychologists.splice(psychologistIndex, 1)
     return writeFile('./data/psychologists.json', Psychologists, `Psychologist with id ${req.query.id} deleted`, res, 202);
 	}
