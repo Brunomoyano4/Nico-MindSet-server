@@ -3,6 +3,7 @@ const Postulants = require('../data/postulants.json')
 const getPostulants = (req, res) => {
 	res.status(200).json(Postulants)
 }
+
 const getOnePostulant = (req, res) => {
 	const postulantIndex = Postulants.findIndex((item) => item.id === parseInt(req.query.id))
 	if (postulantIndex !== -1) {
@@ -12,6 +13,7 @@ const getOnePostulant = (req, res) => {
 		res.status(400).json({ msg: `No postulant with the Id of ${req.query.id}` })
 	}
 }
+
 const editPostulants = (req, res) => {
 	const postulantIndex = Postulants.findIndex((item) => item.id === parseInt(req.query.id))
 	if (postulantIndex !== -1) {
@@ -49,12 +51,15 @@ const deletePostulants = (req, res) => {
 		res.status(202).send({
 			msg: `Postulant with id ${req.query.id} deleted`
 		});
+		const deleteElement = {
+			...Postulants[postulantIndex]
+		}
 		Postulants.splice(postulantIndex, 1)
 		fs.writeFile('./data/postulants.json', JSON.stringify(Postulants), {}, (error) => {
 			if (error) {
 				res.status(400).send(error)
 			} else {
-				res.status(200).json(Postulants[postulantIndex])
+				res.status(200).json(deleteElement)
 			}
 		});
 	}

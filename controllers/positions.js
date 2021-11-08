@@ -65,12 +65,15 @@ const deletePosition = (req, res) => {
   const index = findIndex(req)
   if (index !== -1) {
     res.status(202).send({ msg: `Position with id ${req.query.id} deleted` })
+    const deleteElement = {
+      ...Positions[index]
+    }
     Positions.splice(index, 1)
     fs.writeFile('./data/positions.json', JSON.stringify(Positions), {}, (error) => {
       if (error) {
         res.status(400).send(error)
       } else {
-        res.status(200).json(Positions[index])
+        res.status(200).json(deleteElement)
       }
     })
   } else {

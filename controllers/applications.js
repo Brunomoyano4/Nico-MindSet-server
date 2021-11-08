@@ -65,12 +65,15 @@ const deleteApplication = (req, res) => {
   const index = findIndex(req)
   if (index) {
     res.status(202).send({ msg: `Application with positionId ${req.query.positionId} and postulantId ${req.query.postulantId} deleted` })
+    const deleteElement = {
+      ...Applications[index]
+    }
     Applications.splice(index, 1)
     fs.writeFile('./data/applications.json', JSON.stringify(Applications), {}, (error) => {
       if (error) {
         res.status(400).send(error)
       } else {
-        res.status(200).json(Applications[index])
+        res.status(200).json(deleteElement)
       }
     })
   } else {
