@@ -1,1 +1,42 @@
-[{"id":"1","first_name":"Luis","last_name":"Benkhe","user_name":"lbenkhe0","email":"lbenkhe0@walmart.com","password":"oBft997D"},{"id":"2","first_name":"Damara","last_name":"Instrell","user_name":"dinstrell1","email":"dinstrell1@ning.com","password":"F8s6Uu"},{"id":"3","first_name":"Earle","last_name":"Chiles","user_name":"echiles2","email":"echiles2@china.com.cn","password":"yueIrZWNx2"},{"id":"4","first_name":"Cacilie","last_name":"Harraway","user_name":"charraway3","email":"charraway3@house.gov","password":"duGqovLE2oI"},{"id":"5","first_name":"Dionne","last_name":"Grinsdale","user_name":"dgrinsdale4","email":"dgrinsdale4@usda.gov","password":"ZD3qj3O3o2"},{"id":"6","first_name":"Luis","last_name":"Testeo","user_name":"luistesteo","email":"luistesteo@gmail.com","password":"soyluistesteo"}]
+[
+  {
+    "id": "1",
+    "first_name": "Jorge",
+    "last_name": "Benkhe",
+    "user_name": "lbenkhe0",
+    "email": "lbenkhe0@walmart.com",
+    "password": "oBft997D"
+  },
+  {
+    "id": "2",
+    "first_name": "Damara",
+    "last_name": "Instrell",
+    "user_name": "dinstrell1",
+    "email": "dinstrell1@ning.com",
+    "password": "F8s6Uu"
+  },
+  {
+    "id": "3",
+    "first_name": "Earle",
+    "last_name": "Chiles",
+    "user_name": "echiles2",
+    "email": "echiles2@china.com.cn",
+    "password": "yueIrZWNx2"
+  },
+  {
+    "id": "4",
+    "first_name": "Cacilie",
+    "last_name": "Harraway",
+    "user_name": "charraway3",
+    "email": "charraway3@house.gov",
+    "password": "duGqovLE2oI"
+  },
+  {
+    "id": "5",
+    "first_name": "Dionne",
+    "last_name": "Grinsdale",
+    "user_name": "dgrinsdale4",
+    "email": "dgrinsdale4@usda.gov",
+    "password": "ZD3qj3O3o2"
+  }
+]

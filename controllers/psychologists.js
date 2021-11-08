@@ -89,23 +89,23 @@ const createPsychologist = (req,res) => {
 
 // Edit Existing Psychologist
 const editPsychologist = (req, res) => {
-	const psychologistIndex = getPsychologistIndex(req);
-	if (psychologistIndex != -1) {
-		Psychologists[psychologistIndex] = {
-			id: Psychologists[psychologistIndex].id,
-			first_name: req.query.first_name || Psychologists[psychologistIndex].first_name,
-			last_name: req.query.last_name || Psychologists[psychologistIndex].last_name,
-			user_name: req.query.user_name || Psychologists[psychologistIndex].user_name,
-			email: req.query.email || Psychologists[psychologistIndex].email,
-			password: req.query.password || Psychologists[psychologistIndex].password,
-		};
+  const psychologistIndex = getPsychologistIndex(req);
+  if (psychologistIndex != -1) {
+    Psychologists[psychologistIndex] = {
+      id: Psychologists[psychologistIndex].id,
+      first_name: req.query.first_name || Psychologists[psychologistIndex].first_name,
+      last_name: req.query.last_name || Psychologists[psychologistIndex].last_name,
+      user_name: req.query.user_name || Psychologists[psychologistIndex].user_name,
+      email: req.query.email || Psychologists[psychologistIndex].email,
+      password: req.query.password || Psychologists[psychologistIndex].password,
+    };
     writeFile('./data/psychologists.json', Psychologists)
-    return res.status(201).send({
+      return res.status(201).send({
       msg: 'Psychologist Edited'
     });
-	} else {
-		res.status(404).send('Psychologist not found');
-	};
+  } else {
+    res.status(404).send('Psychologist not found');
+  };
 }
 
 // Delete Existing Psychologist
