@@ -9,34 +9,10 @@
   },
   {
     "id": "2",
-    "first_name": "Damara",
+    "first_name": "Jorge",
     "last_name": "Instrell",
     "user_name": "dinstrell1",
     "email": "dinstrell1@ning.com",
     "password": "F8s6Uu"
-  },
-  {
-    "id": "3",
-    "first_name": "Earle",
-    "last_name": "Chiles",
-    "user_name": "echiles2",
-    "email": "echiles2@china.com.cn",
-    "password": "yueIrZWNx2"
-  },
-  {
-    "id": "4",
-    "first_name": "Cacilie",
-    "last_name": "Harraway",
-    "user_name": "charraway3",
-    "email": "charraway3@house.gov",
-    "password": "duGqovLE2oI"
-  },
-  {
-    "id": "5",
-    "first_name": "Dionne",
-    "last_name": "Grinsdale",
-    "user_name": "dgrinsdale4",
-    "email": "dgrinsdale4@usda.gov",
-    "password": "ZD3qj3O3o2"
   }
 ]
