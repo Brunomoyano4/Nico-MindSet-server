@@ -60,7 +60,7 @@ const createInterview = (req, res) => {
 const deleteInterview = (req, res) => {
     const oneInterview = Interviews.list.filter (item => item.interviewId === req.query.interviewId)
     if (oneInterview != False) {
-		res.status(202).send({ msg: "Interview with id " + ${req.query.interviewId} + " deleted" });
+		res.status(202).send({ msg: "Interview with id " + req.query.interviewId + " deleted" });
 		Interviews.splice(Interviews, 1);
 		fs.writeFile('./data/interviews.json', JSON.stringify(Interviews), (error) => {
 			if (error) {
