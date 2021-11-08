@@ -6,7 +6,7 @@ const getSessions = (req, res) => {
 }
 
 const getOneSession = (req, res) => {
-    const oneSession = sessions.list.filter(item => item.id === req.query.sessionId)
+    const oneSession = sessions.list.filter(item => item.sessionId === req.query.sessionId)
     if (oneSession != false) {
         res.status(200).json(oneSession)
     } else {
@@ -37,15 +37,15 @@ const createSession = (req, res) => {
         stat='status, '
         okey=false
     }
-    if okey=false{ 
+    if (okey=false){ 
         res.status(400).send({ msg: psy + post + date + time + stat + 'are missing'})
     }
     const newSession = {
-        psychologyId: Object.keys(sessions).length + 1 
-        positionId: req.query.postionId,
+        sessionId: Object.keys(sessions).length + 1,
+        psychologyId: req.query.psychologyId,
         postulantId: req.query.postulantId,
-        date: req.query.date
-        time: req.query.time
+        date: req.query.date,
+        time: req.query.time,
         stat: req.query.stat
     }
     sessions.push(newSession)
@@ -61,17 +61,18 @@ const createSession = (req, res) => {
 const deleteSession = (req, res) => {
     const oneSession = sessions.list.filter(item => item.psychologyId === req.query.psychologyId)
     if (oneSession != False) {
-		res.status(202).send({ msg: "Session with id ", ${req.query.psychologyId} ," deleted" })
+		res.status(202).send({ msg: "Session with id " + req.query.psychologyId + " deleted" })
 		sessions.splice(oneSession, 1)
 		fs.writeFile('./data/sessions.json', JSON.stringify(sessions), (error) => {
 			if (error) {
-                return res.status(400).json({ msg: "Problems deleting the session" })
+                res.status(400).json({ msg: "Problems deleting the session" })
             } else {
-                return res.status(200).json(oneSession)
+                res.status(200).json(oneSession)
             }
 		})
-	} else {
-		return res.status(400).json({ msg: `No session with the id of ${req.query.sessionId}` });
+	}
+    else {
+		res.status(400).json({ msg: `No session with the id of ${req.query.sessionId}` });
 	}
 }
 
