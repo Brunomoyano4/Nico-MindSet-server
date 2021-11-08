@@ -2,6 +2,7 @@ const express = require('express')
 const admins = require('./controllers/admins')
 const positions = require('./controllers/positions')
 const applications = require('./controllers/applications')
+const psychologists = require('./controllers/psychologists')
 
 const app = express()
 const port = 3000
@@ -11,6 +12,7 @@ app.get('/', (req, res) => {
 })
 
 // Admin resource 
+
 app.get('/admins', admins.getAdmins)
 app.get('/admin', admins.getOneAdmin)
 app.get('/admin/edit', admins.editAdmin)
@@ -31,6 +33,15 @@ app.get('/application/positionId', applications.getApplicationByPositionId)
 app.get('/application/postulantId', applications.getApplicationByPostulantId)
 app.get('/application/create', applications.createApplication)
 app.get('/application/delete', applications.deleteApplication)
+
+// Psychologist resource
+
+app.get('/psychologists', psychologists.getPsychologists)
+app.get('/psychologist', psychologists.getOnePsychologist)
+app.get('/psychologist/edit', psychologists.editPsychologist)
+app.get('/psychologist/delete', psychologists.deletePsychologist)
+app.get('/psychologist/create', psychologists.createPsychologist)
+
 
 app.listen(port, () => {
   console.log(`App MindSet listening at http://localhost:${port}`)
