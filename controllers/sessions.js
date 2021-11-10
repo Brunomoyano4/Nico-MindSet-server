@@ -49,7 +49,7 @@ const getOneSession = (req, res) => {
 const createSession = (req, res) => {
   missingInputs (req,res)
   const newSession = {
-    sessionId: Object.keys(sessions).length + 1,
+    sessionId: (parseInt(sessions[Interviews.length - 1].sessionId) + 1).toString(),
     psychologyId: req.query.psychologyId,
     postulantId: req.query.postulantId,
     date: req.query.date,
