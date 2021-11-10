@@ -40,13 +40,11 @@ const createProfile = (req, res) => {
       msg: 'The description is missing'
     });
   }
-
   const {
     profile_name,
     branch,
     description,
   } = req.query;
-
   const newProfile = {
     id: (parseInt(Profiles[Profiles.length - 1].id) + 1).toString(),
     profile_name,
