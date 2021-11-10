@@ -5,6 +5,7 @@ const positions = require('./controllers/positions')
 const applications = require('./controllers/applications')
 const psychologists = require('./controllers/psychologists')
 const sessions = require('./controllers/sessions')
+const profiles = require('./controllers/profiles')
 
 const app = express()
 const port = 3000
@@ -58,6 +59,14 @@ app.get('/sessions', sessions.getSessions)
 app.get('/session', sessions.getOneSession)
 app.get('/session/create', sessions.createSession)
 app.get('/session/delete', sessions.deleteSession)
+
+// Profiles resources
+
+app.get('/profiles', profiles.getProfiles)
+app.get('/profile', profiles.getOneProfile)
+app.get('/profile/edit', profiles.editProfile)
+app.get('/profile/delete', profiles.deleteProfile)
+app.get('/profile/create', profiles.createProfile)
 
 app.listen(port, () => {
   console.log(`App MindSet listening at http://localhost:${port}`)
