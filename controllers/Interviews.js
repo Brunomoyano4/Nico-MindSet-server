@@ -2,8 +2,8 @@ const fs = require('fs')
 const Interviews = require('../data/interviews.json')
 
 const missingInputs = (req,res) => {
-  const pos=post=date=time=stat="";
-  const okey=true;
+  const pos = post = date = time = stat = "";
+  const okey = true;
   if (!req.query.positionId) {
     pos= 'psychologyId, '
     okey= false
