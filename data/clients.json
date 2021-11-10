@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "customer_name": "Pharma labs",
+    "branch": "Major Chemicals",
+    "phone": "424-456-4684",
+    "email": "edury0@princeton.edu",
+    "description": "User-friendly leading edge infrastructure"
+  },
+  {
+    "id": "2",
+    "customer_name": "Quire",
+    "branch": "Computer Software: Prepackaged Software",
+    "phone": "275-205-5533",
+    "email": "tcaple1@dropbox.com",
+    "description": "Persistent zero tolerance attitude"
+  },
+  {
+    "id": "3",
+    "customer_name": "Youspan",
+    "branch": "Movies/Entertainment",
+    "phone": "797-693-7085",
+    "email": "rpreddle2@comcast.net",
+    "description": "Versatile content-based hierarchy"
+  },
+  {
+    "id": "4",
+    "customer_name": "Npath",
+    "branch": "Computer Software: Prepackaged Software",
+    "phone": "891-731-0538",
+    "email": "romohun3@reference.com",
+    "description": "Object-based homogeneous workforce"
+  },
+  {
+    "id": "5",
+    "customer_name": "Blogtags",
+    "branch": "Telecommunications Equipment",
+    "phone": "583-396-0849",
+    "email": "gbruck4@parallels.com",
+    "description": "Optional bottom-line definition"
+  },
+  {
+    "id": "6",
+    "customer_name": "Twiyo",
+    "branch": "Multi-Sector Companies",
+    "phone": "780-780-1675",
+    "email": "cpoulton5@wiley.com",
+    "description": "Reduced 4th generation open system"
+  },
+  {
+    "id": "7",
+    "customer_name": "Vidoo",
+    "branch": "Home Furnishings",
+    "phone": "268-949-7116",
+    "email": "amainstone7@wikipedia.org",
+    "description": "Front-line clear-thinking open architecture"
+  },
+  {
+    "id": "8",
+    "customer_name": "Photojam",
+    "branch": "Finance: Consumer Services",
+    "phone": "917-665-4598",
+    "email": "eelfleet9@booking.com",
+    "description": "Reactive stable alliance"
+  },
+  {
+    "id": "9",
+    "customer_name": "Tavu",
+    "branch": "Industrial Specialties",
+    "phone": "781-551-3081",
+    "email": "mpemberya@yahoo.com",
+    "description": "Front-line dynamic toolset"
+  },
+  {
+    "id": "10",
+    "customer_name": "Podcat",
+    "branch": "Finance: Consumer Services",
+    "phone": "680-660-4786",
+    "email": "soughb@drupal.org",
+    "description": "Triple-buffered 24 hour strategy"
+  }
+]
