@@ -59,7 +59,6 @@ app.get('/session', sessions.getOneSession)
 app.get('/session/create', sessions.createSession)
 app.get('/session/delete', sessions.deleteSession)
 
-
 app.listen(port, () => {
   console.log(`App MindSet listening at http://localhost:${port}`)
 })
