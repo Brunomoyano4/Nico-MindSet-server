@@ -50,7 +50,6 @@ const createClient = (req, res) => {
       msg: 'The description is missing'
     });
   }
-
   const {
     customer_name,
     branch,
@@ -58,7 +57,6 @@ const createClient = (req, res) => {
     email,
     description,
   } = req.query;
-
   const newClient = {
     id: (parseInt(Clients[Clients.length - 1].id) + 1).toString(),
     customer_name,
