@@ -2,7 +2,7 @@ const fs = require('fs')
 const sessions = require('../data/sessions.json')
 
 const missingInputs = (req,res) => {
-  const psy=post=date=time=stat="";
+  const psy = post = date = time = stat = "";
   const okey=true;
   if (!req.query.psychologyId) {
     psy= 'psychologyId, '
@@ -38,7 +38,7 @@ const getSessions = (req, res) => {
 }
 
 const getOneSession = (req, res) => {
-  const index = findIndex (req) 
+  const index = findIndex(req) 
   if (index !== -1) {
     res.status(200).json(sessions[index])
   } else {
