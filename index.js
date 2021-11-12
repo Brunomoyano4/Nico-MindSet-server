@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const router = require("./routes");
 
 const app = express()
 const port = 3000
@@ -15,6 +16,8 @@ mongoose.connect('mongodb+srv://MindSet:BaSD-MindSet2021@cluster0.rblv6.mongodb.
     }
   }
 )
+
+app.use(router)
 
 app.listen(port, () => {
   console.log(`App MindSet listening at http://localhost:${port}`)
