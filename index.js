@@ -28,7 +28,7 @@ app.get('/admin/delete', admins.deleteAdmin)
 app.get('/interviews', interviews.getInterviews)
 app.get('/interview', interviews.getOneInterview)
 app.get('/interview/create', interviews.createInterview)
-app.get('/interviews/delete', interviews.deleteInterview)
+app.get('/interview/delete', interviews.deleteInterview)
 
 //Postulant resource
 
