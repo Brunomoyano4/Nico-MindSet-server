@@ -1,5 +1,5 @@
 const fs = require('fs')
-const Applications = require('../data/applications.json')
+const Applications = require('../models/applications')
 
 const missingInputs = (req, res) => {
   if (!req.query.postulantId && !req.query.positionId) {
@@ -22,7 +22,14 @@ const filter = (req) => {
 }
 
 const getApplications = (req, res) => {
-  res.status(200).json(Applications)
+  Applications.find()
+    .then ((applications) => {
+      return res.status(200).json(applications)
+    })
+    .catch((error) => {
+      return res.status(400).json(error)
+    })
+  // res.status(200).json(Applications)
 }
 
 const getApplicationByPositionId = (req, res) => {
