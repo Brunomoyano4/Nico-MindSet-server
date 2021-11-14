@@ -29,7 +29,7 @@ const getOnePosition = (req, res) => {
 const updatePosition = (req, res) => {
   Positions.findByIdAndUpdate(req.params.id,
     { 
-      clientId: req.body.clientID,
+      clientId: req.body.clientId,
       job: req.body.job,
       description:req.body.description,
     },
