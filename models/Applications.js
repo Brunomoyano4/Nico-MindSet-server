@@ -2,10 +2,9 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const ApplicationsSchema = new Schema({
-  id: Schema.Types.ObjectId,
-  postulantId: { type: Number, required: true },
-  positionId: { type: Number, required: true },
-  createdAt: { type: Number, required: true}
+  postulantId: { type: String, required: true },
+  positionId: { type: String, required: true },
+  createdAt: { type: String, required: true}
 })
 
 module.exports = mongoose.model('Applications', ApplicationsSchema)

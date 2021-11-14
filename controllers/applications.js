@@ -1,14 +1,14 @@
 const fs = require('fs')
-const Applications = require('../models/applications')
+const Applications = require('../models/Applications')
 
 const missingInputs = (req, res) => {
-  if (!req.query.postulantId && !req.query.positionId) {
+  if (!req.body.postulantId && !req.body.positionId) {
     return res.status(400).send({ msg: 'postulantId and positionId are empty' })
   }
-  if (!req.query.postulantId) {
+  if (!req.body.postulantId) {
     return res.status(400).send({ msg: 'postulantId is empty' })
   }
-  if (!req.query.positionId) {
+  if (!req.body.positionId) {
     return res.status(400).send({ msg: 'positionId is empty' })
   }
 }
@@ -23,13 +23,12 @@ const filter = (req) => {
 
 const getApplications = (req, res) => {
   Applications.find()
-    .then ((applications) => {
-      return res.status(200).json(applications)
-    })
-    .catch((error) => {
-      return res.status(400).json(error)
-    })
-  // res.status(200).json(Applications)
+  .then ((applications) => {
+    return res.status(200).json(applications)
+  })
+  .catch((error) => {
+    return res.status(400).json(error)
+  })
 }
 
 const getApplicationByPositionId = (req, res) => {
@@ -50,22 +49,41 @@ const getApplicationByPostulantId = (req, res) => {
   }
 }
 
+// const createApplication = (req, res) => {
+//   missingInputs(req, res)
+//   const newApplication = {
+//     postulantId: req.query.postulantId,
+//     positionId: req.query.positionId,
+//     createdAt: Date.now().toString()
+//   }
+//   Applications.push(newApplication)
+//   fs.writeFile('./data/applications.json', JSON.stringify(Applications), {}, (error) => {
+//     if (error) {
+//       res.status(400).send(error)
+//     } else {
+//       res.status(200).json(newApplication)
+//     }
+//   })
+// }
+
 const createApplication = (req, res) => {
-  missingInputs(req, res)
-  const newApplication = {
-    postulantId: req.query.postulantId,
-    positionId: req.query.positionId,
+  const newApplication = new Applications({
+    postulantId: req.body.postulantId,
+    positionId: req.body.positionId,
     createdAt: Date.now().toString()
-  }
-  Applications.push(newApplication)
-  fs.writeFile('./data/applications.json', JSON.stringify(Applications), {}, (error) => {
-    if (error) {
-      res.status(400).send(error)
-    } else {
-      res.status(200).json(newApplication)
+  });
+  newApplication.save((err, application) => {
+    if(err) {
+      return res.status(400).json(err)
     }
+    return res.status(201).json(application)
   })
-}
+  //   if (err) {
+  //     return res.status(200).send(newApplication);
+  //   }
+  //   return res.status(400).json(err);
+  // });
+};
 
 const deleteApplication = (req, res) => {
   missingInputs(req, res)
