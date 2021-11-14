@@ -8,6 +8,6 @@ router.post("/",validatePosition.required,positions.createPosition)
 router.get("/",positions.getPositions)
 router.get("/:id",positions.getOnePosition)
 router.put("/:id",positions.updatePosition)
-router.delete('/:id', validatePosition.requiredId,positions.deletePosition)
+router.delete('/:id',positions.deletePosition)
 
 module.exports=router
