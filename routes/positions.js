@@ -1,7 +1,7 @@
 const express=require("express")
 const router=express.Router()
 const positions=require("../controllers/positions")
-const validatePosition=require("../Validations/Positions")
+const validatePosition=require("../validations/Positions")
 
 
 router.post("/",validatePosition.required,positions.createPosition)
