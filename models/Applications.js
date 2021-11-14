@@ -8,13 +8,3 @@ const ApplicationsSchema = new Schema({
 })
 
 module.exports = mongoose.model('Applications', ApplicationsSchema)
-
-//getApplications
-//ApplicationByPositionId
-//getApplicationByPostulantId
-//createApplication
-//deleteApplication
-
-// "postulantId"
-// "positionId"
-// "createdAt":

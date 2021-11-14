@@ -14,7 +14,7 @@ const {
 router.post('/', createApplication);
 router.delete('/:id', deleteApplication);
 router.get('/', getApplications);
-router.get('/:positionId', getApplicationByPositionId);
-router.get('/:postulantId', getApplicationByPostulantId);
+router.get('/position/:positionId', getApplicationByPositionId);
+router.get('/postulant/:postulantId', getApplicationByPostulantId);
 
 module.exports = router;
