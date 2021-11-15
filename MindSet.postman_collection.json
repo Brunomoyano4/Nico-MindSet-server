@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bf799bbf-fdb4-4208-8729-0199236a80bc",
+		"_postman_id": "96e14a5a-b4ac-447b-9357-e1eba62aa154",
 		"name": "MindSet",
 		"description": "# Mindset\n- your staffing provider delivering jobs hiring, career resources, and education based on your career goals.\n\n---\n\n## Api-docs \n- Resources : \n - Admins\n - Postulans\n - Clients\n - Profiles \n - Applications\n - Positions\n - Sessions\n - Interviews\n - Psychologists",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -32,7 +32,91 @@
 		},
 		{
 			"name": "Sessions",
-			"item": []
+			"item": [
+				{
+					"name": "Create Session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"psychologyId\": \"test2\",\r\n    \"postulantId\": \"test2\",\r\n    \"date\": \"10-10-10\",\r\n    \"time\": \"11:11\",\r\n    \"stat\": \"test2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/sessions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Sessions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/sessions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one Session",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/sessions/6192bb9e3561a9d2c",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions",
+								"6192bb9e3561a9d2c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Session",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/sessions/6192bafa304622dfd0d31cff",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions",
+								"6192bafa304622dfd0d31cff"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Interviews",
