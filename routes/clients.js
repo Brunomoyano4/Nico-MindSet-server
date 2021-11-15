@@ -7,7 +7,7 @@ const validateClient=require("../validations/Clients")
 router.post("/",validateClient.required,Clients.createClient)
 router.get("/",Clients.getClients)
 router.get("/:id",Clients.getOneClient)
-router.put("/:id",validateClient.update,Clients.updateClient)
+router.put("/:id",validateClient.required,Clients.updateClient)
 router.delete('/:id',Clients.deleteClient)
 
 module.exports=router
