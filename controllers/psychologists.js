@@ -1,106 +1,120 @@
 const fs = require('fs');
-const Psychologists = require('../data/psychologists.json');
-
-const getPsychologistIndex = (req) => {
-  return (Psychologists.findIndex((item) => item.id === req.query.id));
-}
+const Psychologists = require('../models/Psychologists') 
 
 const writeFile = (file, obj, msg, res, code) => {
   fs.writeFile(file, JSON.stringify(obj), {}, (error) => {
     if (error) {
-      return res.status(400).send(error);
+      return res.status(400).send(error)
     }
     return res.status(code).send({
       msg: msg
-    });
-  });
+    })
+  })
 }
 
 const getPsychologists = (req, res) => {
-	res.status(200).json(Psychologists);
+  Psychologists.find()
+  .then((result) => {
+    return res.status(200).json(result)     
+  })
+  .catch((error) => {
+    return res.status(400).json(error)  
+  })
 }
 
 const getOnePsychologist = (req, res) => {
-  const psychologistIndex = getPsychologistIndex(req);
-  if (psychologistIndex !== -1) {
-    return res.status(200).json(Psychologists[psychologistIndex]);
-  }
-  return res.status(400).json({ msg: `No psychologist with the Id of ${req.query.id}` });
+  Psychologists.find({id: req.params.id})
+  .then((result) => {
+    return res.status(200).json(result)
+  }) 
+  .catch((error) => {
+    return res.status(400).json({
+       msg: `No psychologist with the Id of ${req.params.id}` 
+      })
+  })  
 }
 
 const createPsychologist = (req,res) => {
-  if (Object.keys(req.query).length === 0){
+  if (Object.keys(req.body).length === 0){
     return res.status(400).send({
-      msg: 'Missing all files'
-    });
+      msg: 'All fields are missing'
+    })
   }
-  if (!req.query?.first_name){
+  if (!req.body?.first_name){
     return res.status(400).send({
       msg: 'The first name is missing'
-    });
+    })
   }
-  else if (!req.query?.last_name){
+  else if (!req.body?.last_name){
     return res.status(400).send({
       msg: 'The last name is missing'
-    });
+    })
   }
-  else if (!req.query?.user_name){
+  else if (!req.body?.user_name){
     return res.status(400).send({
       msg: 'The user name is missing'
-    });
+    })
   }
-  else if (!req.query?.email){
+  else if (!req.body?.email){
     return res.status(400).send({
       msg: 'The email is missing'
-    });
+    })
   }
-  else if (!req.query?.password){
+  else if (!req.body?.password){
     return res.status(400).send({
       msg: 'The password is missing'
-    });
+    })
   }
-  const {
-    first_name,
-    last_name,
-    user_name,
-    email,
-    password,
-  } = req.query;
-  const newPsychologist = {
-    id: (parseInt(Psychologists[Psychologists.length - 1].id) + 1).toString(),
-    first_name,
-    last_name,
-    user_name,
-    email,
-    password,
-  }
-  Psychologists.push(newPsychologist);
-  return writeFile('./data/psychologists.json', Psychologists, 'Psychologist Created', res, 201);
+  const psychologist = new Psychologists({
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    user_name: req.body.user_name,
+    email: req.body.email,
+    password: req.body.password
+  })
+  psychologist.save((error, psychologist) => {
+    if (error) {
+      return res.status(400).json(error)
+    }
+    return res.status(201).json(psychologist)
+  })
 }
 
 const editPsychologist = (req, res) => {
-  const psychologistIndex = getPsychologistIndex(req);
-  if (psychologistIndex !== -1) {
-    Psychologists[psychologistIndex] = {
-      id: Psychologists[psychologistIndex].id,
-      first_name: req.query.first_name || Psychologists[psychologistIndex].first_name,
-      last_name: req.query.last_name || Psychologists[psychologistIndex].last_name,
-      user_name: req.query.user_name || Psychologists[psychologistIndex].user_name,
-      email: req.query.email || Psychologists[psychologistIndex].email,
-      password: req.query.password || Psychologists[psychologistIndex].password,
-    };
-    return writeFile('./data/psychologists.json', Psychologists, 'Psychologist Edited', res, 201);
-  }
-  return res.status(404).send('Psychologist not found');
+  Psychologists.findOneAndUpdate(req.params.id,
+    {first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    user_name: req.body.user_name,
+    email: req.body.email,
+    password: req.body.password},
+    {new : true}
+  ) 
+  .then((result) => {
+    if (!result) {
+      return res.status(400).json({
+        msg:`Psychologist with id: ${req.params.id} was not found`
+      })
+    }
+    return res.status(201).json(result)
+  })
+  .catch((error) => {
+    return res.status(400).json(error)
+  })
 }
 
 const deletePsychologist = (req, res) => {
-	const psychologistIndex = getPsychologistIndex(req);
-	if (psychologistIndex !== -1) {
-    Psychologists.splice(psychologistIndex, 1)
-    return writeFile('./data/psychologists.json', Psychologists, `Psychologist with id ${req.query.id} deleted`, res, 202);
-	}
-  return res.status(404).send('Psychologist not found');
+  const psychologist = Psychologists.findOneAndDelete(req.params.id)
+  .then((result) => {
+    if(!result) {
+      return res.status(400).json({
+        msg: `Psychologist with id: ${req.params.id} was not found`
+      })
+    }
+    return res.status(201).json(result)
+  })
+  .catch((error) => {
+    return res.status(400).json(error)
+  })
 }
 
 module.exports = {

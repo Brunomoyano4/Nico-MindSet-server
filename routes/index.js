@@ -18,7 +18,7 @@ const sessions = require("./sessions");
 // router.use("/positions", positions);
 // router.use("/postulants", postulants);
 // router.use("/profiles", profiles);
-// router.use("/psychologists", psychologists);
+router.use("/psychologists", psychologists);
 // router.use("/sessions", sessions);
 
 module.exports = router;
