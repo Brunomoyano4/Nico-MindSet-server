@@ -1,6 +1,6 @@
 const express = require('express');
 const controller = require('../controllers/sessions');
-// const validation = require("../validations/sessions");
+const validation = require("../validations/sessions");
 const router = express.Router();
 
 const {
@@ -10,11 +10,14 @@ const {
   deleteSession
 } = controller;
 
-// const {validateSessionCreation} = validation
+const {
+  validateSessionCreation,
+  validateTimeOfSession
+} = validation;
 
-router.post('/',/*validateApplicationCreation,*/ createSession);
+router.post('/', validateSessionCreation, validateTimeOfSession, createSession);
 router.delete('/:_id', deleteSession);
 router.get('/', getSessions);
-router.get('/position/:_id', getOneSession);
+router.get('/:_id', getOneSession);
 
 module.exports = router;

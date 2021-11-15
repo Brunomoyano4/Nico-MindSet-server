@@ -42,9 +42,9 @@ const createSession = (req, res) => {
   })
   newSession.save((error, session) => {
     if (error) {
-      return res.status(400).json(error)
+      return res.status(400).json({ msg: "Problems adding the new session" })
     }
-    return res.status(201).json(session)
+    return res.status(201).json(newSession)
   })
 };
 
