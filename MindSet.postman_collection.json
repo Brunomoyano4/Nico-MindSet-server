@@ -8,7 +8,128 @@
 	"item": [
 		{
 			"name": "Admins",
-			"item": []
+			"item": [
+				{
+					"name": "Get all Admins",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/admins/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"admins",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single Admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/admins/{{adminId}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"admins",
+								"{{adminId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"firstNameTest\",\n    \"last_name\": \"lastNameTest\",\n    \"user_name\": \"randomUsername\",\n    \"email\": \"myemail@radiumrocket.com\",\n    \"password\": \"nonono\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/admins/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"admins",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Admin",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"editedName\",\n    \"last_name\": \"editedLastName\",\n    \"user_name\": \"isRandom\",\n    \"email\": \"nenuco@radiumrocket.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/admins/{{adminId}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"admins",
+								"{{adminId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Admin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/admins/{{adminId}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"admins",
+								"{{adminId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Postulans",
@@ -41,6 +162,36 @@
 		{
 			"name": "Psychologists",
 			"item": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:3000"
+		},
+		{
+			"key": "adminId",
+			"value": "6191e082c5eef4f9d4e95fc3"
 		}
 	]
 }
