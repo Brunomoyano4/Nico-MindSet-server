@@ -1,46 +1,139 @@
 {
 	"info": {
-		"_postman_id": "bf799bbf-fdb4-4208-8729-0199236a80bc",
-		"name": "MindSet",
-		"description": "# Mindset\n- your staffing provider delivering jobs hiring, career resources, and education based on your career goals.\n\n---\n\n## Api-docs \n- Resources : \n - Admins\n - Postulans\n - Clients\n - Profiles \n - Applications\n - Positions\n - Sessions\n - Interviews\n - Psychologists",
+		"_postman_id": "6db9dad1-c32d-4dc8-986d-2ee3acc41411",
+		"name": "BaSD-MS-W9-018: Positions resource",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Admins",
-			"item": []
+			"name": "Get One Position",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/positions/619177f1bf1fa5ce28a83d59",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"positions",
+						"619177f1bf1fa5ce28a83d59"
+					]
+				},
+				"description": "Placing the id at the end, find the indicated position"
+			},
+			"response": []
 		},
 		{
-			"name": "Postulans",
-			"item": []
+			"name": "Get all the positions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/positions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"positions"
+					]
+				},
+				"description": "Provides a list of all the positions found in the database with their respective information"
+			},
+			"response": []
 		},
 		{
-			"name": "Clients",
-			"item": []
+			"name": "Create a new position",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientId\":\"5\",\r\n    \"job\": \"Quality Engineer\",\r\n    \"description\": \"A Quality Engineer is responsible for the generation of a strategic plan to improve the business processes and increase production output. Duties include creating the company's quality standards and testing systems to reflect efficiency, reliability and performance.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/positions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"positions"
+					]
+				},
+				"description": "Create a new position from the data sent in the body with json format"
+			},
+			"response": []
 		},
 		{
-			"name": "Profiles",
-			"item": []
+			"name": "Update position",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientId\":\"6\",\r\n    \"job\": \"Quality Engineer\",\r\n    \"description\": \"A Quality Engineer is responsible for the generation of a strategic plan to improve the business processes and increase production output. Duties include creating the company's quality standards and testing systems to reflect efficiency, reliability and performance.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/positions/61923c6123114a6a5d9229f6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"positions",
+						"61923c6123114a6a5d9229f6"
+					]
+				},
+				"description": "Update the data of an existing position by entering the id that identifies it and the data that you want to change and those that you want to keep in the body"
+			},
+			"response": []
 		},
 		{
-			"name": "Applications",
-			"item": []
-		},
-		{
-			"name": "Positions",
-			"item": []
-		},
-		{
-			"name": "Sessions",
-			"item": []
-		},
-		{
-			"name": "Interviews",
-			"item": []
-		},
-		{
-			"name": "Psychologists",
-			"item": []
+			"name": "Delete position",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientId\":\"6\",\r\n    \"job\": \"Quality Engineer\",\r\n    \"description\": \"A Quality Engineer is responsible for the generation of a strategic plan to improve the business processes and increase production output. Duties include creating the company's quality standards and testing systems to reflect efficiency, reliability and performance.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/positions/61923c6123114a6a5d9229f6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"positions",
+						"61923c6123114a6a5d9229f6"
+					]
+				},
+				"description": "Remove the position represented by the entered id"
+			},
+			"response": []
 		}
 	]
 }
