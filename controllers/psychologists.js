@@ -62,7 +62,7 @@ const editPsychologist = (req, res) => {
 }
 
 const deletePsychologist = (req, res) => {
-  const psychologist = Psychologists.findOneAndDelete(req.params.id)
+  Psychologists.findOneAndDelete(req.params.id)
   .then((result) => {
     if(!result) {
       return res.status(400).json({
