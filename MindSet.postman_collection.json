@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bf799bbf-fdb4-4208-8729-0199236a80bc",
+		"_postman_id": "cd0e0876-4128-42e1-922b-35b2b9be6d57",
 		"name": "MindSet",
 		"description": "# Mindset\n- your staffing provider delivering jobs hiring, career resources, and education based on your career goals.\n\n---\n\n## Api-docs \n- Resources : \n - Admins\n - Postulans\n - Clients\n - Profiles \n - Applications\n - Positions\n - Sessions\n - Interviews\n - Psychologists",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -36,11 +36,259 @@
 		},
 		{
 			"name": "Interviews",
-			"item": []
+			"item": [
+				{
+					"name": "Get all interviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/interviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"interviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get interview by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/interviews/6192b6489bdf194f3c903951",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"interviews",
+								"6192b6489bdf194f3c903951"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create interview",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"positionId\": \"positionIdTest3\",\r\n    \"postulantId\": \"postulantIdTest3\",\r\n    \"dateTime\": \"2021-12-20T14:00:00.110+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/interviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"interviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete interview",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/interviews/6192b6489bdf194f3c903951",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"interviews",
+								"6192b6489bdf194f3c903951"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update interview",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"postulantId\": \"postulantIdTest5\",\r\n    \"positionId\": \"positionIdTest5\",\r\n    \"dateTime\": \"2021-12-10T12:00:00.110+00:00\",\r\n    \"status\": \"cancelled\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/interviews/6192b6489bdf194f3c903951",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"interviews",
+								"6192b6489bdf194f3c903951"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Psychologists",
-			"item": []
+			"item": [
+				{
+					"name": "Update psychologist",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Valeria\",\r\n    \"last_name\": \"Benitez\",\r\n    \"user_name\": \"vbaudracco96\",\r\n    \"email\": \"veronabaudracco@gmail.com\",\r\n    \"password\": \"newells\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/psychologists/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								""
+							],
+							"query": [
+								{
+									"key": "first_name",
+									"value": "Valeria",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "hola@hotmail.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get psychologists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/psychologists/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get psychologist by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/psychologists/61918cd89337d40e84692214",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								"61918cd89337d40e84692214"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete psychologist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/psychologists/619117c566723624f55b28be",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								"619117c566723624f55b28be"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create psychologist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Fausto\",\r\n    \"last_name\": \"Baudraccp\",\r\n    \"user_name\": \"Fbaudracco98\",\r\n    \"email\": \"faustobaudracco@gmail.com\",\r\n    \"password\": \"2589658524\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/psychologists/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
