@@ -1,6 +1,5 @@
 
 const missingInputs = (req,res,next) => {
-  let psy = post = date = time = stat = "";
   let first_name = user_name = email = birth_date = street = street_number = city = 
     postal_code = province = country = telephone = experience = "";
   let okey=true;
@@ -66,7 +65,5 @@ const missingInputs = (req,res,next) => {
   const findIndex = (req, res , next) => {
     return sessions.findIndex((item) => item.id === req.query.id)
   }
-
-
 
 module.exports = {missingInputs};
