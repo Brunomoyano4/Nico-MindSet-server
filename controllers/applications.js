@@ -1,18 +1,6 @@
 const fs = require('fs')
 const Applications = require('../models/Applications')
 
-const missingInputs = (req, res) => {
-  if (!req.body.postulantId && !req.body.positionId) {
-    return res.status(400).send({ msg: 'postulantId and positionId are empty' })
-  }
-  if (!req.body.postulantId) {
-    return res.status(400).send({ msg: 'postulantId is empty' })
-  }
-  if (!req.body.positionId) {
-    return res.status(400).send({ msg: 'positionId is empty' })
-  }
-}
-
 const getApplications = (req, res) => {
   Applications.find()
   .then ((applications) => {
@@ -44,19 +32,17 @@ const getApplicationByPositionId = (req, res) => {
 }
 
 const createApplication = (req, res) => {
-  missingInputs(req, res)
   const newApplication = new Applications({
     postulantId: req.body.postulantId,
     positionId: req.body.positionId,
     createdAt: Date.now().toString()
-  });
-  newApplication.save()
-    .then((newApplication) => {
-      return res.status(201).json(newApplication)
-    })
-    .catch((error) => {
-      return res.status(400).json(err)
-    })
+  })
+  newApplication.save((error, application) => {
+    if (error) {
+      return res.status(400).json(error)
+    }
+    return res.status(201).json(application)
+  })
 };
 
 const deleteApplication = (req, res) => {
