@@ -12,7 +12,7 @@ const {
 } = controller;
 
 router.post('/', createApplication);
-router.delete('/:id', deleteApplication);
+router.delete('/:_id', deleteApplication);
 router.get('/', getApplications);
 router.get('/position/:positionId', getApplicationByPositionId);
 router.get('/postulant/:postulantId', getApplicationByPostulantId);
