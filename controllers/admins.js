@@ -1,17 +1,6 @@
-const Admin = require('../models/Admins.js')
+const Admin = require('../models/Admins');
 
 exports.createAdmin = (req, res) => {
-  if (
-    !req.body?.first_name ||
-    !req.body?.last_name ||
-    !req.body?.user_name ||
-    !req.body?.email ||
-    !req.body?.password
-  ) {
-    return res.status(400).send({
-      msg: "There are missing inputs",
-    });
-  }
   const admin = new Admin({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
@@ -20,18 +9,13 @@ exports.createAdmin = (req, res) => {
     password: req.body.password,
   });
 
-  admin
-    .save()
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((e) => {
-      res.status(500).send({
-        msg: e.message || "There was an error during admin creation",
-      });
-    });
+  admin.save((error, admin) => {
+    if (error) {
+      return res.status(400).json(error)
+    }
+    return res.status(201).json(admin)
+  })
 };
-
 
 exports.findAllAdmins = (req, res) => {
   Admin.find({})
@@ -45,69 +29,55 @@ exports.findAllAdmins = (req, res) => {
     });
 };
 
-
 exports.findOneAdmin = (req, res) => {
-  Admin.findOne({ id: req.params.id })
-    .then((data) => {
-      if (!data) {
-        res.status(404).send({
-          msg: `Admin with id ${req.params.id} was not found`,
-        });
+  Admin.findOne({ _id: req.params.id },
+    (error, admin) => {
+      if (!admin) {
+        return res.status(404).json({
+          msg: `Admin with id: ${req.params.id} was not found`
+        })
       }
-      res.send(data);
-    })
-    .catch((e) => {
-      res.status(500).send({
-        msg: e.message || "There was an error while retrieving admins",
-      });
-    });
+      if (error) {
+        return res.status(400).json(error)
+      }
+      return res.status(200).json(admin)
+    }
+  )
 };
-
 
 exports.updateAdmin = (req, res) => {
-  if (!req.body) {
-    return res.status(400).send({
-      msg: "Data to update can not be empty!",
-    });
-  }
-
-  Admin.findOneAndUpdate({ id: req.params.id }, req.body, {
-    new: true,
-  })
-    .then((data) => {
-      if (!data) {
-        res.status(404).send({
-          message: `Cannot update admin with the id: ${id},admin was not found!`,
-        });
-      } else
-        res.send({
-          message: `Admin with the id: ${id} was update successfully.`,
-        });
-    })
-    .catch((e) => {
-      res.status(500).send({
-        msg: e.message || `Error updating the admin with id: ${id}`,
-      });
-    });
+  Admin.findByIdAndUpdate(req.params.id,
+    req.body,
+    { new: true },
+    (error, updatedAdmin) => {
+      if (!updatedAdmin) {
+        return res.status(404).json({
+          msg: `Admin with id: ${req.params.id} was not found`
+        })
+      }
+      if (error) {
+        return res.status(400).json(error)
+      }
+      return res.status(200).json(updatedAdmin)
+    }
+  )
 };
 
-
 exports.deleteAdmin = (req, res) => {
-  Admin.findOneAndRemove({ id: req.params.id })
-    .then((data) => {
-      if (!data) {
-        res.status(404).send({
-          msg: "Admin not found",
-        });
-      } else {
-        res.send({
-          msg: "Admin was deleted successfully",
-        });
+  Admin.findOneAndRemove({ _id: req.params.id },
+    { useFindAndModify: false },
+    (error, adminDeleted) => {
+      if (!adminDeleted) {
+        return res.status(404).json({
+          msg: `Admin with id: ${req.params.id} was not found`
+        })
       }
-    })
-    .catch((e) => {
-      res.status(500).send({
-        msg: `Error while deleting admin with id ${id}`,
+      if (error) {
+        return res.status(400).json(error)
+      }
+      return res.status(200).send({
+        msg: `Admin ${req.params.id} was deleted successfully`
       });
-    });
+    }
+  )
 };
