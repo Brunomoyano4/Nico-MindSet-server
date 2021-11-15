@@ -1,10 +1,12 @@
 const router = require("express").Router();
-const admins = require("../controllers/admins");
+const {findAllAdmins,findOneAdmin,createAdmin,updateAdmin,deleteAdmin} = require("../controllers/admins");
+const {validateBodyContent, validateAdminCreation} = require("../validations/admins")
 
-router.get("/", admins.findAllAdmins);
-router.get("/:id", admins.findOneAdmin);
-router.post("/", admins.createAdmin);
-router.put("/:id", admins.updateAdmin);
-router.delete("/:id", admins.deleteAdmin);
+
+router.get("/", findAllAdmins);
+router.get("/:id", findOneAdmin);
+router.post("/", validateAdminCreation, createAdmin);
+router.put("/:id", validateBodyContent, updateAdmin);
+router.delete("/:id", deleteAdmin);
 
 module.exports = router;
