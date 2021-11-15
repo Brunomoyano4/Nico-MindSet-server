@@ -1,16 +1,5 @@
 const fs = require('fs');
-const Psychologists = require('../models/Psychologists') 
-
-const writeFile = (file, obj, msg, res, code) => {
-  fs.writeFile(file, JSON.stringify(obj), {}, (error) => {
-    if (error) {
-      return res.status(400).send(error)
-    }
-    return res.status(code).send({
-      msg: msg
-    })
-  })
-}
+const Psychologists = require('../models/Psychologists')
 
 const getPsychologists = (req, res) => {
   Psychologists.find()
@@ -23,7 +12,7 @@ const getPsychologists = (req, res) => {
 }
 
 const getOnePsychologist = (req, res) => {
-  Psychologists.find({id: req.params.id})
+  Psychologists.find({_id: req.params.id})
   .then((result) => {
     return res.status(200).json(result)
   }) 
@@ -35,36 +24,6 @@ const getOnePsychologist = (req, res) => {
 }
 
 const createPsychologist = (req,res) => {
-  if (Object.keys(req.body).length === 0){
-    return res.status(400).send({
-      msg: 'All fields are missing'
-    })
-  }
-  if (!req.body?.first_name){
-    return res.status(400).send({
-      msg: 'The first name is missing'
-    })
-  }
-  else if (!req.body?.last_name){
-    return res.status(400).send({
-      msg: 'The last name is missing'
-    })
-  }
-  else if (!req.body?.user_name){
-    return res.status(400).send({
-      msg: 'The user name is missing'
-    })
-  }
-  else if (!req.body?.email){
-    return res.status(400).send({
-      msg: 'The email is missing'
-    })
-  }
-  else if (!req.body?.password){
-    return res.status(400).send({
-      msg: 'The password is missing'
-    })
-  }
   const psychologist = new Psychologists({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
