@@ -54,8 +54,6 @@ const createPostulant = (req, res) => {
         description: req.body.description
     }]
   })
-  };
-
   newPostulant.save((error, postulant) => {
     if (error) {
       return res.status(400).json(error)

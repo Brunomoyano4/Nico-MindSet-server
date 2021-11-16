@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const profile = require ('../controllers/profiles')
-const missingInputs = require ('../validations/profiles')
+const {missingInputs} = require ('../validations/profiles')
 
 router.get("/", profile.getProfiles)
 router.get("/:id", profile.getOneProfile)
