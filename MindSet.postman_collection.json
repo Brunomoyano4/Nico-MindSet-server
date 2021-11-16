@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bf799bbf-fdb4-4208-8729-0199236a80bc",
+		"_postman_id": "c7b82867-7f02-4a5b-b34d-d7c541dbe5af",
 		"name": "MindSet",
 		"description": "# Mindset\n- your staffing provider delivering jobs hiring, career resources, and education based on your career goals.\n\n---\n\n## Api-docs \n- Resources : \n - Admins\n - Postulans\n - Clients\n - Profiles \n - Applications\n - Positions\n - Sessions\n - Interviews\n - Psychologists",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -12,7 +12,126 @@
 		},
 		{
 			"name": "Postulans",
-			"item": []
+			"item": [
+				{
+					"name": "Get all postulants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/postulants/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"postulants",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creating one new profile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"first_name\": \"Manuel\",\r\n  \"last_name\": \"Lopez Anido\",\r\n  \"user_name\": \"ManulopezA\",\r\n  \"email\": \"Manuellopezanido@gmail.com\",\r\n  \"password\": \"manumanu123\",\r\n  \"birth_date\": \"12/12/1995\",\r\n  \"street\": \"San lorenzo 2494\",\r\n  \"street_number\": \"345\",\r\n  \"city\": \"Rosario\",\r\n  \"postal_code\": \"2000\",\r\n  \"province\": \"Santa Fe\",\r\n  \"country\": \"Argentina\",\r\n  \"telephone\": \"3413240353\",\r\n  \"experience\":[{\r\n      \"job_position\": \"Engeenier\",\r\n      \"employer\": \"\",\r\n      \"star_date\": \"\",\r\n      \"end_date\": \"\",\r\n      \"description\": \"Ready\"\r\n  }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/postulants/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"postulants",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one postulant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/postulants/6194306fcde2f72b0e04c1f1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"postulants",
+								"6194306fcde2f72b0e04c1f1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit postulant",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Juan Manuel\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/postulants/6194306fcde2f72b0e04c1f1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"postulants",
+								"6194306fcde2f72b0e04c1f1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting one postulant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/postulants/6194306fcde2f72b0e04c1f1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"postulants",
+								"6194306fcde2f72b0e04c1f1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Clients",
@@ -20,7 +139,126 @@
 		},
 		{
 			"name": "Profiles",
-			"item": []
+			"item": [
+				{
+					"name": "Getting all profiles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/profiles/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"profiles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Getting one profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/profiles/619323d2c480f8ce6a043766",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"profiles",
+								"619323d2c480f8ce6a043766"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit profile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"profile_name\": \"Juan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/profiles/619323d2c480f8ce6a043766",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"profiles",
+								"619323d2c480f8ce6a043766"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creatin one new profile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"profile_name\": \"Juan\",\r\n    \"branch\": \"Algebra\",\r\n    \"description\": \"This will be deleted on next request\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/profiles/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"profiles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting a profile",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/profiles/61942cb91a835b73f74fb8c7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"profiles",
+								"61942cb91a835b73f74fb8c7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Applications",

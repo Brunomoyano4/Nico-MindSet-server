@@ -8,6 +8,6 @@ router.get("/", profile.getProfiles)
 router.get("/:id", profile.getOneProfile)
 router.post("/", missingInputs, profile.createProfile)
 router.delete("/:id", profile.deleteProfile)
-router.put("/:id", missingInputs, profile.editProfile)
+router.put("/:id", profile.editProfile)
 
 module.exports = router
