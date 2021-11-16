@@ -17,7 +17,7 @@ const sessions = require("./sessions");
 // router.use("/interviews", interviews);
 // router.use("/positions", positions);
 // router.use("/postulants", postulants);
-// router.use("/profiles", profiles);
+router.use("/profiles", profiles);
 // router.use("/psychologists", psychologists);
 // router.use("/sessions", sessions);
 

@@ -1,5 +1,5 @@
 const fs = require('fs');
-const Profiles = require('../models/profiles')
+const Profiles = require('../models/Profiles')
 
 const getProfiles = (req, res) => {
   Profiles.find()
@@ -24,7 +24,7 @@ const getOneProfile = (req, res) => {
 
 const createProfile = (req, res) => {
   const newProfile = new Profiles ({
-    profile_name: req.body.name,
+    profile_name: req.body.profile_name,
     branch: req.body.branch,
     description: req.body.description
   })
@@ -38,7 +38,7 @@ const createProfile = (req, res) => {
 
 const editProfile = (req, res) => {
   Profiles.findOneAndUpdate(req.params.id,
-    {profile_name: req.body.name,
+    {profile_name: req.body.profile_name,
     branch: req.body.branch,
     description: req.body.description},
     {new : true}

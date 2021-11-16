@@ -1,7 +1,7 @@
 const missingInputs = (req, res, next) => {
     var name = branch = description = "";
     var okey = true;
-    if (!req.body.name) {
+    if (!req.body.profile_name) {
       name = 'name, '
       okey= false
     }
