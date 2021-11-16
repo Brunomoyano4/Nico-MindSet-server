@@ -45,8 +45,7 @@ const createPostulant = (req, res) => {
     province: req.body.province,
     country: req.body.country,
     telephone: req.body.telephone,
-    experience: req.body.experience 
-    [{
+    experience:[{
         job_position: req.body.job_position,
         employer: req.body,
         star_date: req.body.star_date,
@@ -54,15 +53,13 @@ const createPostulant = (req, res) => {
         description: req.body.description
     }]
   })
-  };
-
   newPostulant.save((error, postulant) => {
     if (error) {
       return res.status(400).json(error)
     }
     return res.status(201).json(postulant)
-  })
-};
+    })
+  };
 
 const editPostulants = (req, res) => {
   Postulants.findByIdAndUpdate(req.params.id,

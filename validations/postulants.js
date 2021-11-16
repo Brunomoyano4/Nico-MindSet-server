@@ -62,8 +62,4 @@ const missingInputs = (req,res,next) => {
   next();
   }
 
-  const findIndex = (req, res , next) => {
-    return sessions.findIndex((item) => item.id === req.query.id)
-  }
-
 module.exports = {missingInputs};
