@@ -29,7 +29,7 @@ const getOneClient = (req, res) => {
 const updateClient = (req, res) => {
   Clients.findByIdAndUpdate(req.params.id,
     { 
-      customer_name: req.body.customer_name,
+      customerName: req.body.customerName,
       branch: req.body.branch,
       phone: req.body.phone,
       email:req.body.email,
@@ -52,7 +52,7 @@ const updateClient = (req, res) => {
 
 const createClient=(req, res) => {
   const client = new Clients({
-    customer_name: req.body.customer_name,
+    customerName: req.body.customerName,
     branch: req.body.branch,
     phone: req.body.phone,
     email:req.body.email,

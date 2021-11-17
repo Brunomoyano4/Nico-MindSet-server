@@ -1,7 +1,7 @@
 const exEmail=/\w+@+\w/;
 
 const required = (req, res, next) => {
-  if(!req.body.customer_name) {
+  if(!req.body.customerName) {
     return res.status(400).send("Customer name is required")
   }
   if(!req.body.branch) {
