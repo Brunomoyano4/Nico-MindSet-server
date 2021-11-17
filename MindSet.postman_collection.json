@@ -165,7 +165,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"first_name\": \"Valeria\",\r\n    \"last_name\": \"Benitez\",\r\n    \"user_name\": \"vbaudracco96\",\r\n    \"email\": \"veronabaudracco@gmail.com\",\r\n    \"password\": \"newells\"\r\n}",
+							"raw": "{\r\n    \"firstName\": \"Valeria\",\r\n    \"lastName\": \"Benitez\",\r\n    \"userName\": \"vbaudracco96\",\r\n    \"email\": \"veronabaudracco@gmail.com\",\r\n    \"password\": \"newells\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -266,7 +266,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"first_name\": \"Fausto\",\r\n    \"last_name\": \"Baudraccp\",\r\n    \"user_name\": \"Fbaudracco98\",\r\n    \"email\": \"faustobaudracco@gmail.com\",\r\n    \"password\": \"2589658524\"\r\n}",
+							"raw": "{\r\n    \"firstName\": \"Fausto\",\r\n    \"lastName\": \"Baudraccp\",\r\n    \"userName\": \"Fbaudracco98\",\r\n    \"email\": \"faustobaudracco@gmail.com\",\r\n    \"password\": \"2589658524\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
