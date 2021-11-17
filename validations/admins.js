@@ -1,4 +1,4 @@
-exports.validateAdminCreation = (req, res, next) => {
+const validateAdminCreation = (req, res, next) => {
   if(!req.body?.first_name) {
     return res.status(400).send("First name is missing")
   }
@@ -17,7 +17,7 @@ exports.validateAdminCreation = (req, res, next) => {
   next()
 }
 
-exports.validateBodyContent = (req, res, next) => {
+const validateBodyContent = (req, res, next) => {
   if (Object.keys(req.body).length === 0) {
     return res.status(400).send({
       message: "Data to update cannot be empty!",
@@ -25,3 +25,8 @@ exports.validateBodyContent = (req, res, next) => {
   }
   next()
 }
+
+module.exports = {
+  validateAdminCreation,
+  validateBodyContent
+} 

@@ -1,10 +1,10 @@
 const Admin = require('../models/Admins');
 
-exports.createAdmin = (req, res) => {
+const createAdmin = (req, res) => {
   const admin = new Admin({
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    user_name: req.body.user_name,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    username: req.body.username,
     email: req.body.email,
     password: req.body.password,
   });
@@ -17,7 +17,7 @@ exports.createAdmin = (req, res) => {
   })
 };
 
-exports.findAllAdmins = (req, res) => {
+const findAllAdmins = (req, res) => {
   Admin.find({})
     .then((data) => {
       res.send(data);
@@ -29,7 +29,7 @@ exports.findAllAdmins = (req, res) => {
     });
 };
 
-exports.findOneAdmin = (req, res) => {
+const findOneAdmin = (req, res) => {
   Admin.findOne({ _id: req.params.id },
     (error, admin) => {
       if (!admin) {
@@ -45,7 +45,7 @@ exports.findOneAdmin = (req, res) => {
   )
 };
 
-exports.updateAdmin = (req, res) => {
+const updateAdmin = (req, res) => {
   Admin.findByIdAndUpdate(req.params.id,
     req.body,
     { new: true },
@@ -63,7 +63,7 @@ exports.updateAdmin = (req, res) => {
   )
 };
 
-exports.deleteAdmin = (req, res) => {
+const deleteAdmin = (req, res) => {
   Admin.findOneAndRemove({ _id: req.params.id },
     { useFindAndModify: false },
     (error, adminDeleted) => {
@@ -81,3 +81,11 @@ exports.deleteAdmin = (req, res) => {
     }
   )
 };
+
+module.exports = {
+  createAdmin,
+  findAllAdmins,
+  findOneAdmin,
+  updateAdmin,
+  deleteAdmin
+} 
