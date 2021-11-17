@@ -16,8 +16,8 @@ const {
 } = validation;
 
 router.post('/', validateSessionCreation, validateTimeOfSession, createSession);
-router.delete('/:_id', deleteSession);
+router.delete('/:id', deleteSession);
 router.get('/', getSessions);
-router.get('/:_id', getOneSession);
+router.get('/:id', getOneSession);
 
 module.exports = router;

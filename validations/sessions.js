@@ -2,26 +2,26 @@ const fs = require('fs')
 
 const validateSessionCreation = (req,res,next) => {
   let psy = post = date = time = stat = "";
-  let okey=true;
+  let okey = true;
   if (!req.body.psychologyId) {
-    psy= 'psychologyId, '
-    okey=false
+    psy = 'psychologyId, '
+    okey = false
   }
   if (!req.body.postulantId) {
-    post='postulantId, '
-    okey=false
+    post = 'postulantId, '
+    okey = false
   }
   if (!req.body.date) {
-    date='date, '
-    okey=false
+    date = 'date, '
+    okey = false
   }
   if (!req.body.time) {
-    time='time, '
-    okey=false
+    time = 'time, '
+    okey = false
   }
   if (!req.body.stat) {
-    stat='status, '
-    okey=false
+    stat = 'status, '
+    okey = false
   }
   if (!okey){ 
     res.status(400).send({ msg: psy + post + date + time + stat + 'missing'})
