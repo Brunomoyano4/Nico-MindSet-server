@@ -9,6 +9,9 @@
     "lint-fix": "eslint --fix .",
     "lint": "eslint ."
   },
+  "engines": {
+    "node": "16.8.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nicolasviola/BaSD-MindSet.git"
