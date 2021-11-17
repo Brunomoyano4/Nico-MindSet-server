@@ -4,17 +4,17 @@ const createPsychologistValidation = (req, res, next) => {
       msg: 'All fields are missing'
     })
   }
-  if (!req.body?.first_name){
+  if (!req.body?.firstName){
     return res.status(400).send({
       msg: 'The first name is missing'
     })
   }
-  else if (!req.body?.last_name){
+  else if (!req.body?.lastName){
     return res.status(400).send({
       msg: 'The last name is missing'
     })
   }
-  else if (!req.body?.user_name){
+  else if (!req.body?.userName){
     return res.status(400).send({
       msg: 'The user name is missing'
     })
