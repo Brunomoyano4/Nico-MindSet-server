@@ -31,7 +31,7 @@ const updatePosition = (req, res) => {
     { 
       clientId: req.body.clientId,
       job: req.body.job,
-      description:req.body.description,
+      description: req.body.description,
     },
     { new: true }, 
     (error, newPosition) => {
@@ -52,7 +52,7 @@ const createPosition=(req, res) => {
   const position = new Positions({
     clientId: req.body.clientId,
     job: req.body.job,
-    description:req.body.description,
+    description: req.body.description,
   })
 
   position.save((error, position) => {
