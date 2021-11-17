@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "bf799bbf-fdb4-4208-8729-0199236a80bc",
+		"name": "MindSet",
+		"description": "# Mindset\n- your staffing provider delivering jobs hiring, career resources, and education based on your career goals.\n\n---\n\n## Api-docs \n- Resources : \n - Admins\n - Postulans\n - Clients\n - Profiles \n - Applications\n - Positions\n - Sessions\n - Interviews\n - Psychologists",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admins",
+			"item": []
+		},
+		{
+			"name": "Postulans",
+			"item": []
+		},
+		{
+			"name": "Clients",
+			"item": []
+		},
+		{
+			"name": "Profiles",
+			"item": []
+		},
+		{
+			"name": "Applications",
+			"item": []
+		},
+		{
+			"name": "Positions",
+			"item": []
+		},
+		{
+			"name": "Sessions",
+			"item": []
+		},
+		{
+			"name": "Interviews",
+			"item": []
+		},
+		{
+			"name": "Psychologists",
+			"item": []
+		}
+	]
+}
