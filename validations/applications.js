@@ -14,5 +14,5 @@ const validateApplicationCreation = (req, res, next) => {
 }
 
 module.exports = {
-validateApplicationCreation
+  validateApplicationCreation
 }
