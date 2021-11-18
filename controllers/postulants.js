@@ -45,11 +45,12 @@ const createPostulant = (req, res) => {
     province: req.body.province,
     country: req.body.country,
     telephone: req.body.telephone,
-    experience:[{
-        job_position: req.body.jobPosition,
+    experience: req.body.experience 
+    [{
+        jobPosition: req.body.jobPosition,
         employer: req.body,
-        star_date: req.body.starDate,
-        end_date: req.body.endDate,
+        starDate: req.body.starDate,
+        endDate: req.body.endDate,
         description: req.body.description
     }]
   })
