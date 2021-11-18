@@ -54,7 +54,7 @@ const createSession = (req, res) => {
     postulantId: req.query.postulantId,
     date: req.query.date,
     time: req.query.time,
-    stat: req.query.stat
+    status: req.query.status
   }
   sessions.push(newSession)
   fs.writeFile('./data/sessions.json', JSON.stringify(sessions), (error) => {

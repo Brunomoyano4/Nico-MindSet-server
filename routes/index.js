@@ -11,7 +11,7 @@ const profiles = require("./profiles");
 const psychologists = require("./psychologists");
 const sessions = require("./sessions");
 
-// router.use("/admins", admins);
+router.use("/admins", admins);
 // router.use("/applications", applications);
 router.use("/clients", clients);
 // router.use("/interviews", interviews);
