@@ -12,6 +12,9 @@ const psychologists = require("./psychologists");
 const sessions = require("./sessions");
 
 router.use("/admins", admins);
+// router.use("/applications", applications);
+router.use("/clients", clients);
+// router.use("/interviews", interviews);
 router.use("/applications", applications);
 router.use("/clients", clients);
 router.use("/interviews", interviews);

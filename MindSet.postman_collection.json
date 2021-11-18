@@ -1,15 +1,12 @@
 {
 	"info": {
-		"_postman_id": "6db9dad1-c32d-4dc8-986d-2ee3acc41411",
-		"name": "BaSD-MS-W9-018: Positions resource",
-		"_postman_id": "96e14a5a-b4ac-447b-9357-e1eba62aa154",
-		"name": "MindSet",
-		"description": "# Mindset\n- your staffing provider delivering jobs hiring, career resources, and education based on your career goals.\n\n---\n\n## Api-docs \n- Resources : \n - Admins\n - Postulans\n - Clients\n - Profiles \n - Applications\n - Positions\n - Sessions\n - Interviews\n - Psychologists",
+		"_postman_id": "55fa8e23-03dc-4197-bac3-8bed8c40d9fd",
+		"name": "BaSD-MS-W9-015: Clients resource",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
     {
-    "response": []
+    "response": [],
       "name": "Admins",
       "item": [
       {
@@ -135,7 +132,7 @@
       ]
     },
     {
-      "response": []
+      "response": [],
       "name": "Position",
       "item": [
       {
@@ -265,7 +262,7 @@
           },
           "description": "Remove the position represented by the entered id"
         },
-        "response": []
+        "response": [],
         "name": "Applications",
         "item": [
           {
@@ -382,7 +379,7 @@
             "response": []
           }
         ]
-      },
+      }
       ]
     },
 		{

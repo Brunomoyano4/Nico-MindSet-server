@@ -59,8 +59,8 @@ const createPostulant = (req, res) => {
       return res.status(400).json(error)
     }
     return res.status(201).json(postulant)
-  })
-};
+    })
+  };
 
 const editPostulants = (req, res) => {
   Postulants.findByIdAndUpdate(req.params.id,
