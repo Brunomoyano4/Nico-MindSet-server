@@ -2,6 +2,9 @@
 	"info": {
 		"_postman_id": "55fa8e23-03dc-4197-bac3-8bed8c40d9fd",
 		"name": "BaSD-MS-W9-015: Clients resource",
+		"_postman_id": "96e14a5a-b4ac-447b-9357-e1eba62aa154",
+		"name": "MindSet",
+		"description": "# Mindset\n- your staffing provider delivering jobs hiring, career resources, and education based on your career goals.\n\n---\n\n## Api-docs \n- Resources : \n - Admins\n - Postulans\n - Clients\n - Profiles \n - Applications\n - Positions\n - Sessions\n - Interviews\n - Psychologists",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -257,6 +260,482 @@
 				"description": "Delete the client indicated in the id"
 			},
 			"response": []
+			"name": "Postulans",
+			"item": []
+		},
+		{
+			"name": "Clients",
+			"item": []
+		},
+		{
+			"name": "Profiles",
+			"item": []
+		},
+		{
+			"name": "Applications",
+			"item": [
+				{
+					"name": "Create Application",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"postulantId\": \"\",\r\n    \"positionId\": \"\",\r\n    \"createdAt\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/applications/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/applications/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by Postulant ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/applications/postulant/postulantIdTest2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications",
+								"postulant",
+								"postulantIdTest2"
+							],
+							"query": [
+								{
+									"key": "postulantId",
+									"value": "postulantIdTest3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by Position ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/applications/position/positionIdTest2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications",
+								"position",
+								"positionIdTest2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Application",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/applications/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Positions",
+			"item": []
+		},
+		{
+			"name": "Sessions",
+			"item": [
+				{
+					"name": "Create Session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"psychologyId\": \"test2\",\r\n    \"postulantId\": \"test2\",\r\n    \"date\": \"10-10-10\",\r\n    \"time\": \"11:11\",\r\n    \"stat\": \"test2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/sessions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Sessions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/sessions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one Session",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/sessions/6192bb9e3561a9d2c",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions",
+								"6192bb9e3561a9d2c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Session",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/sessions/6192bafa304622dfd0d31cff",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions",
+								"6192bafa304622dfd0d31cff"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Interviews",
+			"item": [
+				{
+					"name": "Get all interviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/interviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"interviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get interview by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/interviews/6192b6489bdf194f3c903951",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"interviews",
+								"6192b6489bdf194f3c903951"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create interview",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"positionId\": \"positionIdTest3\",\r\n    \"postulantId\": \"postulantIdTest3\",\r\n    \"dateTime\": \"2021-12-20T14:00:00.110+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/interviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"interviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete interview",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/interviews/6192b6489bdf194f3c903951",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"interviews",
+								"6192b6489bdf194f3c903951"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update interview",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"postulantId\": \"postulantIdTest5\",\r\n    \"positionId\": \"positionIdTest5\",\r\n    \"dateTime\": \"2021-12-10T12:00:00.110+00:00\",\r\n    \"status\": \"cancelled\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/interviews/6192b6489bdf194f3c903951",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"interviews",
+								"6192b6489bdf194f3c903951"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Psychologists",
+			"item": [
+				{
+					"name": "Update psychologist",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Valeria\",\r\n    \"lastName\": \"Benitez\",\r\n    \"userName\": \"vbaudracco96\",\r\n    \"email\": \"veronabaudracco@gmail.com\",\r\n    \"password\": \"newells\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/psychologists/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								""
+							],
+							"query": [
+								{
+									"key": "first_name",
+									"value": "Valeria",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "hola@hotmail.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get psychologists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/psychologists/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get psychologist by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/psychologists/61918cd89337d40e84692214",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								"61918cd89337d40e84692214"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete psychologist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/psychologists/619117c566723624f55b28be",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								"619117c566723624f55b28be"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create psychologist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Fausto\",\r\n    \"lastName\": \"Baudraccp\",\r\n    \"userName\": \"Fbaudracco98\",\r\n    \"email\": \"faustobaudracco@gmail.com\",\r\n    \"password\": \"2589658524\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/psychologists/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
