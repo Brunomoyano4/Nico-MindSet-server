@@ -18,6 +18,8 @@ router.use("/applications", applications);
 // router.use("/positions", positions);
 // router.use("/postulants", postulants);
 // router.use("/profiles", profiles);
+router.use("/psychologists", psychologists);
+// router.use("/sessions", sessions);
 // router.use("/psychologists", psychologists);
 router.use("/sessions", sessions);
 
