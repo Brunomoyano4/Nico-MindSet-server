@@ -1,46 +1,401 @@
 {
 	"info": {
-		"_postman_id": "c7b82867-7f02-4a5b-b34d-d7c541dbe5af",
+		"_postman_id": "6db9dad1-c32d-4dc8-986d-2ee3acc41411",
+		"name": "BaSD-MS-W9-018: Positions resource",
+		"_postman_id": "96e14a5a-b4ac-447b-9357-e1eba62aa154",
 		"name": "MindSet",
 		"description": "# Mindset\n- your staffing provider delivering jobs hiring, career resources, and education based on your career goals.\n\n---\n\n## Api-docs \n- Resources : \n - Admins\n - Postulans\n - Clients\n - Profiles \n - Applications\n - Positions\n - Sessions\n - Interviews\n - Psychologists",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+    {
+    "response": []
+      "name": "Admins",
+      "item": [
+      {
+        "name": "Get all Admins",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "GET",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "{{BASE_URL}}/admins/",
+            "host": [
+              "{{BASE_URL}}"
+            ],
+            "path": [
+              "admins",
+              ""
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get a single Admin",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "{{BASE_URL}}/admins/{{adminId}}",
+            "host": [
+              "{{BASE_URL}}"
+            ],
+            "path": [
+              "admins",
+              "{{adminId}}"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Create Admin",
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"first_name\": \"firstNameTest\",\n    \"last_name\": \"lastNameTest\",\n    \"user_name\": \"randomUsername\",\n    \"email\": \"myemail@radiumrocket.com\",\n    \"password\": \"nonono\"\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "{{BASE_URL}}/admins/",
+            "host": [
+              "{{BASE_URL}}"
+            ],
+            "path": [
+              "admins",
+              ""
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Edit Admin",
+        "request": {
+          "method": "PUT",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"first_name\": \"editedName\",\n    \"last_name\": \"editedLastName\",\n    \"user_name\": \"isRandom\",\n    \"email\": \"nenuco@radiumrocket.com\"\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "{{BASE_URL}}/admins/{{adminId}}",
+            "host": [
+              "{{BASE_URL}}"
+            ],
+            "path": [
+              "admins",
+              "{{adminId}}"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Delete Admin",
+        "request": {
+          "method": "DELETE",
+          "header": [],
+          "url": {
+            "raw": "{{BASE_URL}}/admins/{{adminId}}",
+            "host": [
+              "{{BASE_URL}}"
+            ],
+            "path": [
+              "admins",
+              "{{adminId}}"
+            ]
+          }
+        },
+        "response": []
+      }
+      ]
+    },
+    {
+      "response": []
+      "name": "Position",
+      "item": [
+      {
+        "name": "Get One Position",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/positions/619177f1bf1fa5ce28a83d59",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "positions",
+              "619177f1bf1fa5ce28a83d59"
+            ]
+          },
+          "description": "Placing the id at the end, find the indicated position"
+        },
+      },
+      {
+        "name": "Get all the positions",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/positions",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "positions"
+            ]
+          },
+          "description": "Provides a list of all the positions found in the database with their respective information"
+        },
+        "response": []
+      },
+      {
+        "name": "Create a new position",
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\r\n    \"clientId\":\"5\",\r\n    \"job\": \"Quality Engineer\",\r\n    \"description\": \"A Quality Engineer is responsible for the generation of a strategic plan to improve the business processes and increase production output. Duties include creating the company's quality standards and testing systems to reflect efficiency, reliability and performance.\"\r\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "http://localhost:3000/positions",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "positions"
+            ]
+          },
+          "description": "Create a new position from the data sent in the body with json format"
+        },
+        "response": []
+      },
+      {
+        "name": "Update position",
+        "request": {
+          "method": "PUT",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\r\n    \"clientId\":\"6\",\r\n    \"job\": \"Quality Engineer\",\r\n    \"description\": \"A Quality Engineer is responsible for the generation of a strategic plan to improve the business processes and increase production output. Duties include creating the company's quality standards and testing systems to reflect efficiency, reliability and performance.\"\r\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "http://localhost:3000/positions/61923c6123114a6a5d9229f6",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "positions",
+              "61923c6123114a6a5d9229f6"
+            ]
+          },
+          "description": "Update the data of an existing position by entering the id that identifies it and the data that you want to change and those that you want to keep in the body"
+        },
+        "response": []
+      },
+      {
+        "name": "Delete position",
+        "request": {
+          "method": "DELETE",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\r\n    \"clientId\":\"6\",\r\n    \"job\": \"Quality Engineer\",\r\n    \"description\": \"A Quality Engineer is responsible for the generation of a strategic plan to improve the business processes and increase production output. Duties include creating the company's quality standards and testing systems to reflect efficiency, reliability and performance.\"\r\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "http://localhost:3000/positions/61923c6123114a6a5d9229f6",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "positions",
+              "61923c6123114a6a5d9229f6"
+            ]
+          },
+          "description": "Remove the position represented by the entered id"
+        },
+        "response": []
+        "name": "Applications",
+        "item": [
+          {
+            "name": "Create Application",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"postulantId\": \"\",\r\n    \"positionId\": \"\",\r\n    \"createdAt\": \"\"\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "localhost:3000/applications/",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "applications",
+                  ""
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get all",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "localhost:3000/applications/",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "applications",
+                  ""
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Find by Postulant ID",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "localhost:3000/applications/postulant/postulantIdTest2",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "applications",
+                  "postulant",
+                  "postulantIdTest2"
+                ],
+                "query": [
+                  {
+                    "key": "postulantId",
+                    "value": "postulantIdTest3",
+                    "disabled": true
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Find by Position ID",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "localhost:3000/applications/position/positionIdTest2",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "applications",
+                  "position",
+                  "positionIdTest2"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Application",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "localhost:3000/applications/",
+                "host": [
+                  "localhost"
+                ],
+                "port": "3000",
+                "path": [
+                  "applications",
+                  ""
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      ]
+    },
 		{
-			"name": "Admins",
-			"item": []
-		},
-		{
-			"name": "Postulans",
+      "name": "Sessions",
 			"item": [
 				{
-					"name": "Get all postulants",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/postulants/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"postulants",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Creating one new profile",
+					"name": "Create Session",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"first_name\": \"Manuel\",\r\n  \"last_name\": \"Lopez Anido\",\r\n  \"user_name\": \"ManulopezA\",\r\n  \"email\": \"Manuellopezanido@gmail.com\",\r\n  \"password\": \"manumanu123\",\r\n  \"birth_date\": \"12/12/1995\",\r\n  \"street\": \"San lorenzo 2494\",\r\n  \"street_number\": \"345\",\r\n  \"city\": \"Rosario\",\r\n  \"postal_code\": \"2000\",\r\n  \"province\": \"Santa Fe\",\r\n  \"country\": \"Argentina\",\r\n  \"telephone\": \"3413240353\",\r\n  \"experience\":[{\r\n      \"job_position\": \"Engeenier\",\r\n      \"employer\": \"\",\r\n      \"star_date\": \"\",\r\n      \"end_date\": \"\",\r\n      \"description\": \"Ready\"\r\n  }]\r\n}",
+							"raw": "{\r\n    \"psychologyId\": \"test2\",\r\n    \"postulantId\": \"test2\",\r\n    \"date\": \"10-10-10\",\r\n    \"time\": \"11:11\",\r\n    \"stat\": \"test2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -48,84 +403,69 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/postulants/",
-							"protocol": "http",
+							"raw": "localhost:3000/sessions",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"postulants",
-								""
+								"sessions"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get one postulant",
+					"name": "Get all Sessions",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/postulants/6194306fcde2f72b0e04c1f1",
-							"protocol": "http",
+							"raw": "localhost:3000/sessions",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"postulants",
-								"6194306fcde2f72b0e04c1f1"
+								"sessions"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Edit postulant",
+					"name": "Get one Session",
 					"request": {
-						"method": "PUT",
+						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"first_name\": \"Juan Manuel\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:3000/postulants/6194306fcde2f72b0e04c1f1",
-							"protocol": "http",
+							"raw": "localhost:3000/sessions/6192bb9e3561a9d2c",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"postulants",
-								"6194306fcde2f72b0e04c1f1"
+								"sessions",
+								"6192bb9e3561a9d2c"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Deleting one postulant",
+					"name": "Delete Session",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/postulants/6194306fcde2f72b0e04c1f1",
-							"protocol": "http",
+							"raw": "localhost:3000/sessions/6192bafa304622dfd0d31cff",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"postulants",
-								"6194306fcde2f72b0e04c1f1"
+								"sessions",
+								"6192bafa304622dfd0d31cff"
 							]
 						}
 					},
@@ -134,89 +474,55 @@
 			]
 		},
 		{
-			"name": "Clients",
-			"item": []
-		},
-		{
-			"name": "Profiles",
+ 			"name": "Interviews",
 			"item": [
 				{
-					"name": "Getting all profiles",
+					"name": "Get all interviews",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/profiles/",
+							"raw": "http://localhost:3000/interviews",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"profiles",
-								""
+								"interviews"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Getting one profile",
+					"name": "Get interview by id",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/profiles/619323d2c480f8ce6a043766",
+							"raw": "http://localhost:3000/interviews/6192b6489bdf194f3c903951",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"profiles",
-								"619323d2c480f8ce6a043766"
+								"interviews",
+								"6192b6489bdf194f3c903951"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Edit profile",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"profile_name\": \"Juan\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/profiles/619323d2c480f8ce6a043766",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"profiles",
-								"619323d2c480f8ce6a043766"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Creatin one new profile",
+					"name": "Create interview",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{    \r\n    \"profile_name\": \"Juan\",\r\n    \"branch\": \"Algebra\",\r\n    \"description\": \"This will be deleted on next request\"\r\n}\r\n",
+							"raw": "{\r\n    \"positionId\": \"positionIdTest3\",\r\n    \"postulantId\": \"postulantIdTest3\",\r\n    \"dateTime\": \"2021-12-20T14:00:00.110+00:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -224,35 +530,63 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/profiles/",
+							"raw": "http://localhost:3000/interviews",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"profiles",
-								""
+								"interviews"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Deleting a profile",
+					"name": "Delete interview",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/profiles/61942cb91a835b73f74fb8c7",
+							"raw": "http://localhost:3000/interviews/6192b6489bdf194f3c903951",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"profiles",
-								"61942cb91a835b73f74fb8c7"
+								"interviews",
+								"6192b6489bdf194f3c903951"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update interview",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"postulantId\": \"postulantIdTest5\",\r\n    \"positionId\": \"positionIdTest5\",\r\n    \"dateTime\": \"2021-12-10T12:00:00.110+00:00\",\r\n    \"status\": \"cancelled\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/interviews/6192b6489bdf194f3c903951",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"interviews",
+								"6192b6489bdf194f3c903951"
 							]
 						}
 					},
@@ -261,24 +595,415 @@
 			]
 		},
 		{
-			"name": "Applications",
-			"item": []
+ 			"name": "Psychologists",
+			"item": [
+				{
+					"name": "Update psychologist",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Valeria\",\r\n    \"lastName\": \"Benitez\",\r\n    \"userName\": \"vbaudracco96\",\r\n    \"email\": \"veronabaudracco@gmail.com\",\r\n    \"password\": \"newells\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/psychologists/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								""
+							],
+							"query": [
+								{
+									"key": "first_name",
+									"value": "Valeria",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "hola@hotmail.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get psychologists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/psychologists/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get psychologist by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/psychologists/61918cd89337d40e84692214",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								"61918cd89337d40e84692214"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete psychologist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/psychologists/619117c566723624f55b28be",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								"619117c566723624f55b28be"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create psychologist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Fausto\",\r\n    \"lastName\": \"Baudraccp\",\r\n    \"userName\": \"Fbaudracco98\",\r\n    \"email\": \"faustobaudracco@gmail.com\",\r\n    \"password\": \"2589658524\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/psychologists/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"psychologists",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+    {
+      "name": "Postulants",
+      "item": [
+        {
+          "name": "Get all postulants",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/postulants/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "postulants",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Creating one new profile",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstName\": \"Manuel\",\r\n  \"lastName\": \"Lopez Anido\",\r\n  \"userName\": \"ManulopezA\",\r\n  \"email\": \"Manuellopezanido@gmail.com\",\r\n  \"password\": \"manumanu123\",\r\n  \"birthDate\": \"12/12/1995\",\r\n  \"street\": \"San lorenzo 2494\",\r\n  \"streetNumber\": \"345\",\r\n  \"city\": \"Rosario\",\r\n  \"postalCode\": \"2000\",\r\n  \"province\": \"Santa Fe\",\r\n  \"country\": \"Argentina\",\r\n  \"telephone\": \"3413240353\",\r\n  \"experience\":[{\r\n      \"jobPosition\": \"Engeenier\",\r\n      \"employer\": \"\",\r\n      \"starDate\": \"\",\r\n      \"endDate\": \"\",\r\n      \"description\": \"Ready\"\r\n  }]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/postulants/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "postulants",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get one postulant",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/postulants/6194306fcde2f72b0e04c1f1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "postulants",
+                "6194306fcde2f72b0e04c1f1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Edit postulant",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"Juan Manuel\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/postulants/6194306fcde2f72b0e04c1f1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "postulants",
+                "6194306fcde2f72b0e04c1f1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deleting one postulant",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/postulants/6194306fcde2f72b0e04c1f1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "postulants",
+                "6194306fcde2f72b0e04c1f1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Profiles",
+      "item": [
+        {
+          "name": "Getting all profiles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/profiles/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "profiles",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Getting one profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/profiles/619323d2c480f8ce6a043766",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "profiles",
+                "619323d2c480f8ce6a043766"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Edit profile",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"profilName\": \"Juan\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/profiles/619323d2c480f8ce6a043766",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "profiles",
+                "619323d2c480f8ce6a043766"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Creatin one new profile",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{    \r\n    \"profileName\": \"Juan\",\r\n    \"branch\": \"Algebra\",\r\n    \"description\": \"This will be deleted on next request\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/profiles/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "profiles",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deleting a profile",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/profiles/61942cb91a835b73f74fb8c7",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "profiles",
+                "61942cb91a835b73f74fb8c7"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		},
 		{
-			"name": "Positions",
-			"item": []
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:3000"
 		},
 		{
-			"name": "Sessions",
-			"item": []
-		},
-		{
-			"name": "Interviews",
-			"item": []
-		},
-		{
-			"name": "Psychologists",
-			"item": []
+			"key": "adminId",
+			"value": "6191e082c5eef4f9d4e95fc3"
 		}
 	]
 }
