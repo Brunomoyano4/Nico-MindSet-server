@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index"
+    "start": "nodemon index",
+    "lint-fix": "eslint --fix .",
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": "16.8.0"
   },
   "repository": {
     "type": "git",
@@ -18,9 +23,9 @@
   },
   "homepage": "https://github.com/nicolasviola/BaSD-MindSet#readme",
   "dependencies": {
+    "cors": "2.8.5",
     "express": "^4.17.1",
-    "nodemon": "^2.0.14",
-    "mongoose": "6.0.12",
-    "cors": "2.8.5"
+    "mongoose": "^6.0.12",
+    "nodemon": "^2.0.14"
   }
 }

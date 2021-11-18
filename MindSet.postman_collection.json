@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "cd0e0876-4128-42e1-922b-35b2b9be6d57",
+		"_postman_id": "96e14a5a-b4ac-447b-9357-e1eba62aa154",
 		"name": "MindSet",
 		"description": "# Mindset\n- your staffing provider delivering jobs hiring, career resources, and education based on your career goals.\n\n---\n\n## Api-docs \n- Resources : \n - Admins\n - Postulans\n - Clients\n - Profiles \n - Applications\n - Positions\n - Sessions\n - Interviews\n - Psychologists",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -8,7 +8,128 @@
 	"item": [
 		{
 			"name": "Admins",
-			"item": []
+			"item": [
+				{
+					"name": "Get all Admins",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/admins/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"admins",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single Admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/admins/{{adminId}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"admins",
+								"{{adminId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"firstNameTest\",\n    \"last_name\": \"lastNameTest\",\n    \"user_name\": \"randomUsername\",\n    \"email\": \"myemail@radiumrocket.com\",\n    \"password\": \"nonono\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/admins/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"admins",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Admin",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"editedName\",\n    \"last_name\": \"editedLastName\",\n    \"user_name\": \"isRandom\",\n    \"email\": \"nenuco@radiumrocket.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/admins/{{adminId}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"admins",
+								"{{adminId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Admin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/admins/{{adminId}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"admins",
+								"{{adminId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Postulans",
@@ -24,7 +145,121 @@
 		},
 		{
 			"name": "Applications",
-			"item": []
+			"item": [
+				{
+					"name": "Create Application",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"postulantId\": \"\",\r\n    \"positionId\": \"\",\r\n    \"createdAt\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/applications/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/applications/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by Postulant ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/applications/postulant/postulantIdTest2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications",
+								"postulant",
+								"postulantIdTest2"
+							],
+							"query": [
+								{
+									"key": "postulantId",
+									"value": "postulantIdTest3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by Position ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/applications/position/positionIdTest2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications",
+								"position",
+								"positionIdTest2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Application",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/applications/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Positions",
@@ -32,7 +267,91 @@
 		},
 		{
 			"name": "Sessions",
-			"item": []
+			"item": [
+				{
+					"name": "Create Session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"psychologyId\": \"test2\",\r\n    \"postulantId\": \"test2\",\r\n    \"date\": \"10-10-10\",\r\n    \"time\": \"11:11\",\r\n    \"stat\": \"test2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/sessions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Sessions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/sessions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one Session",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/sessions/6192bb9e3561a9d2c",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions",
+								"6192bb9e3561a9d2c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Session",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/sessions/6192bafa304622dfd0d31cff",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sessions",
+								"6192bafa304622dfd0d31cff"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Interviews",
@@ -289,6 +608,36 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:3000"
+		},
+		{
+			"key": "adminId",
+			"value": "6191e082c5eef4f9d4e95fc3"
 		}
 	]
 }
