@@ -2,25 +2,25 @@ const fs = require('fs')
 const Interviews = require('../data/interviews.json')
 
 const missingInputs = (req,res) => {
-  const pos = post = date = time = stat = "";
-  const okey = true;
+  let pos = post = date = time = stat = "";
+  let okey = true;
   if (!req.query.positionId) {
-    pos= 'psychologyId, '
+    pos= 'positionId, '
     okey= false
   }
   if (!req.query.postulantId) {
     post='postulantId, '
     okey=false
   }
-  if (!req.query.dateId) {
+  if (!req.query.date) {
     date='date, '
     okey=false
   }
-  if (!req.query.timeId) {
+  if (!req.query.time) {
     time='time, '
     okey=false
   }
-  if (!req.query.statusId) {
+  if (!req.query.status ) {
     stat='status, '
     okey=false
   }
@@ -30,7 +30,7 @@ const missingInputs = (req,res) => {
 }
 
 const findIndex = (req) => {
-  return Interviews.findIndex((item) => item.id === req.query.interviewId)
+  return Interviews.findIndex((item) => item.id === req.query.id)
 } 
 
 const getInterviews = (req, res) => {
@@ -42,21 +42,21 @@ const getOneInterview = (req, res) => {
   if (index !== -1) {
     res.status(200).json(Interviews[index])
   } else {
-    res.status(400).json({ msg: `No interview found with the Id of ${req.query.interviewId}` })
+    res.status(400).json({ msg: `No interview found with the Id of ${req.query.id}` })
   }
 }
 
 const createInterview = (req, res) => {
   missingInputs (req,res)
   const newInterview = {
-    interviewId: (parseInt(Interviews[Interviews.length - 1].interviewId) + 1).toString(),
+    id: (parseInt(Interviews[Interviews.length - 1].id) + 1).toString(),
     positionId: req.query.positionId,
     postulantId: req.query.postulantId,
     date: req.query.date,
     time: req.query.time,
-    stat: req.query.stat
+    status: req.query.status
   }
-  sessions.push(newInterview)
+  Interviews.push(newInterview)
   fs.writeFile('./data/interviews.json', JSON.stringify(Interviews), (error) => {
     if (error) {
       res.status(400).json({ msg: "Problems adding the new interview" })
@@ -67,10 +67,9 @@ const createInterview = (req, res) => {
 }
 
 const deleteInterview = (req, res) => {
-  missingInputs(req, res)
   const index = findIndex(req)  
   if (index !== -1) {
-		res.status(202).send({ msg: "Interview with id " + req.query.interviewId + " deleted" })
+		res.status(202).send({ msg: "Interview with id " + req.query.id + " deleted" })
     const deletedElement = {
       ...Interviews[index]
     }
@@ -84,7 +83,7 @@ const deleteInterview = (req, res) => {
 		})
 	}
   else {
-		res.status(400).json({ msg: `No interview with the id of ${req.query.interviewId}` });
+		res.status(400).json({ msg: `No interview with the id of ${req.query.id}` });
 	}
 }
 
