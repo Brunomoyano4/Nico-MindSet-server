@@ -1,114 +1,87 @@
 const fs = require('fs')
-const Positions = require('../data/positions.json')
-const missingInputs = (req, res) => {
-  if (!req.query.clientId && !req.query.job && !req.query.description) {
-    return res.status(400).send({ msg: 'clientId, job and description are empty' })
-  }
-  if (!req.query.clientId && !req.query.job) {
-    return res.status(400).send({ msg: 'clientId and job are empty' })
-  }
-  if (!req.query.clientId && !req.query.description) {
-    return res.status(400).send({ msg: 'clientId and description are empty' })
-  }
-  if (!req.query.job && !req.query.description) {
-    return res.status(400).send({ msg: 'job and description are empty' })
-  }
-  if (!req.query.clientId) {
-    return res.status(400).send({ msg: 'clientId is empty' })
-  }
-  if (!req.query.job) {
-    return res.status(400).send({ msg: 'job is empty' })
-  }
-  if (!req.query.description) {
-    return res.status(400).send({ msg: 'description is empty' })
-  }
-}
-
-const findIndex = (req) => {
-  return Positions.findIndex((item) => item.id === req.query.id)
-}
+const Positions = require('../models/Positions')
 
 const getPositions = (req, res) => {
-  res.status(200).json(Positions)
+  Positions.find()
+   .then((Positions)=>{
+    res.status(200).json(Positions)
+   })
+   .catch((error)=>{
+    res.status(400).json(error)
+   })
 }
 
 const getOnePosition = (req, res) => {
-  const index = findIndex(req)
-  if (index !== -1) {
-    res.status(200).json(Positions[index])
-  } else {
-    res.status(404).json({ msg: `No position with the Id of ${req.query.id}` })
-  }
-}
-
-const createPosition = (req, res) => {
-  missingInputs(req, res)
-  const newPosition = {
-    id: (parseInt(Positions[Positions.length - 1].id) + 1).toString() /*new Date().getTime().toString()*/,
-    clientId: req.query.clientId,
-    job: req.query.job,
-    description: req.query.description,
-    createdAt: Date.now().toString()
-  }
-  Positions.push(newPosition)
-  fs.writeFile('./data/positions.json', JSON.stringify(Positions), {}, (error) => {
-    if (error) {
-      res.status(400).send(error)
-    } else {
-      res.status(200).json(newPosition)
+  Positions.findById(req.params.id,
+  (error,Positions) => {
+    if(!Positions) {
+      return res.status(404).json({
+        msg: `Position with id: ${req.params.id} was not found`
+      })
     }
+    if(error) {
+      return res.status(400).json(error)
+    }
+    return res.status(200).json(Positions)
   })
 }
 
-const deletePosition = (req, res) => {
-  missingInputs(req, res)
-  const index = findIndex(req)
-  if (index !== -1) {
-    res.status(202).send({ msg: `Position with id ${req.query.id} deleted` })
-    const deleteElement = {
-      ...Positions[index]
-    }
-    Positions.splice(index, 1)
-    fs.writeFile('./data/positions.json', JSON.stringify(Positions), {}, (error) => {
-      if (error) {
-        res.status(400).send(error)
-      } else {
-        res.status(200).json(deleteElement)
+const updatePosition = (req, res) => {
+  Positions.findByIdAndUpdate(req.params.id,
+    { 
+      clientId: req.body.clientId,
+      job: req.body.job,
+      description: req.body.description,
+    },
+    { new: true }, 
+    (error, newPosition) => {
+      if(!newPosition) {
+        return res.status(404).json({
+          msg: `Position with id: ${req.params.id} was not found`
+        })
       }
-    })
-  } else {
-    res.status(404).json({ msg: `No position with the id of ${req.query.id}` })
-  }
+      if(error) {
+        return res.status(400).json(error)
+      }
+      return res.status(200).json(newPosition)
+    }
+  )
 }
 
-const updatePosition = (req, res) => {
-  missingInputs(req, res)
-  const index = findIndex(req)
-  if (index !== -1) {
-    res.status(202).send({ msg: `Position with id ${req.query.id} updated` })
-    Positions[index] = {
-      id: Positions[index].id,
-      clientID: req.query.clientId || Positions[index].clientId,
-      job: req.query.job || Positions[index].job,
-      description: req.query.description || Positions[index].description,
-      createdAt: Positions[index].createdAt
+const createPosition=(req, res) => {
+  const position = new Positions({
+    clientId: req.body.clientId,
+    job: req.body.job,
+    description: req.body.description,
+  })
+
+  position.save((error, position) => {
+    if(error) {
+      return res.status(400).json(error)
     }
-    fs.writeFile('./data/positions.json', JSON.stringify(Positions), {}, (error) => {
-      if (error) {
-        res.status(400).send(error)
-      } else {
-        res.status(201).json(Positions[index])
-      }
-    })
-  } else {
-    res.status(404).json({ msg: `No position with the id of ${req.query.id}` })
-  }
+    return res.status(201).json(position)
+  })
+}
+
+const deletePosition=(req,res)=>{
+  Positions.findByIdAndRemove(req.params.id,
+  (error,Positions) => {
+    if(!Positions) {
+      return res.status(404).json({
+        msg: `Position with id: ${req.params.id} was not found`
+      })
+    }
+    if(error) {
+      return res.status(400).json(error)
+    }
+    return res.status(200).json(Positions)
+  })
 }
 
 module.exports = {
   getPositions,
   getOnePosition,
   createPosition,
-  deletePosition,
-  updatePosition
+  updatePosition,
+  deletePosition
 }
