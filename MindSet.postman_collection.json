@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "55fa8e23-03dc-4197-bac3-8bed8c40d9fd",
+		"name": "BaSD-MS-W9-015: Clients resource",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all the clients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clients"
+					]
+				},
+				"description": "Provides a list of all the clients that exist in the database"
+			},
+			"response": []
+		},
+		{
+			"name": "Get one client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/clients/61916eead05a860436e05381",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clients",
+						"61916eead05a860436e05381"
+					]
+				},
+				"description": "Shows the client that is represented by the indicated id"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_name\": \"Quire\",\r\n    \"branch\": \"Computer Software: Prepackaged Software\",\r\n    \"phone\": \"2752055533\",\r\n    \"email\": \"tcaple1@dropbox.com\",\r\n    \"description\": \"Persistent zero tolerance attitude\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clients"
+					]
+				},
+				"description": "Create a new client with the data entered in the body"
+			},
+			"response": []
+		},
+		{
+			"name": "Update client",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_name\": \"Quire\",\r\n    \"branch\": \"Computer Software: Prepackaged Software\",\r\n    \"phone\": \"2752055600\",\r\n    \"email\": \"tcaple1@dropbox.com\",\r\n    \"description\": \"Persistent zero tolerance attitude\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/clients/61924902e56f328fecf03f35",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clients",
+						"61924902e56f328fecf03f35"
+					]
+				},
+				"description": "Update the data of the client indicated in the id taking into account the data entered in the body"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a client",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerName\": \"Youspan\",\r\n    \"branch\": \"Movies/Entertainment\",\r\n    \"phone\": \"7976937085\",\r\n    \"email\": \"rpreddle2@comcast.net\",\r\n    \"description\": \"Versatile content-based hierarchy\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clients"
+					]
+				},
+				"description": "Delete the client indicated in the id"
+			},
+			"response": []
+		}
+	]
+}
