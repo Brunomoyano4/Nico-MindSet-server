@@ -32,16 +32,16 @@ const getOnePostulant = (req, res) => {
 
 const createPostulant = (req, res) => {
   const newPostulant = new Postulants({
-    first_name: req.body.firstName, 
-    last_name: req.body.lastName,
-    user_name: req.body.userName,
+    firstName: req.body.firstName, 
+    lastName: req.body.lastName,
+    userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
-    birth_date: req.body.birthDate,
+    birthDate: req.body.birthDate,
     street: req.body.street,
-    street_number: req.body.streetNumber,
+    streetNumber: req.body.streetNumber,
     city: req.body.city,
-    postal_code: req.body.postalCode,
+    postalCode: req.body.postalCode,
     province: req.body.province,
     country: req.body.country,
     telephone: req.body.telephone,
