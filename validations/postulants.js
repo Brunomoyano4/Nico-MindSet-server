@@ -2,16 +2,16 @@
 const missingInputs = (req,res,next) => {
   let firstName = userName = email = birthDate = street = streetNumber = city = 
     postalCode = province = country = telephone = experience = "";
-  let okey = true;
-  if (!req.body.first_name) {
+  let okey=true;
+  if (!req.body.firstName) {
     firstName= 'first name, '
     okey=false
   }
-  if (!req.body.last_name) {
+  if (!req.body.lastName) {
     lastName= 'last name, '
     okey=false
   }
-  if (!req.body.user_name) {
+  if (!req.body.userName) {
     userName='user name, '  
     okey=false
   }
@@ -19,7 +19,7 @@ const missingInputs = (req,res,next) => {
     emial='email, '
     okey=false
   }
-  if (!req.body.birth_date) {
+  if (!req.body.birthDate) {
     birthDate='birth date, '
     okey=false
   }
@@ -27,7 +27,7 @@ const missingInputs = (req,res,next) => {
     street='street, '
     okey=false
   }
-  if (!req.body.street_number) {
+  if (!req.body.streetNumber) {
     streetNumber='street number, '
     okey=false
   }
@@ -35,7 +35,7 @@ const missingInputs = (req,res,next) => {
     city='ciry, '
     okey=false
   }
-  if (!req.body.postal_code) {
+  if (!req.body.postalCode) {
     postalCode='postal code, '
     okey=false
   }
@@ -60,6 +60,6 @@ const missingInputs = (req,res,next) => {
       postalCode + province + country + telephone + experience + 'are missing'})
   }
   next();
-}
+  }
 
 module.exports = {missingInputs};
