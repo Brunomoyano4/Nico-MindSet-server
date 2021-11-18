@@ -3,14 +3,14 @@ const Postulants = require('../models/Postulants')
 
 const getPostulants = (req, res) => {
 	Postulants.find({})
-  .then((data) => {
-    res.send(data);
-  })
-  .catch((err) => {
-    res.status(500).send({
-      msg: err.message || "There was an error while retrieving the postulants",
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        msg: err.message || "There was an error while retrieving the postulants",
+      });
     });
-  });
 }
 
 const getOnePostulant = (req, res) => {
@@ -32,25 +32,25 @@ const getOnePostulant = (req, res) => {
 
 const createPostulant = (req, res) => {
   const newPostulant = new Postulants({
-    first_name: req.body.first_name, 
-    last_name: req.body.last_name,
-    user_name: req.body.user_name,
+    firstName: req.body.firstName, 
+    lastName: req.body.lastName,
+    userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
-    birth_date: req.body.birth_date,
+    birthDate: req.body.birthDate,
     street: req.body.street,
-    street_number: req.body.street_number,
+    streetNumber: req.body.streetNumber,
     city: req.body.city,
-    postal_code: req.body.postal_code,
+    postalCode: req.body.postalCode,
     province: req.body.province,
     country: req.body.country,
     telephone: req.body.telephone,
     experience: req.body.experience 
     [{
-        job_position: req.body.job_position,
+        jobPosition: req.body.jobPosition,
         employer: req.body,
-        star_date: req.body.star_date,
-        end_date: req.body.end_date,
+        starDate: req.body.starDate,
+        endDate: req.body.endDate,
         description: req.body.description
     }]
   })
