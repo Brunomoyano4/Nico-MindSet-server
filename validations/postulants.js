@@ -1,18 +1,18 @@
 
 const missingInputs = (req,res,next) => {
-  let first_name = user_name = email = birth_date = street = street_number = city = 
-    postal_code = province = country = telephone = experience = "";
-  let okey=true;
+  let firstName = userName = email = birthDate = street = streetNumber = city = 
+    postalCode = province = country = telephone = experience = "";
+  let okey = true;
   if (!req.body.first_name) {
-    first_name= 'first name, '
+    firstName= 'first name, '
     okey=false
   }
   if (!req.body.last_name) {
-    last_name= 'last name, '
+    lastName= 'last name, '
     okey=false
   }
   if (!req.body.user_name) {
-    user_name='user name, '  
+    userName='user name, '  
     okey=false
   }
   if (!req.body.email) {
@@ -20,7 +20,7 @@ const missingInputs = (req,res,next) => {
     okey=false
   }
   if (!req.body.birth_date) {
-    birth_date='birth date, '
+    birthDate='birth date, '
     okey=false
   }
   if (!req.body.street) {
@@ -28,7 +28,7 @@ const missingInputs = (req,res,next) => {
     okey=false
   }
   if (!req.body.street_number) {
-    street_number='street number, '
+    streetNumber='street number, '
     okey=false
   }
   if (!req.body.city) {
@@ -36,7 +36,7 @@ const missingInputs = (req,res,next) => {
     okey=false
   }
   if (!req.body.postal_code) {
-    postal_code='postal code, '
+    postalCode='postal code, '
     okey=false
   }
   if (!req.body.province) {
@@ -56,10 +56,10 @@ const missingInputs = (req,res,next) => {
     okey=false
   }
   if (!okey){ 
-    res.status(400).send({ msg: first_name + user_name + email + birth_date + street + street_number + city + 
-      postal_code + province + country + telephone + experience + 'are missing'})
+    res.status(400).send({ msg: firstName + userName + email + birthDate + street + streetNumber + city + 
+      postalCode + province + country + telephone + experience + 'are missing'})
   }
   next();
-  }
+}
 
 module.exports = {missingInputs};
