@@ -1,16 +1,16 @@
+require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const router = require('./routes');
 
 const app = express();
-const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 
 mongoose.connect(
-  'mongodb+srv://MindSet:BaSD-MindSet2021@cluster0.rblv6.mongodb.net/mindSet?retryWrites=true&w=majority',
+  process.env.DATABASE_URL,
   (error) => {
     if (error) {
       console.log('Error : ', error);
@@ -22,6 +22,6 @@ mongoose.connect(
 
 app.use(router);
 
-app.listen(port, () => {
-  console.log(`App MindSet listening at http://localhost:${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`App MindSet listening at http://localhost:${process.env.PORT}`);
 });
