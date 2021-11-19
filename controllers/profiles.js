@@ -64,7 +64,7 @@ const deleteProfile = (req, res) => {
           msg: `Profile with id: ${req.params.id} was not found`
         })
       }
-      return res.status(201).json(result)
+      return res.status(200).json(result)
     })
     .catch((error) => {
       return res.status(400).json(error)
