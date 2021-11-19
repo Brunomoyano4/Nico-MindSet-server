@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "f5eabf65-b61a-4134-aebd-e174042e5297",
-		"name": "MindSet Copy",
+		"_postman_id": "c5c1d077-5830-4cc8-bac6-70b141abf896",
+		"name": "MindSet",
 		"description": "# Mindset\n- your staffing provider delivering jobs hiring, career resources, and education based on your career goals.\n\n---\n\n## Api-docs \n- Resources : \n - Admins\n - Postulans\n - Clients\n - Profiles \n - Applications\n - Positions\n - Sessions\n - Interviews\n - Psychologists",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -358,33 +358,6 @@
 							"port": "3000",
 							"path": [
 								"clients"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create a postulant",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"test\",\n    \"lastName\": \"test\",\n    \"userName\": \"test\",\n    \"email\": \"test@test.com\",\n    \"password\": \"passtest\",\n    \"birthDate\": \"13-08-2021\",\n    \"street\": \"test\",\n    \"streetNumber\": \"test\",\n    \"city\": \"test\", \n    \"postalCode\": \"12345\",\n    \"province\": \"test\",\n    \"country\": \"test\",\n    \"telephone\": \"12345\",\n    \"experience\":  [\n        {\n            \"jobPosition\": \"test\",\n            \"employer\": \"test\",\n            \"starDate\": \"13-08-2021\",\n            \"endDate\": \"14-08-2021\",\n            \"description\": \"test\"\n        }\n    ] \n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:3000/postulants",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"postulants"
 							]
 						}
 					},
