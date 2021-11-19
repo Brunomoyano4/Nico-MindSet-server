@@ -1,11 +1,11 @@
 const validateAdminCreation = (req, res, next) => {
-  if(!req.body?.first_name) {
+  if(!req.body?.firstName) {
     return res.status(400).send("First name is missing")
   }
-  if(!req.body?.last_name) {
+  if(!req.body?.lastName) {
     return res.status(400).send("Last name is missing")
   }
-  if(!req.body?.user_name) {
+  if(!req.body?.username) {
     return res.status(400).send("Username is missing")
   }
   if(!req.body?.email) {

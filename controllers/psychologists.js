@@ -25,9 +25,9 @@ const getOnePsychologist = (req, res) => {
 
 const createPsychologist = (req,res) => {
   const psychologist = new Psychologists({
-    firstName: req.body.first_name,
-    lastName: req.body.last_name,
-    userName: req.body.user_name,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    userName: req.body.userName,
     email: req.body.email,
     password: req.body.password
   })
@@ -41,9 +41,9 @@ const createPsychologist = (req,res) => {
 
 const editPsychologist = (req, res) => {
   Psychologists.findOneAndUpdate(req.params.id,
-    {firstName: req.body.first_name,
-    lastName: req.body.last_name,
-    userName: req.body.user_name,
+    {firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    userName: req.body.userName,
     email: req.body.email,
     password: req.body.password}, {new : true}
   ) 
