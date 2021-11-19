@@ -44,24 +44,13 @@ const createPostulant = (req, res) => {
     country: req.body.country,
     telephone: req.body.telephone,
     experience: req.body.experience,
-    // experience: [
-    //   {
-    //     jobPosition: req.body.jobPosition,
-    //     employer: req.body.employer,
-    //     startDate: req.body.startDate,
-    //     endDate: req.body.endDate,
-    //     description: req.body.description,
-    //   },
-    // ],
   });
   newPostulant.save((error, postulant) => {
     if (error) {
       return res.status(400).json(error);
-    }
-    else {
+    } else {
       return res.status(201).json(postulant);
     }
-    
   });
 };
 
