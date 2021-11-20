@@ -5,6 +5,7 @@ const cors = require('cors');
 const router = require('./routes');
 
 const app = express();
+const PORT = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(express.json());
@@ -20,8 +21,10 @@ mongoose.connect(
   },
 );
 
-app.use(router);
+app.use(express.static('public'));
 
-app.listen(process.env.PORT, () => {
-  console.log(`App MindSet listening at http://localhost:${process.env.PORT}`);
+app.use('/api',router);
+
+app.listen(PORT, () => {
+  console.log(`App MindSet listening at http://localhost:${PORT}`);
 });
