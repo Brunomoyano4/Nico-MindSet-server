@@ -39,6 +39,9 @@
       margin-left: 15px;
   }
   
+  header > nav > a:hover {
+    color: black;
+  }
   .activePage {
       color: #27AE60;
   }
