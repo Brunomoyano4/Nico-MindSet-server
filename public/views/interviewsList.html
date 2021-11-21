@@ -7,7 +7,7 @@
     <title>Interviews</title>
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/styles.css">
-    <script src="js/index.js"></script>
+    <script src="../js/interviewsList.js"></script>
   </head>
   <body>
     <header>
@@ -16,7 +16,7 @@
         <a id="adminsNav" href="/views/adminsList.html">admins</a>
         <a href="/views/applicationsList.html">applications</a>
         <a href="/views/clientsList.html">clients</a>
-        <a href="/views/interviewsList.html">interviews</a>
+        <a id="interviewsNav" href="/views/interviewsList.html">interviews</a>
         <a href="/views/positionsList.html">positions</a>
         <a href="/views/positionsList.html">postulants</a>
         <a href="/views/profilesList.html">profiles</a>
@@ -32,14 +32,13 @@
             <th>Position Id</th>
             <th>Postulant Id</th>
             <th>Date</th>
-            <th>Time</th>
             <th>Status</th>
           </tr>
         </thead>
-        <tbody id="table-content">
+        <tbody id="interviews-table">
         </tbody>
       </table>
-      <button class="button" id="addClient" type="button">
+      <button class="button" id="addInterview" type="button">
         Add interview
       </button>
     </div>

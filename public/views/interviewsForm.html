@@ -7,7 +7,7 @@
     <title>Interviews</title>
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/styles.css">
-    <script src="js/index.js"></script>
+    <script src="../js/interviewsForm.js"></script>
   </head>
   <body>
     <header>
@@ -16,7 +16,7 @@
         <a id="adminsNav" href="/views/adminsList.html">admins</a>
         <a href="/views/applicationsList.html">applications</a>
         <a href="/views/clientsList.html">clients</a>
-        <a href="/views/interviewsList.html">interviews</a>
+        <a id="interviewsNav" href="/views/interviewsList.html">interviews</a>
         <a href="/views/positionsList.html">positions</a>
         <a href="/views/positionsList.html">postulants</a>
         <a href="/views/profilesList.html">profiles</a>
@@ -29,9 +29,9 @@
       <form id="form">
         <input id="position" name="position" placeholder="Position Id" type="number" required/>
         <input id="postulant" name="postulant" placeholder="Postulant Id" type="number" required/>
-        <input id="date" name="date" type="date" />
-        <input id="time" name="time" type="time" required/>
+        <input id="date" name="date" type="datetime-local" />
         <input id="status" name="status" placeholder="Status of the interview" type="text" required/>
+        <div id="error_massage"></div>
         <input id="saveButton" class="button" type="submit" value="Send">
       </form>
     </div>
