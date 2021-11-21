@@ -21,6 +21,7 @@ window.onload = () => {
     .then((response) => response.json())
     .then((response) => {
       response.forEach((item) => {
+        console.log('response', response)
         const tr = document.createElement('tr');
         const firstNameTd = document.createElement('td');
         const lastNameTd = document.createElement('td');
