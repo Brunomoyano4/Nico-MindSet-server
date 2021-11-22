@@ -27,10 +27,12 @@
     <div class="container">
       <h2 class="header">Interviews Form</h2>
       <form id="form">
-        <input id="position" name="position" placeholder="Position Id" type="number" required/>
-        <input id="postulant" name="postulant" placeholder="Postulant Id" type="number" required/>
-        <input id="date" name="date" type="datetime-local" />
-        <input id="status" name="status" placeholder="Status of the interview" type="text" required/>
+        <input id="position" name="position" placeholder="Position Id" type="string" required/>
+        <input id="postulant" name="postulant" placeholder="Postulant Id" type="string" required/>
+        <input id="date" placeholder="Date" name="date" type="datetime" required/>
+        <div id="errorDate"></div>
+        <input id="status" name="status" placeholder="Status of the interview" type="string" required/>
+        <div id="errorStatus"></div>
         <div id="error_massage"></div>
         <input id="saveButton" class="button" type="submit" value="Send">
       </form>

@@ -69,6 +69,7 @@
   
   .list th,
   .list td {
+      text-align: center;
       padding: 12px 15px;
       cursor: pointer;
   }
@@ -97,10 +98,22 @@
       margin: 10px auto;
       padding: 16px;
       background: #F7F7F7;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  #containerInterviews {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 16px;
+    background: #F7F7F7;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   }
   
   .header {
+      width:100%;
       background: #27AE60;
       padding: 20px 0;
       font-size: 140%;
@@ -154,6 +167,34 @@
       cursor: not-allowed;
   }
   
+  .modalInterview{
+    position:fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+    width: 200px;
+    height: 100px;
+    background-color: #ffffff;
+  }
+  .title{
+    color: #ff0000;
+  }
+  .modalInterview>p{
+    text-align: center;
+    font-weight: bold;
+  }
+  .modalInterviewRemove{
+    display:none;
+  }
+  .buttonModal{
+    background-color: #56BE8A;
+    color: #ffffff;
+  }
+  .error{
+    padding: 5px;
+    color: #ff0000;
+  }
   footer {
       display: flex;
       justify-content: center;

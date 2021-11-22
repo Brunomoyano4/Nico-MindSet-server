@@ -24,7 +24,7 @@
         <a href="/views/sessionsList.html">sessions</a>
       </nav>
     </header>
-    <div class="container">
+    <div id="containerInterviews">
       <h2 class="header">Interviews</h2>
       <table class="list">
         <thead>
@@ -33,11 +33,13 @@
             <th>Postulant Id</th>
             <th>Date</th>
             <th>Status</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody id="interviews-table">
         </tbody>
       </table>
+      <div id="modalInterview"></div>
       <button class="button" id="addInterview" type="button">
         Add interview
       </button>
