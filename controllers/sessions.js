@@ -2,7 +2,7 @@ const fs = require('fs')
 const Sessions = require('../models/Sessions')
 
 const getSessions = (req, res) => {
-  Sessions.find()
+  Sessions.find().populate('psychology').populate('postulant')
     .then ((sessions) => {
       return res.status(200).json(sessions)
     })
@@ -12,7 +12,7 @@ const getSessions = (req, res) => {
 }
 
 const getOneSession = (req, res) => {
-  Sessions.find({ _id: req.params.id })
+  Sessions.findById (req.params._id).populate('psychology').populate('postulant')
     .then ((sessions) => {
       return res.status(200).json(sessions)
     })
@@ -23,8 +23,8 @@ const getOneSession = (req, res) => {
 
 const createSession = (req, res) => {
   const newSession = new Sessions({
-    psychologyId: req.body.psychologyId,
-    postulantId: req.body.postulantId,
+    psychology: req.body.psychology,
+    postulant: req.body.postulant,
     date: req.body.date,
     time: req.body.time,
     stat: req.body.stat
@@ -33,7 +33,7 @@ const createSession = (req, res) => {
     if (error) {
       return res.status(400).json({ msg: "Problems adding the new session" })
     }
-    return res.status(201).json(newSession)
+    return res.status(201).json(session)
   })
 };
 
