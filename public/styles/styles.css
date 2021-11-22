@@ -178,7 +178,7 @@
       cursor: not-allowed;
   }
   
-  .modal{
+  .modalProfile{
     position:fixed;
     display: flex;
     flex-wrap: wrap;
@@ -191,14 +191,14 @@
   .title{
     color: #ff0000;
   }
-  .modal>p{
+  .modalProfile>p{
     text-align: center;
     font-weight: bold;
   }
-  .modalRemove{
+  .modalProfileRemove{
     display:none;
   }
-  .buttonModal{
+  .modalProfile>button{
     background-color: #56BE8A;
     color: #ffffff;
   }

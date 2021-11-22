@@ -57,7 +57,7 @@ window.onload = () => {
           button.onclick=(event)=>{
             event.stopPropagation()
             const modal=document.getElementById('modalProfile')
-            modal.classList.add('modal')
+            modal.classList.add('modalProfile')
             const textTitle=document.createElement('p')
             const textModal=document.createElement('p')
             textTitle.innerText='CAUTION:'
@@ -68,11 +68,9 @@ window.onload = () => {
             buttonConfirm.innerText="Confirm"
             buttonCancel.innerText="Cancel"
             modal.append(textTitle, textModal, buttonCancel, buttonConfirm)
-            buttonConfirm.classList.add('modalButton')
-            buttonCancel.classList.add('modalButton')
             buttonConfirm.onclick = () => deleteProfile(profile._id)
             buttonCancel.onclick = () => {
-              modal.classList.add('modalRemove')
+              modal.classList.add('modalProfileremove')
               window.location.href = `${window.location.origin}/views/profilesList.html`;
             }
           }
