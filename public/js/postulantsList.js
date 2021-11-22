@@ -6,8 +6,7 @@ const addNewPostulant = () => {
   window.location.href = `${window.location.origin}/views/postulantsForm.html`
 }
 
-const deletePostulant = (item, event) => {
-  event.stopPropagation(event);
+const deletePostulant = (item) => {
   const url = `${window.location.origin}/api/postulants/${item._id}`;
   fetch(url, {
     method: 'DELETE',
@@ -56,8 +55,29 @@ window.onload = () => {
         
         const button = document.createElement('button');
         button.innerText = 'Delete';
-        button.onclick = (event) => deletePostulant(item, event);
         actionsTD.append(button);
+        button.onclick = (event) => {
+          event.stopPropagation(event);
+          const modal=document.getElementById('modalPostulants')
+          modal.classList.add('modal')
+          const textTitle=document.createElement('p')
+          const textModal=document.createElement('p')
+          textTitle.innerText='CAUTION:'
+          textTitle.classList.add('title')
+          textModal.innerText='Are you sure you want to delete this postulation?'
+          const buttonConfirm=document.createElement('button')
+          const buttonCancel=document.createElement('button')
+          buttonConfirm.innerText="Confirm"
+          buttonCancel.innerText="Cancel"
+          modal.append(textTitle, textModal, buttonCancel, buttonConfirm)
+          buttonConfirm.classList.add('modalButton')
+          buttonCancel.classList.add('modalButton')
+          buttonConfirm.onclick = () => deletePostulant(item)
+          buttonCancel.onclick = () => {
+            modal.classList.add('modalRemove')
+            window.location.href = `${window.location.origin}/views/postulantsList.html`;
+          };
+        };
 
         tr.onclick = () => editPostulant(item);
         tr.append(firstNameTd, lastNameTd, emailTd, telephoneTd, cityTd, countryTd, actionsTD);
