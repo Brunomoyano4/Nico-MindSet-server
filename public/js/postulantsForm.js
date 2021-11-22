@@ -65,21 +65,21 @@ window.onload = () => {
       })
       .then((response) => {
         saveButton.disabled = false;
-        response.forEach((postulant) => {
-          firstNameInput.value = postulant.firstName
-          lastNameInput.value = postulant.lastName
-          userNameInput.value = postulant.userName
-          emailInput.value = postulant.email
-          passwordInput.value = postulant.password
-          birthDateInput.value = postulant.birthDate
-          streetInput.value = postulant.street
-          streetNumberInput.value = postulant.streetNumber
-          postalCodeInput.value = postulant.postalCode
-          cityInput.value = postulant.city
-          provinceInput.value = postulant.province
-          countryInput.value = postulant.country
-          telephoneInput.value = postulant.telephone
-          postulant.experience.forEach((experience) => {
+        response.forEach((postulants) => {
+          firstNameInput.value = postulants.firstName
+          lastNameInput.value = postulants.lastName
+          userNameInput.value = postulants.userName
+          emailInput.value = postulants.email
+          passwordInput.value = postulants.password
+          birthDateInput.value = postulants.birthDate
+          streetInput.value = postulants.street
+          streetNumberInput.value = postulants.streetNumber
+          postalCodeInput.value = postulants.postalCode
+          cityInput.value = postulants.city
+          provinceInput.value = postulants.province
+          countryInput.value = postulants.country
+          telephoneInput.value = postulants.telephone
+          postulants.experience.forEach((experience) => {
             jobPositionInput.value = experience.jobPosition
             employerInput.value = experience.employer
             startDateInput.value = experience.startDate
@@ -88,7 +88,7 @@ window.onload = () => {
           });
         });
       })
-      .catch((error) =>{
+      .catch((error) => {
         errorMessage.innerText = error;
       });
   };
