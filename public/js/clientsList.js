@@ -10,13 +10,10 @@ const openEditClientForm = (client) => {
 
   const deleteClient = (id, event) => {
     // eslint-disable-next-line no-underscore-dangle
-    event.stopPropagation(event);
+    event.stopPropagation();
     const url = `${window.location.origin}/api/clients/${id}`
     fetch(url, {
-      method: 'DELETE',
-      headers: {
-        'Content-type': 'applications/json',
-      },
+      method: 'DELETE'
     })
     .then((response) => {
       if (response.status != 200) {
@@ -26,6 +23,7 @@ const openEditClientForm = (client) => {
       }
       return response.json();
     })
+    window.location.reload()
     .catch((error => error));
   };
   
@@ -51,7 +49,7 @@ const openEditClientForm = (client) => {
           emailTD.innerText = clients.email;
           const button = document.createElement('button');
           button.innerText = 'Delete';
-          button.onClick = (event) => deleteClient(clients._id, event);
+          button.onclick = (event) => deleteClient(clients._id, event);
           actionTD.append(button);
           tr.onclick = () => openEditClientForm(clients);
           tr.append(NameTD, phoneTD, emailTD, actionTD);
