@@ -21,4 +21,4 @@ router.use("/profiles", profiles);
 router.use("/psychologists", psychologists);
 router.use("/sessions", sessions);
 
-module.exports=router
+module.exports = router

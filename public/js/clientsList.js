@@ -1,11 +1,32 @@
 const openEditClientForm = (client) => {
     // eslint-disable-next-line no-underscore-dangle
-    window.location.href = `${window.location.origin}/views/clientForm.html?clientId=${client._id}`;
+    window.location.href = `${window.location.origin}/views/clientsForm.html?clientId=${client._id}`;
   };
   
   const openNewClientForm = () => {
     // eslint-disable-next-line no-underscore-dangle
-    window.location.href = `${window.location.origin}/views/clientForm.html`;
+    window.location.href = `${window.location.origin}/views/clientsForm.html`;
+  };
+
+  const deleteClient = (id, event) => {
+    // eslint-disable-next-line no-underscore-dangle
+    event.stopPropagation(event);
+    const url = `${window.location.origin}/api/clients/${id}`
+    fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'applications/json',
+      },
+    })
+    .then((response) => {
+      if (response.status != 200) {
+        return response.json().then(({ message }) => {
+          throw new Error(message);
+        });
+      }
+      return response.json();
+    })
+    .catch((error => error));
   };
   
   window.onload = () => {
@@ -23,10 +44,17 @@ const openEditClientForm = (client) => {
           const tr = document.createElement('tr');
           const NameTD = document.createElement('td');
           const phoneTD = document.createElement('td');
+          const emailTD = document.createElement('td');
+          const actionTD = document.createElement('td');
           NameTD.innerText = clients.customerName;
           phoneTD.innerText = clients.phone;
+          emailTD.innerText = clients.email;
+          const button = document.createElement('button');
+          button.innerText = 'Delete';
+          button.onClick = (event) => deleteClient(clients._id, event);
+          actionTD.append(button);
           tr.onclick = () => openEditClientForm(clients);
-          tr.append(NameTD, phoneTD);
+          tr.append(NameTD, phoneTD, emailTD, actionTD);
           tableContent.append(tr);
         });
       });
