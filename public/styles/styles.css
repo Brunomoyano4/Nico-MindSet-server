@@ -178,7 +178,7 @@
       cursor: not-allowed;
   }
   
-  .modal{
+  .modalInterview{
     position:fixed;
     display: flex;
     flex-wrap: wrap;
@@ -191,17 +191,18 @@
   .title{
     color: #ff0000;
   }
-  .modal>p{
+  .modalInterview>p{
     text-align: center;
     font-weight: bold;
   }
-  .modalRemove{
+  .modalInterviewRemove{
     display:none;
   }
-  .buttonModal{
+  .modalInterview>button{
     background-color: #56BE8A;
     color: #ffffff;
   }
+
   .error{
     padding: 5px;
     color: #ff0000;

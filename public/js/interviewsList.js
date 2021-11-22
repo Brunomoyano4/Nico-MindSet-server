@@ -59,7 +59,7 @@ window.onload = () => {
           button.onclick=(event)=>{
             event.stopPropagation()
             const modal=document.getElementById('modalInterview')
-            modal.classList.add('modal')
+            modal.classList.add('modalInterview')
             const textTitle=document.createElement('p')
             const textModal=document.createElement('p')
             textTitle.innerText='CAUTION:'
@@ -70,11 +70,11 @@ window.onload = () => {
             buttonConfirm.innerText="Confirm"
             buttonCancel.innerText="Cancel"
             modal.append(textTitle, textModal, buttonCancel, buttonConfirm)
-            buttonConfirm.classList.add('modalButton')
-            buttonCancel.classList.add('modalButton')
+            buttonConfirm.classList.add('modalInterviewButton')
+            buttonCancel.classList.add('modalInterviewButton')
             buttonConfirm.onclick = () => deleteInterview(interview._id)
             buttonCancel.onclick = () => {
-              modal.classList.add('modalRemove')
+              modal.classList.add('modalInterviewRemove')
               window.location.href = `${window.location.origin}/views/interviewsList.html`;
             }
           }

@@ -22,8 +22,8 @@ window.onload = () => {
   saveButton.disabled = params.get('_id')
 
   validateStatus= () => {
-    if(statusInput.value != 'canceled' && statusInput.value != 'pending' && statusInput.value != 'finished'){
-      errorStatus.innerText ='The possible status are pending, canceled and finished'
+    if(statusInput.value != 'cancelled' && statusInput.value != 'next step' && statusInput.value != 'pending' && statusInput.value != 'finished'){
+      errorStatus.innerText ='The possible status are pending, cancelled, next step and finished'
       return true
     }
     else{
