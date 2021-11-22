@@ -15,7 +15,7 @@ const {
   validateTimeOfSession
 } = validation;
 
-router.post('/', validateSessionCreation, validateTimeOfSession, createSession);
+router.post('/', /*validateSessionCreation, validateTimeOfSession,*/ createSession);
 router.delete('/:id', deleteSession);
 router.get('/', getSessions);
 router.get('/:id', getOneSession);

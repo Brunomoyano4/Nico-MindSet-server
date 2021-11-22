@@ -12,7 +12,7 @@ const getSessions = (req, res) => {
 }
 
 const getOneSession = (req, res) => {
-  Sessions.findById (req.params._id).populate('psychology').populate('postulant')
+  Sessions.findById (req.params.id).populate('psychology').populate('postulant')
     .then ((sessions) => {
       return res.status(200).json(sessions)
     })
