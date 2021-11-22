@@ -111,6 +111,17 @@
     background: #F7F7F7;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   }
+
+  #containerProfiles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 16px;
+    background: #F7F7F7;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
   
   .header {
       width:100%;
@@ -167,7 +178,7 @@
       cursor: not-allowed;
   }
   
-  .modalInterview{
+  .modal{
     position:fixed;
     display: flex;
     flex-wrap: wrap;
@@ -180,11 +191,11 @@
   .title{
     color: #ff0000;
   }
-  .modalInterview>p{
+  .modal>p{
     text-align: center;
     font-weight: bold;
   }
-  .modalInterviewRemove{
+  .modalRemove{
     display:none;
   }
   .buttonModal{
