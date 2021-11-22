@@ -52,29 +52,29 @@ window.onload = () => {
         telephoneTd.innerText = item.telephone;
         cityTd.innerText = item.city;
         countryTd.innerText = item.country;
-        
+
         const button = document.createElement('button');
         button.innerText = 'Delete';
         actionsTD.append(button);
         button.onclick = (event) => {
           event.stopPropagation(event);
-          const modal=document.getElementById('modalPostulants')
-          modal.classList.add('modal')
-          const textTitle=document.createElement('p')
-          const textModal=document.createElement('p')
-          textTitle.innerText='CAUTION:'
-          textTitle.classList.add('title')
-          textModal.innerText='Are you sure you want to delete this postulation?'
-          const buttonConfirm=document.createElement('button')
-          const buttonCancel=document.createElement('button')
-          buttonConfirm.innerText="Confirm"
-          buttonCancel.innerText="Cancel"
-          modal.append(textTitle, textModal, buttonCancel, buttonConfirm)
-          buttonConfirm.classList.add('modalButton')
-          buttonCancel.classList.add('modalButton')
-          buttonConfirm.onclick = () => deletePostulant(item)
+          const modal=document.getElementById('modalPostulants');
+          modal.classList.add('modal');
+          const textTitle=document.createElement('p');
+          const textModal=document.createElement('p');
+          textTitle.innerText='CAUTION:';
+          textTitle.classList.add('title');
+          textModal.innerText='Are you sure you want to delete this postulation?';
+          const buttonConfirm=document.createElement('button');
+          const buttonCancel=document.createElement('button');
+          buttonConfirm.innerText="Confirm";
+          buttonCancel.innerText="Cancel";
+          modal.append(textTitle, textModal, buttonCancel, buttonConfirm);
+          buttonConfirm.classList.add('modalButton');
+          buttonCancel.classList.add('modalButton');
+          buttonConfirm.onclick = () => deletePostulant(item);
           buttonCancel.onclick = () => {
-            modal.classList.add('modalRemove')
+            modal.classList.add('modalRemove');
             window.location.href = `${window.location.origin}/views/postulantsList.html`;
           };
         };

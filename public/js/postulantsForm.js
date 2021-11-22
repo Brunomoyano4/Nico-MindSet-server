@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener('load', () => {
   console.log('all set up ✅')
 
   const navButton = document.getElementById('postulantsNav');
@@ -30,31 +30,8 @@ window.onload = () => {
   const params = new URLSearchParams(window.location.search);
   saveButton.disables = !!params.get('_id');
 
-  const onFocusInput = () => {
-    errorMessage.innerText = '';
-  };
-  
-  firstNameInput.onfocus = onFocusInput;
-  lastNameInput.onfocus = onFocusInput;
-  userNameInput.onfocus = onFocusInput;
-  emailInput.onfocus = onFocusInput;
-  passwordInput.onfocus = onFocusInput;
-  birthDateInput.onfocus = onFocusInput;
-  streetInput.onfocus = onFocusInput;
-  streetNumberInput.onfocus = onFocusInput;
-  postalCodeInput.onfocus = onFocusInput;
-  cityInput.onfocus = onFocusInput;
-  provinceInput.onfocus = onFocusInput;
-  countryInput.onfocus = onFocusInput;
-  telephoneInput.onfocus = onFocusInput;
-  jobPositionInput.onfocus = onFocusInput;
-  employerInput.onfocus = onFocusInput;
-  startDateInput.onfocus = onFocusInput;
-  endDateInput.onfocus = onFocusInput;
-  descriptionInput.onfocus = onFocusInput;
-
   if (params.get('_id')) {
-    fetch(`${window.location.origin}/api/postulants?_id=${params.get('_id')}`)
+    fetch(`${window.location.origin}/api/postulants/${params.get('_id')}`)
       .then((response) => {
         if (response.status !== 200) {
           return response.json().then(({ message }) => {
@@ -65,27 +42,25 @@ window.onload = () => {
       })
       .then((response) => {
         saveButton.disabled = false;
-        response.forEach((postulants) => {
-          firstNameInput.value = postulants.firstName
-          lastNameInput.value = postulants.lastName
-          userNameInput.value = postulants.userName
-          emailInput.value = postulants.email
-          passwordInput.value = postulants.password
-          birthDateInput.value = postulants.birthDate
-          streetInput.value = postulants.street
-          streetNumberInput.value = postulants.streetNumber
-          postalCodeInput.value = postulants.postalCode
-          cityInput.value = postulants.city
-          provinceInput.value = postulants.province
-          countryInput.value = postulants.country
-          telephoneInput.value = postulants.telephone
-          postulants.experience.forEach((experience) => {
+          firstNameInput.value = response.firstName
+          lastNameInput.value = response.lastName
+          userNameInput.value = response.userName
+          emailInput.value = response.email
+          passwordInput.value = response.password
+          birthDateInput.value = response.birthDate
+          streetInput.value = response.street
+          streetNumberInput.value = response.streetNumber
+          postalCodeInput.value = response.postalCode
+          cityInput.value = response.city
+          provinceInput.value = response.province
+          countryInput.value = response.country
+          telephoneInput.value = response.telephone
+          response.experience.forEach((experience) => {
             jobPositionInput.value = experience.jobPosition
             employerInput.value = experience.employer
             startDateInput.value = experience.startDate
             endDateInput.value = experience.endDate
             descriptionInput.value = experience.description
-          });
         });
       })
       .catch((error) => {
@@ -153,4 +128,4 @@ window.onload = () => {
         saveButton.disabled = false;
       })
   };
-};
+})

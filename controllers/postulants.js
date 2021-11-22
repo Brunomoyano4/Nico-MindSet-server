@@ -15,7 +15,7 @@ const getPostulants = (req, res) => {
 };
 
 const getOnePostulant = (req, res) => {
-  Postulants.findOne({ _id: req.params.id }, (error, postulant) => {
+  Postulants.findById(req.params.id, (error, postulant) => {
     if (!postulant) {
       return res.status(404).json({
         msg: `Postulant with id: ${req.params.id} was not found`,
