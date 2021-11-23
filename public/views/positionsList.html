@@ -17,7 +17,8 @@
       <a href="/views/applicationsList.html">applications</a>
       <a href="/views/clientsList.html">clients</a>
       <a href="/views/interviewsList.html">interviews</a>
-      <a href="/views/positionsList.html">positions</a>
+      <a id="positionsNav" href="/views/positionsList.html">positions</a>
+      <a id="postulantsNav" href="/views/postulantsList.html">postulants</a>
       <a href="/views/profilesList.html">profiles</a>
       <a href="/views/psychologistsList.html">psychologists</a>
       <a href="/views/sessionsList.html">sessions</a>
@@ -28,15 +29,18 @@
     <table class="list">
       <thead>
         <tr>
+          <th>Client ID</th>
           <th>Job Name</th>
           <th>Job Description</th>
           <th>Created At</th>
+          <th>Actions</th>
         </tr>
       </thead>
-      <tbody id="table-content">
+      <tbody id="positions-table">
       </tbody>
     </table>
-    <button class="button" id="addClient" type="button">
+    <div id="modalPositions"></div>
+    <button class="button" id="addPosition" type="button">
       Add Position
     </button>
   </div>
