@@ -93,8 +93,22 @@
   /* form styles */
   
   .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     min-width: 200px;
     max-width: 700px;
+    margin: 10px auto;
+    padding: 16px;
+    background: #F7F7F7;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  #containerInterviews {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px;
     margin: 10px auto;
     padding: 16px;
     background: #F7F7F7;
@@ -108,7 +122,7 @@
     font-weight: 300;
     text-align: center;
     color: #fff;
-    margin: -16px -16px 16px -16px;
+    width: 100%;
   }
   
   .container input,
@@ -170,7 +184,7 @@
   }
 
   .modalSession{
-    position: relative;
+    position: fixed;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -192,7 +206,7 @@
   }
 
   .modalSessionRemove{
-    display:none;
+    display:flex;
   }
 
   .modalSession>button{
@@ -204,3 +218,5 @@
     padding: 5px;
     color: #ff0000;
   }
+
+  

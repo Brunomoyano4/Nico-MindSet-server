@@ -23,32 +23,6 @@ window.onload = () => {
     dateInput.onfocus = onFocusInput;
     timeInput.onfocus = onFocusInput;
     statInput.onfocus = onFocusInput;
-
-  
-    if (params.get('sessionId')) {
-      fetch(`${window.location.origin}/api/sessions/${params.get('sessionId')}`)
-        .then((response) => {
-          if (response.status !== 200 && response.status !== 201) {
-            return response.json().then(({ message }) => {
-              throw new Error(message);
-            });
-          }
-          return response.json();
-        })
-        .then((response) => {
-            console.log('res', response)
-          saveButton.disabled = false;
-            psychologistInput.value = response.psychology._id;
-            postulantInput.value = response.postulant._id;
-            dateInput.value = response.date;
-            timeInput.value = response.time;
-            statInput.value = response.stat;
-
-        })
-        .catch((error) => {
-          errorMessage.innerText = error;
-        });
-    }
   
     form.onsubmit = (event) => {
       event.preventDefault();
@@ -56,6 +30,9 @@ window.onload = () => {
   
       let url;
       const options = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
           psychology: psychologistInput.value,
           postulant: postulantInput.value,
@@ -80,7 +57,7 @@ window.onload = () => {
         })
         .then(() => {
           // eslint-disable-next-line no-underscore-dangle
-          window.location.href = `${window.location.origin}/views/sessionsList.html`;
+          /*window.location.href = `${window.location.origin}/views/sessionsList.html`;*/
         })
         .catch((error) => {
           errorMessage.innerText = error;

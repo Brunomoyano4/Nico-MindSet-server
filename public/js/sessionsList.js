@@ -11,19 +11,21 @@ const openNewSessionForm = () => {
 const deleteSession = (id, event) => {
   // eslint-disable-next-line no-underscore-dangle
   event.stopPropagation();
+  console.log(id)
   const url = `${window.location.origin}/api/sessions/${id}`
   fetch(url, {
     method: 'DELETE'
   })
     .then((response) => {
-      if (response.status != 200) {
-        return response.json().then(({ message }) => {
-          throw new Error(message);
+      if (response.status !== 200) {
+        throw new Error(response);
+      } else {
+        window.location.reload()
+        return response.then(({ message }) => {
+          console.log('res',response.json()) 
         });
       }
-      return response.json();
     })
-  window.location.reload()
     .catch((error => error));
 };
 
