@@ -2,58 +2,9 @@ window.onload = () => {
     const navButton = document.getElementById('adminsNav');
     navButton.classList.add('activePage');
   
-    const nameInput = document.getElementById('firstName');
-    const lastNameInput = document.getElementById('lastName');
-    const usernameInput = document.getElementById('username');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
- 
-    const saveButton = document.getElementById('saveButton');
-    const errorMessage = document.getElementById('error_massage');
-  
     const params = new URLSearchParams(window.location.search);
     saveButton.disabled = !!params.get('adminId');
-  
-    const onFocusInput = () => {
-      saveButton.disabled = false;
-    };
-  
-    nameInput.onfocus = onFocusInput;
-    lastNameInput.onfocus = onFocusInput;
-    usernameInput.onfocus = onFocusInput;
-    emailInput.onfocus = onFocusInput;
-    passwordInput.onfocus = onFocusInput;
-      
-    let ErrName = ErrLastName = "";
-    const blurName = (event) => {
-        let val = event.target.value;
-        let ok = true
-        for (i=0;i<val.length;i++){
-            if(val[i].match(/[a-zA-Z]/g)==null) {
-                ok = false;
-            }
-        }
-        ok?ErrName="":ErrName="Name not valid \n";
-        errorMessage.innerText = ErrName + ErrLastName;
-    };
-    const blurLastName = (event) => {
-        let val = event.target.value;
-        let ok = true
-        for (i=0;i<val.length;i++){
-            if(val[i].match(/[a-zA-Z," "]/g)==null) {
-                ok = false;
-            }
-        }
-        ok?ErrLastName="":ErrLastName="Last name not valid \n";
-        errorMessage.innerText = ErrName + ErrLastName;
-    };
-
-    nameInput.onblur = blurName;
-    lastNameInput.onblur = blurLastName;
-    usernameInput.onblur = blurUsername;
-    // emailInput.blur = blurEmail
-    // passwordInput.blur = blurPassword
-    
+         
     if (params.get('adminId')) {
       fetch(`${window.location.origin}/api/admins/${params.get('adminId')}`)
         .then((response) => {
