@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener("load", () => {
   const navButton = document.getElementById("psychologistNav");
   navButton.classList.add("activePage");
 
@@ -14,17 +14,13 @@ window.onload = () => {
   const errorMessage = document.getElementById("error_massage");
 
   const params = new URLSearchParams(window.location.search);
-  saveButton.disabled = !!params.get("id");
-
-  const onFocusInput = () => {
-    errorMessage.innerText = "";
-  };
+  //saveButton.disabled = !!params.get("id");
 
   const inputs = document.querySelectorAll("input");
   inputs.forEach((input) => {
-    addEventListener("focus", onFocusInput);
+    input.addEventListener("focus", (e) => errorMessage.innerText = " ");
   });
-
+  
   if (params.get("id")) {
     fetch(`${window.location.origin}/api/psychologists/${params.get("id")}`)
       .then((response) => {
@@ -94,4 +90,5 @@ window.onload = () => {
         saveButton.disabled = false;
       });
   };
-};
+}
+)
