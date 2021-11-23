@@ -15,33 +15,26 @@ window.onload = () => {
     const backgroundModal = document.getElementsByClassName('backgroundModal');
     const acceptButton = document.getElementsByClassName('acceptButt');
     const cancelButton = document.getElementsByClassName('closeButt');
-    console.log(acceptButton);
-    console.log(backgroundModal);
-    backgroundModal[0].classList.add('Visible');
-    acceptButton[0].onclick = () => {
-      console.log ("clicked");
-    }
-    // const bodymodal = document.getElementById('conteinerModal');
-    // bodymodal.onclick = () => {console.log("Clicked")};
-    // console.log(acceptButton);
-    // acceptButton.onclick = (event) => {
-    //   event.stopPropagation();
-    //   console.log("Mouse over");
-  
    
-    // const url = `${window.location.origin}/api/admins/${id}`
-    // fetch(url, {
-    //   method: 'DELETE'
-    // })
-    // .then((response) => {
-    //   if (response.status != 200) {
-    //     return response.json().then(({ ErrMessage }) => {
-    //       throw new Error(ErrMessage);
-    //     });
-    //   }
-    //   return response.json();
-    // })
-    // window.location.reload();
+    backgroundModal[0].classList.add('Visible');
+    cancelButton[0].onclick = () => {
+      backgroundModal[0].classList.remove('Visible');
+    }
+    acceptButton[0].onclick = () => {
+      const url = `${window.location.origin}/api/admins/${id}`
+      fetch(url, {
+        method: 'DELETE'
+      })
+      .then((response) => {
+        if (response.status != 200) {
+          return response.json().then(({ ErrMessage }) => {
+            throw new Error(ErrMessage);
+          });
+        }
+        return response.json();
+      })
+      window.location.reload();
+    }
   };
   const navButton = document.getElementById('adminsNav');
   navButton.classList.add('activePage');
@@ -50,11 +43,7 @@ window.onload = () => {
   addadminButton.onclick = openNewadminForm;
 
   const tableContent = document.getElementById('table-content');
-  // const adminModal = document.getElementById('backgroundModal');
-  // const modalVisible = (event) => {
-  //   adminModal.id = "Visible";
-  // }
-    
+ 
   fetch(`${window.location.origin}/api/admins`)
     .then((response) => response.json())
     .then((response) => {
