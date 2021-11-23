@@ -8,8 +8,8 @@ const openNewForm = () => {
 
 const deleteApplication = (id, e) => {
   e.stopPropagation();
-  fetch(`${window.location.origin}/api/applications/${id}`,{
-    method: 'DELETE',
+  fetch(`${window.location.origin}/api/applications/${id}`, {
+    method: "DELETE",
   });
   window.location.reload();
 };
@@ -31,7 +31,7 @@ window.onload = () => {
         const clientTD = document.createElement("td");
         const postulantNameTD = document.createElement("td");
 
-        const resultTD = document.createElement("td")
+        const resultTD = document.createElement("td");
         const actionsTD = document.createElement("td");
         const deleteBtn = document.createElement("button");
 
@@ -45,7 +45,7 @@ window.onload = () => {
         tr.onclick = () => openEditForm(application._id);
 
         actionsTD.append(deleteBtn);
-        tr.append(jobTD, clientTD, postulantNameTD, resultTD,actionsTD);
+        tr.append(jobTD, clientTD, postulantNameTD, resultTD, actionsTD);
         tableContent.append(tr);
       });
     });

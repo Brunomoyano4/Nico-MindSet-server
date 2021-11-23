@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener("load", () => {
   const navButton = document.getElementById("applicationsNav");
   navButton.classList.add("activePage");
 
@@ -93,4 +93,4 @@ window.onload = () => {
         saveButton.disabled = false;
       });
   };
-};
+});
