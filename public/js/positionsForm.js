@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+window.onload = () => {
   console.log('all set up ✅')
 
   const navButton = document.getElementById('positionsNav');
@@ -7,7 +7,10 @@ window.addEventListener('load', () => {
   const clientIdInput = document.getElementById('clientId');
   const jobInput = document.getElementById('job');
   const descriptionInput = document.getElementById('description');
-  const createdAtInput = document.getElementById('createdAt');
+  const input = document.querySelectorAll('input');
+  const inputVal = document.querySelector('input').value;
+  console.log(inputVal)
+  const lettersNumbersSpaces = /^[0-9a-zA-Z]+$/;
 
   const form = document.getElementById('form');
   const saveButton = document.getElementById('saveButton');
@@ -16,6 +19,24 @@ window.addEventListener('load', () => {
   const params = new URLSearchParams(window.location.search);
   saveButton.disables = !!params.get('_id');
 
+  input.forEach((input) => {
+    input.addEventListener('focus', () => errorMessage.innerText = '')
+  });
+
+  const validateFront = () => {
+    console.log(clientIdInput.value)
+    if (!clientIdInput.value.match(lettersNumbersSpaces)){
+      return false
+    }
+    if (!jobInput.value.match(lettersNumbersSpaces)){
+      return false
+    }
+    if (!descriptionInput.value.match(lettersNumbersSpaces)){
+      return false
+    }
+    return true
+  }
+
   const onFocusInput = () => {
     errorMessage.innerText = '';
   };
@@ -23,7 +44,6 @@ window.addEventListener('load', () => {
   clientIdInput.onfocus = onFocusInput;
   jobInput.onfocus = onFocusInput;
   descriptionInput.onfocus = onFocusInput;
-  createdAtInput.onfocus = onFocusInput;
 
   if (params.get('_id')) {
     fetch(`${window.location.origin}/api/positions/${params.get('_id')}`)
@@ -40,7 +60,6 @@ window.addEventListener('load', () => {
           clientIdInput.value = response.clientId
           jobInput.value = response.job
           descriptionInput.value = response.description
-          createdAtInput.value = response.createdAt
       })
       .catch((error) => {
         errorMessage.innerText = error;
@@ -49,46 +68,48 @@ window.addEventListener('load', () => {
 
   form.onsubmit = (event) => {
     event.preventDefault();
-    saveButton.disabled = true;
-
-    let url;
-    const options = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        clientId: clientIdInput.value,
-        job: jobInput.value,
-        description: descriptionInput.value,
-        createdAt: createdAtInput.value,
-      }),
-    };
-
-    if (params.get('_id')) {
-      options.method = 'PUT';
-      url = `${window.location.origin}/api/positions/${params.get('_id')}`;
+    console.log(validateFront())
+    if (validateFront() === true){
+      (errorMessage.innerText = '')
+      saveButton.disabled = true;
+      let url;
+      const options = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          clientId: clientIdInput.value,
+          job: jobInput.value,
+          description: descriptionInput.value,
+        }),
+      };
+      if (params.get('_id')) {
+        options.method = 'PUT';
+        url = `${window.location.origin}/api/positions/${params.get('_id')}`;
+      } else {
+        options.method = 'POST';
+        url = `${window.location.origin}/api/positions`;
+      }
+      fetch(url, options)
+        .then((response) => {
+          if (response.status !==200 && response.status!==201) {
+            return response.json().then(({ message }) => {
+              throw new Error(message);
+            });
+          }
+          return response.json();
+        })
+        .then(() => {
+          window.location.href = `${window.location.origin}/views/positionsList.html`;
+        })
+        .catch((error) => {
+          errorMessage.innerText = error;
+        })
+        .finally(() => {
+          saveButton.disabled = false;
+        })
     } else {
-      options.method = 'POST';
-      url = `${window.location.origin}/api/positions`;
+      errorMessage.innerText = 'Inputs must be filled, with numbers and letters only';
     }
-
-    fetch(url, options)
-      .then((response) => {
-        if (response.status !==200 && response.status!==201) {
-          return response.json().then(({ message }) => {
-            throw new Error(message);
-          });
-        }
-        return response.json();
-      })
-      .then(() => {
-        window.location.href = `${window.location.origin}/views/positionsList.html`;
-      })
-      .catch((error) => {
-        errorMessage.innerText = error;
-      })
-      .finally(() => {
-        saveButton.disabled = false;
-      })
   };
-})
+}
