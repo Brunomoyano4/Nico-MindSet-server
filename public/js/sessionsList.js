@@ -62,23 +62,23 @@ window.onload = () => {
         tableContent.append(tr);
         button.onclick = (event) => {
           event.stopPropagation()
-          const modal = document.getElementById('modalSession')
-          modal.classList.add('modalSession')
-          const textTitle = document.createElement('p')
-          const textModal = document.createElement('p')
+          const modal = document.getElementById('modalSession');
+          modal.classList.add('modalSession');
+          const textTitle = document.createElement('p');
+          const textModal = document.createElement('p');
           textTitle.innerText = 'CAUTION:'
-          textTitle.classList.add('title')
+          textTitle.classList.add('title');
           textModal.innerText = 'Are you sure you want to delete the session?'
-          const buttonConfirm = document.createElement('button')
-          const buttonCancel = document.createElement('button')
+          const buttonConfirm = document.createElement('button');
+          const buttonCancel = document.createElement('button');
           buttonConfirm.innerText = "Confirm"
           buttonCancel.innerText = "Cancel"
-          modal.append(textTitle, textModal, buttonCancel, buttonConfirm)
-          buttonConfirm.classList.add('modalSessionButton')
-          buttonCancel.classList.add('modalSessionButton')
-          buttonConfirm.onclick = () => deleteSession(sessions._id, event)
+          modal.append(textTitle, textModal, buttonCancel, buttonConfirm);
+          buttonConfirm.classList.add('modalSessionButton');
+          buttonCancel.classList.add('modalSessionButton');
+          buttonConfirm.onclick = () => deleteSession(sessions._id, event);
           buttonCancel.onclick = () => {
-            modal.classList.add('modalSessionRemove')
+            modal.classList.add('modalSessionRemove');
             window.location.href = `${window.location.origin}/views/sessionsList.html`;
           }
         }

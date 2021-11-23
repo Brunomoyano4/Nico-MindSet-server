@@ -3,10 +3,10 @@ window.onload = () => {
     navButton.classList.add('activePage');
   
     const psychologistInput = document.getElementById('psychologyId');
-    const postulantInput = document.getElementById('postulantId')
+    const postulantInput = document.getElementById('postulantId');
     const dateInput = document.getElementById('date');
     const timeInput = document.getElementById('time');
-    const statInput = document.getElementById('stat')
+    const statInput = document.getElementById('stat');
     const form = document.getElementById('form');
     const saveButton = document.getElementById('saveButton');
     const errorMessage = document.getElementById('errorMessage');
@@ -57,7 +57,7 @@ window.onload = () => {
         })
         .then(() => {
           // eslint-disable-next-line no-underscore-dangle
-          /*window.location.href = `${window.location.origin}/views/sessionsList.html`;*/
+          window.location.href = `${window.location.origin}/views/sessionsList.html`;
         })
         .catch((error) => {
           errorMessage.innerText = error;
