@@ -1,4 +1,4 @@
-
+window.onload = () => {
   const openEditadminForm = (admin) => {
     // eslint-disable-next-line no-underscore-dangle
     window.location.href = `${window.location.origin}/views/adminsForm.html?adminId=${admin._id}`;
@@ -12,22 +12,37 @@
   const deleteAdmin = (id,event) => {
     // eslint-disable-next-line no-underscore-dangle
     event.stopPropagation();
-    const url = `${window.location.origin}/api/admins/${id}`
-    fetch(url, {
-      method: 'DELETE'
-    })
-    .then((response) => {
-      if (response.status != 200) {
-        return response.json().then(({ ErrMessage }) => {
-          throw new Error(ErrMessage);
-        });
-      }
-      return response.json();
-    })
-    window.location.reload();
+    const backgroundModal = document.getElementsByClassName('backgroundModal');
+    const acceptButton = document.getElementsByClassName('acceptButt');
+    const cancelButton = document.getElementsByClassName('closeButt');
+    console.log(acceptButton);
+    console.log(backgroundModal);
+    backgroundModal[0].classList.add('Visible');
+    acceptButton[0].onclick = () => {
+      console.log ("clicked");
+    }
+    // const bodymodal = document.getElementById('conteinerModal');
+    // bodymodal.onclick = () => {console.log("Clicked")};
+    // console.log(acceptButton);
+    // acceptButton.onclick = (event) => {
+    //   event.stopPropagation();
+    //   console.log("Mouse over");
+  
+   
+    // const url = `${window.location.origin}/api/admins/${id}`
+    // fetch(url, {
+    //   method: 'DELETE'
+    // })
+    // .then((response) => {
+    //   if (response.status != 200) {
+    //     return response.json().then(({ ErrMessage }) => {
+    //       throw new Error(ErrMessage);
+    //     });
+    //   }
+    //   return response.json();
+    // })
+    // window.location.reload();
   };
-
-  window.onload = () => {  
   const navButton = document.getElementById('adminsNav');
   navButton.classList.add('activePage');
 
