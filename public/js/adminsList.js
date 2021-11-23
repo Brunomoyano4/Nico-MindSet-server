@@ -64,9 +64,6 @@ window.onload = () => {
         deleteTD.append(deleteButton);
         deleteButton.innerText = "\u274C";
         deleteButton.onclick = (event) => deleteAdmin(admin._id, event)
-        // deleteButton.onclick = (event) => modalVisible(event);
-        // const acceptButton = document.getElementsByClassName('acceptButt');
-        // acceptButton.onclick = () => deleteAdmin(admin._id);
         tr.onclick = () => openEditadminForm(admin);
         tr.append(nameTD, lastNameTD, usernameTD, emailTD, passwordTD, deleteTD);
         tableContent.append(tr);
