@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener('load', () => {
   console.log('all set up ✅')
 
   const navButton = document.getElementById('positionsNav');
@@ -26,7 +26,7 @@ window.onload = () => {
   createdAtInput.onfocus = onFocusInput;
 
   if (params.get('_id')) {
-    fetch(`${window.location.origin}/api/positions?_id=${params.get('_id')}`)
+    fetch(`${window.location.origin}/api/positions/${params.get('_id')}`)
       .then((response) => {
         if (response.status !== 200) {
           return response.json().then(({ message }) => {
@@ -37,12 +37,10 @@ window.onload = () => {
       })
       .then((response) => {
         saveButton.disabled = false;
-        response.forEach((positions) => {
-          clientIdInput.value = positions.clientId
-          jobInput.value = positions.job
-          descriptionInput.value = positions.description
-          createdAtInput.value = positions.createdAt
-        });
+          clientIdInput.value = response.clientId
+          jobInput.value = response.job
+          descriptionInput.value = response.description
+          createdAtInput.value = response.createdAt
       })
       .catch((error) => {
         errorMessage.innerText = error;
@@ -93,4 +91,4 @@ window.onload = () => {
         saveButton.disabled = false;
       })
   };
-};
+})
