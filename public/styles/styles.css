@@ -93,11 +93,25 @@
   /* form styles */
   
   .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       min-width: 200px;
       max-width: 700px;
       margin: 10px auto;
       padding: 16px;
       background: #F7F7F7;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  #containerClients {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 16px;
+    background: #F7F7F7;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   }
   
@@ -108,7 +122,7 @@
       font-weight: 300;
       text-align: center;
       color: #fff;
-      margin: -16px -16px 16px -16px;
+      width: 100%;
   }
   
   .container input,
@@ -171,4 +185,40 @@
 
   .activePage {
     color: #27AE60;
+  }
+
+  .modalClient{
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+    width: 200px;
+    height: 100px;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title{
+    color: #ff0000;
+  }
+
+  .modalClient>p{
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .modalClientRemove{
+    display:flex;
+  }
+
+  .modalClient>button{
+    background-color: #56BE8A;
+    color: #ffffff;
+  }
+
+  .error{
+    padding: 5px;
+    color: #ff0000;
   }

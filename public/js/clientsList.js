@@ -49,11 +49,32 @@ const openEditClientForm = (client) => {
           emailTD.innerText = clients.email;
           const button = document.createElement('button');
           button.innerText = 'Delete';
-          button.onclick = (event) => deleteClient(clients._id, event);
           actionTD.append(button);
           tr.onclick = () => openEditClientForm(clients);
           tr.append(NameTD, phoneTD, emailTD, actionTD);
           tableContent.append(tr);
+          button.onclick = (event) => {
+            event.stopPropagation()
+            const modal = document.getElementById('modalClient')
+            modal.classList.add('modalClient')
+            const textTitle = document.createElement('p')
+            const textModal = document.createElement('p')
+            textTitle.innerText = 'CAUTION:'
+            textTitle.classList.add('title')
+            textModal.innerText = 'Are you sure you want to delete this client?'
+            const buttonConfirm = document.createElement('button')
+            const buttonCancel = document.createElement('button')
+            buttonConfirm.innerText = "Confirm"
+            buttonCancel.innerText = "Cancel"
+            modal.append(textTitle, textModal, buttonCancel, buttonConfirm)
+            buttonConfirm.classList.add('modalClientButton')
+            buttonCancel.classList.add('modalClientButton')
+            buttonConfirm.onclick = () => deleteClient(clients._id, event)
+            buttonCancel.onclick = () => {
+              modal.classList.add('modalClientRemove')
+              window.location.href = `${window.location.origin}/views/clientsList.html`
+            }
+          }
         });
       });
   };
