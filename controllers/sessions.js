@@ -22,6 +22,7 @@ const getOneSession = (req, res) => {
 }
 
 const createSession = (req, res) => {
+  console.log('res', res)
   const newSession = new Sessions({
     psychology: req.body.psychology,
     postulant: req.body.postulant,

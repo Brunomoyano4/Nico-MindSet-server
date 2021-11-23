@@ -10,10 +10,10 @@ const {
   deleteSession
 } = controller;
 
-const {
+/*const {
   validateSessionCreation,
   validateTimeOfSession
-} = validation;
+} = validation;*/
 
 router.post('/', /*validateSessionCreation, validateTimeOfSession,*/ createSession);
 router.delete('/:id', deleteSession);
