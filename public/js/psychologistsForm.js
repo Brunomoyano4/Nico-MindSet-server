@@ -8,13 +8,11 @@ window.addEventListener("load", () => {
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
 
-
   const form = document.getElementById("form");
   const saveButton = document.getElementById("saveButton");
   const errorMessage = document.getElementById("error_massage");
 
   const params = new URLSearchParams(window.location.search);
-  //saveButton.disabled = !!params.get("id");
 
   const inputs = document.querySelectorAll("input");
   inputs.forEach((input) => {
@@ -90,5 +88,4 @@ window.addEventListener("load", () => {
         saveButton.disabled = false;
       });
   };
-}
-)
+})
