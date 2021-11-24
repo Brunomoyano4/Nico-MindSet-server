@@ -7,7 +7,6 @@ window.addEventListener("load", () => {
   const postulantInput = document.getElementById("postulant");
   const resultInput = document.getElementById("result");
 
-
   const form = document.getElementById("form");
   const saveButton = document.getElementById("saveButton");
   const errorMessage = document.getElementById("error_massage");
