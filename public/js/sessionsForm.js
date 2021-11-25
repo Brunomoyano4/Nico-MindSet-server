@@ -41,13 +41,10 @@ window.onload = () => {
           stat: statInput.value
         }),
       };
-      console.log('body', options.body)
-        options.method = 'POST';
-        url = `${window.location.origin}/api/sessions`;
-      console.log(url)
+      options.method = 'POST';
+      url = `${window.location.origin}/api/sessions`;
       fetch(url, options)
         .then((response) => {
-            
           if (response.status !== 200 && response.status !== 201) {
             return response.json().then(({ message }) => {
               throw new Error(message);

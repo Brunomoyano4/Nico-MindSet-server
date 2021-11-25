@@ -1,7 +1,7 @@
 * {
   font-family: Helvetica, sans-serif;
-  }
-  
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -16,8 +16,8 @@ header {
   height: 80px;
   margin-bottom: 40px;
   padding: 0 30px;
-  background-color: #56BE8A;
-  box-shadow: 0px 2px 9px 0px rgba(0,0,0,0.75);
+  background-color: #56be8a;
+  box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.75);
 }
 
 #mindSetLogo {
@@ -43,7 +43,7 @@ header > nav > a:hover {
   color: black;
 }
 .activePage {
-  color: #27AE60;
+  color: #27ae60;
 }
 
 .listContainer {
@@ -62,7 +62,7 @@ header > nav > a:hover {
 }
 
 .list thead tr {
-  background-color: #27AE60;
+  background-color: #27ae60;
   color: #ffffff;
   text-align: left;
 }
@@ -87,7 +87,7 @@ header > nav > a:hover {
 
 .list tbody tr.active-row {
   font-weight: bold;
-  color: #27AE60;
+  color: #27ae60;
 }
 
 /* form styles */
@@ -100,23 +100,23 @@ header > nav > a:hover {
   max-width: 700px;
   margin: 10px auto;
   padding: 16px;
-  background: #F7F7F7;
+  background: #f7f7f7;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-#containerInterviews {
+#containerClients {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 600px;
   margin: 10px auto;
   padding: 16px;
-  background: #F7F7F7;
+  background: #f7f7f7;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .header {
-  background: #27AE60;
+  background: #27ae60;
   padding: 20px 0;
   font-size: 140%;
   font-weight: 300;
@@ -141,28 +141,30 @@ header > nav > a:hover {
 .container input:focus,
 .container textarea:focus,
 .container select:focus {
-  box-shadow: 0 0 5px #27AE60;
+  box-shadow: 0 0 5px #27ae60;
   padding: 15px;
-  border: 1px solid #27AE60;
+  border: 1px solid #27ae60;
 }
 
-.button, .container input[type="submit"] {
+.button,
+.container input[type="submit"] {
   box-sizing: border-box;
   width: 100%;
   padding: 15px;
-  background: #27AE60;
-  border-bottom: 2px solid #30C29E;
-  border-top-style: none;
-  border-right-style: none;
-  border-left-style: none;
-  color: #fff;
+  background: #27ae60;
+  border-bottom: 2px solid #30c29e;
+  box-shadow: 0 0 5px #27ae60;
+  padding: 15px;
+  border: 1px solid #27ae60;
 }
 
-.button:hover, .container input[type="submit"]:hover {
-  background: #2EBC99;
+.button:hover,
+.container input[type="submit"]:hover {
+  background: #2ebc99;
 }
 
-.button:disabled, .container input[type="submit"]:disabled {
+.button:disabled,
+.container input[type="submit"]:disabled {
   background: #555;
   border-bottom: 2px solid #555;
   cursor: not-allowed;
@@ -174,7 +176,7 @@ footer {
   align-items: center;
   height: 100px;
   margin-top: 40px;
-  background-color: #56BE8A;
+  background-color: #56be8a;
 }
 
 footer > div {
@@ -183,7 +185,11 @@ footer > div {
   color: white;
 }
 
-.modalSession{
+.activePage {
+  color: #27ae60;
+}
+
+.modalClient .modalSession {
   position: fixed;
   display: flex;
   flex-wrap: wrap;
@@ -196,26 +202,44 @@ footer > div {
   justify-content: center;
 }
 
-.title{
+.title {
   color: #ff0000;
 }
 
-.modalSession>p{
+.modalSession > p {
   text-align: center;
   font-weight: bold;
 }
 
-.modalSessionRemove{
-  display:flex;
+.modalClient > p {
+  text-align: center;
+  font-weight: bold;
 }
 
-.modalSession>button{
-  background-color: #56BE8A;
+.modalSessionRemove {
+  display: flex;
+}
+
+.modalSession > button {
+  background-color: #56be8a;
   color: #ffffff;
 }
 
-.error{
+.error {
   padding: 5px;
   color: #ff0000;
 }
 
+.modalClientRemove {
+  display: flex;
+}
+
+.modalClient > button {
+  background-color: #56be8a;
+  color: #ffffff;
+}
+
+.error {
+  padding: 5px;
+  color: #ff0000;
+}

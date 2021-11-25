@@ -2,7 +2,7 @@ const fs = require('fs')
 const Applications = require('../models/Applications')
 
 const getApplications = (req, res) => {
-  Applications.find()
+  Applications.find().populate('positions').populate('postulants').populate('client')
     .then ((applications) => {
       return res.status(200).json(applications)
     })
@@ -11,18 +11,8 @@ const getApplications = (req, res) => {
     })
 }
 
-const getApplicationByPostulantId = (req, res) => {
-  Applications.find({ postulantId: req.params.postulantId })
-    .then ((applications) => {
-      return res.status(200).json(applications)
-    })
-    .catch((error) => {
-      return res.status(400).json(error)
-    })
-}
-
-const getApplicationByPositionId = (req, res) => {
-  Applications.find({ positionId: req.params.positionId })
+const getApplicationById = (req, res) => {
+  Applications.findById (req.params._id).populate('positions').populate('postulants').populate('client')
     .then ((applications) => {
       return res.status(200).json(applications)
     })
@@ -33,9 +23,10 @@ const getApplicationByPositionId = (req, res) => {
 
 const createApplication = (req, res) => {
   const newApplication = new Applications({
-    postulantId: req.body.postulantId,
-    positionId: req.body.positionId,
-    createdAt: Date.now().toString()
+    positions: req.body.positions,
+    postulants: req.body.postulants,
+    client: req.body.client,
+    result: req.body.result,
   })
   newApplication.save((error, application) => {
     if (error) {
@@ -43,6 +34,24 @@ const createApplication = (req, res) => {
     }
     return res.status(201).json(application)
   })
+};
+
+const updateApplication = (req, res) => {
+  Applications.findByIdAndUpdate(req.params._id,
+    req.body,
+    { new: true },
+    (error, updatedApplication) => {
+      if (!updatedApplication) {
+        return res.status(404).json({
+          msg: `Application with id: ${req.params._id} was not found`
+        })
+      }
+      if (error) {
+        return res.status(400).json(error)
+      }
+      return res.status(200).json(updatedApplication)
+    }
+  )
 };
 
 const deleteApplication = (req, res) => {
@@ -57,8 +66,8 @@ const deleteApplication = (req, res) => {
 
 module.exports = {
   getApplications,
-  getApplicationByPositionId,
-  getApplicationByPostulantId,
+  getApplicationById,
   createApplication,
+  updateApplication,
   deleteApplication
 }

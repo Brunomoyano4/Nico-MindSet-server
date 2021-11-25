@@ -11,7 +11,6 @@ const openNewSessionForm = () => {
 const deleteSession = (id, event) => {
   // eslint-disable-next-line no-underscore-dangle
   event.stopPropagation();
-  console.log(id)
   const url = `${window.location.origin}/api/sessions/${id}`
   fetch(url, {
     method: 'DELETE'
@@ -21,9 +20,6 @@ const deleteSession = (id, event) => {
         throw new Error(response);
       } else {
         window.location.reload()
-        return response.then(({ message }) => {
-          console.log('res',response.json()) 
-        });
       }
     })
     .catch((error => error));
@@ -49,8 +45,8 @@ window.onload = () => {
         const timeTD = document.createElement('td');
         const statusTD = document.createElement('td');
         const actionTD = document.createElement('td');
-        psychologistTD.innerText = `${sessions.psychology.firstName} ${sessions.psychology.lastName}`;
-        postulantTD.innerText = `${sessions.postulant.firstName} ${sessions.postulant.lastName}`;
+        psychologistTD.innerText = `${sessions.psychology?.firstName} ${sessions.psychology?.lastName}`;
+        postulantTD.innerText = `${sessions.postulant?.firstName} ${sessions.postulant?.lastName}`;
         dateTD.innerText = sessions.date;
         timeTD.innerText = sessions.time;
         statusTD.innerText = sessions.stat;
@@ -62,25 +58,7 @@ window.onload = () => {
         tableContent.append(tr);
         button.onclick = (event) => {
           event.stopPropagation()
-          const modal = document.getElementById('modalSession');
-          modal.classList.add('modalSession');
-          const textTitle = document.createElement('p');
-          const textModal = document.createElement('p');
-          textTitle.innerText = 'CAUTION:'
-          textTitle.classList.add('title');
-          textModal.innerText = 'Are you sure you want to delete the session?'
-          const buttonConfirm = document.createElement('button');
-          const buttonCancel = document.createElement('button');
-          buttonConfirm.innerText = "Confirm"
-          buttonCancel.innerText = "Cancel"
-          modal.append(textTitle, textModal, buttonCancel, buttonConfirm);
-          buttonConfirm.classList.add('modalSessionButton');
-          buttonCancel.classList.add('modalSessionButton');
-          buttonConfirm.onclick = () => deleteSession(sessions._id, event);
-          buttonCancel.onclick = () => {
-            modal.classList.add('modalSessionRemove');
-            window.location.href = `${window.location.origin}/views/sessionsList.html`;
-          }
+          deleteSession(sessions._id, event);
         }
       });
     });
