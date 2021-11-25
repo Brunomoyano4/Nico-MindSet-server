@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const InterviewSchema = new Schema ({
     positionId: {type: String, lowercase: true, required: true},
     postulantId: {type: String, lowercase: true, required: true},
-    dateTime: {type: Date, required: true},
+    dateTime: {type: String, required: true},
     status: {type: String, enum: ['pending', 'cancelled', 'next step', 'finished'], lowercase: true, required: true}
 })
 

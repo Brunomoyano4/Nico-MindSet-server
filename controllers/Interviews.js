@@ -40,7 +40,7 @@ const createInterview = (req, res) => {
 }
 
 const deleteInterview = (req, res) => { 
-  Interviews.findOneAndDelete(req.params.id)
+  Interviews.findByIdAndDelete(req.params.id)
     .then((result) => {
       if(!result) {
         return res.status(400).json({
@@ -55,7 +55,7 @@ const deleteInterview = (req, res) => {
 }
 
 const editInterview = (req, res) => {
-  Interviews.findOneAndUpdate(req.params.id,
+  Interviews.findByIdAndUpdate(req.params.id,
     {postulantId: req.body.postulantId,
     positionId: req.body.positionId,
     dateTime: req.body.dateTime,

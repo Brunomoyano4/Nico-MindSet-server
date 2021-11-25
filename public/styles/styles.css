@@ -122,6 +122,7 @@ header > nav > a:hover {
   text-align: center;
   color: #fff;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .container input,
