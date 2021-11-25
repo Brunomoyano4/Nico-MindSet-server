@@ -2,7 +2,7 @@ const fs = require('fs')
 const Positions = require('../models/Positions')
 
 const getPositions = (req, res) => {
-  Positions.find()
+  Positions.find({})
    .then((Positions)=>{
     res.status(200).json(Positions)
    })
