@@ -34,7 +34,6 @@ window.addEventListener("load", () => {
         return response.json();
       })
       .then((response) => {
-        console.log(response);
         saveButton.disabled = false;
 
         positionInput.value = response.positions._id;
@@ -74,7 +73,6 @@ window.addEventListener("load", () => {
 
     fetch(url, options)
       .then((response) => {
-        console.log(response)
         if (response.status !== 200 && response.status !== 201) {
           return response.json().then(({ message }) => {
             throw new Error(message);

@@ -87,6 +87,5 @@ checkingErros = () => {
   if (errorMessage.innerText != ""){
     saveButton.disabled = true;
   }
-  console.log("ErrMesage",errorMessage.innerText)
 }
 saveButton.onmouseover = checkingErros;

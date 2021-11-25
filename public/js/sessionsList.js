@@ -36,7 +36,6 @@ window.onload = () => {
   fetch(`${window.location.origin}/api/sessions`)
     .then((response) => response.json())
     .then((response) => {
-      console.log('response', response)
       response.forEach((sessions) => {
         const tr = document.createElement('tr');
         const psychologistTD = document.createElement('td');

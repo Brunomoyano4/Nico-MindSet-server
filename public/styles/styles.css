@@ -243,3 +243,7 @@ footer > div {
   padding: 5px;
   color: #ff0000;
 }
+
+.postulantForm {
+  max-width: 700px;
+}

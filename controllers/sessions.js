@@ -22,7 +22,6 @@ const getOneSession = (req, res) => {
 }
 
 const createSession = (req, res) => {
-  console.log('res', req.body)
   const newSession = new Sessions({
     psychology: req.body.psychology,
     postulant: req.body.postulant,
@@ -39,7 +38,6 @@ const createSession = (req, res) => {
 };
 
 const deleteSession = (req, res) => {
-  console.log('request',req.params)
   Sessions.findByIdAndDelete({ _id: req.params.id })
     .then (() => {
       return res.status(200).json({ msg: "Session with id " + req.params.id + " deleted" })
