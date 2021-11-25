@@ -1,12 +1,12 @@
 const missingInputsValidation = (req, res, next) => {
-  let pos = post = date = time = stat = "";
+  let pos = postulant = date = time = stat = "";
   let okey = true;
   if (!req.body.positionId) {
     pos= 'positionId, '
     okey= false
   }
   if (!req.body.postulantId) {
-    post='postulantId, '
+    postulant='postulantId, '
     okey=false
   }
   if (!req.body.dateTime) {

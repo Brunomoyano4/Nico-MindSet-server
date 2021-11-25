@@ -8,6 +8,6 @@ router.get("/", interviews.getInterviews)
 router.get("/:id", interviews.getOneInterview)
 router.post("/", missingInputsValidation, interviews.createInterview)
 router.delete("/:id", interviews.deleteInterview)
-router.put("/:id", missingInputsValidation, interviews.editInterview)
+router.put("/:id", interviews.editInterview)
 
 module.exports = router

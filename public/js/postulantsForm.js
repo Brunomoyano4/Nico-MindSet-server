@@ -1,6 +1,4 @@
 window.addEventListener('load', () => {
-  console.log('all set up ✅')
-
   const navButton = document.getElementById('postulantsNav');
   navButton.classList.add('activePage');
 
@@ -23,8 +21,6 @@ window.addEventListener('load', () => {
   const endDateInput = document.getElementById('endDate');
   const descriptionInput = document.getElementById('description');
   const input = document.querySelectorAll('input');
-  const inputVal = document.querySelector('input').value;
-  console.log(inputVal)
   const justLettersNumbers = /^[0-9a-zA-Z]+$/;
   const justNumbers = /^[0-9]+$/;
   const justLetters = /^[a-zA-Z\s]+$/;
@@ -42,7 +38,6 @@ window.addEventListener('load', () => {
   });
 
   const validateFront = () => {
-    console.log(firstNameInput.value)
     if (!firstNameInput.value.match(justLetters)){
       return errorMessage.innerText = 'First name must be filled with letters only';
     }
@@ -131,25 +126,25 @@ window.addEventListener('load', () => {
       })
       .then((response) => {
         saveButton.disabled = false;
-          firstNameInput.value = response.firstName
-          lastNameInput.value = response.lastName
-          userNameInput.value = response.userName
-          emailInput.value = response.email
-          passwordInput.value = response.password
-          birthDateInput.value = response.birthDate
-          streetInput.value = response.street
-          streetNumberInput.value = response.streetNumber
-          postalCodeInput.value = response.postalCode
-          cityInput.value = response.city
-          provinceInput.value = response.province
-          countryInput.value = response.country
-          telephoneInput.value = response.telephone
-          response.experience.forEach((experience) => {
-            jobPositionInput.value = experience.jobPosition
-            employerInput.value = experience.employer
-            startDateInput.value = experience.startDate
-            endDateInput.value = experience.endDate
-            descriptionInput.value = experience.description
+        firstNameInput.value = response.firstName
+        lastNameInput.value = response.lastName
+        userNameInput.value = response.userName
+        emailInput.value = response.email
+        passwordInput.value = response.password
+        birthDateInput.value = response.birthDate
+        streetInput.value = response.street
+        streetNumberInput.value = response.streetNumber
+        postalCodeInput.value = response.postalCode
+        cityInput.value = response.city
+        provinceInput.value = response.province
+        countryInput.value = response.country
+        telephoneInput.value = response.telephone
+        response.experience.forEach((experience) => {
+          jobPositionInput.value = experience.jobPosition
+          employerInput.value = experience.employer
+          startDateInput.value = experience.startDate
+          endDateInput.value = experience.endDate
+          descriptionInput.value = experience.description
         });
       })
       .catch((error) => {
@@ -159,7 +154,6 @@ window.addEventListener('load', () => {
 
   form.onsubmit = (event) => {
     event.preventDefault();
-    console.log(validateFront())
     if (validateFront() === true){
       (errorMessage.innerText = '')
       saveButton.disabled = true;

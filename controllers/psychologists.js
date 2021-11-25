@@ -12,7 +12,7 @@ const getPsychologists = (req, res) => {
 }
 
 const getOnePsychologist = (req, res) => {
-  Psychologists.find({_id: req.params.id})
+  Psychologists.findById(req.params.id)
     .then((result) => {
       return res.status(200).json(result)
     }) 
@@ -61,7 +61,7 @@ const editPsychologist = (req, res) => {
 }
 
 const deletePsychologist = (req, res) => {
-  Psychologists.findOneAndDelete(req.params.id)
+  Psychologists.findOneAndDelete({_id: req.params.id})
   .then((result) => {
     if(!result) {
       return res.status(400).json({

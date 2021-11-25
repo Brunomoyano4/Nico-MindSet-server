@@ -37,7 +37,7 @@ const createProfile = (req, res) => {
 }
 
 const editProfile = (req, res) => {
-  Profiles.findOneAndUpdate(req.params.id,
+  Profiles.findByIdAndUpdate(req.params.id,
     {profileName: req.body.profileName,
     branch: req.body.branch,
     description: req.body.description},
@@ -57,7 +57,7 @@ const editProfile = (req, res) => {
 }
 
 const deleteProfile = (req, res) => { 
-  Profiles.findOneAndDelete(req.params.id)
+  Profiles.findByIdAndDelete(req.params.id)
     .then((result) => {
       if(!result) {
         return res.status(400).json({
