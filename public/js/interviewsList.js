@@ -38,28 +38,28 @@ window.onload = () => {
   fetch(`${window.location.origin}/api/interviews`)
     .then((response) => response.json())
     .then((response) => {
-        response.forEach((interview) => {
-          const tr = document.createElement('tr')
-          const positionTD = document.createElement('td')
-          const postulantTD = document.createElement('td')
-          const dateTD = document.createElement('td')
-          const statusTD = document.createElement('td')
-          const actionsTD = document.createElement('td')
-          const button = document.createElement('button')
-          positionTD.innerText = interview.positionId
-          postulantTD.innerText = interview.postulantId
-          dateTD.innerText = interview.dateTime
-          statusTD.innerText = interview.status
-          button.innerText="Delete"
-          actionsTD.append(button)
-          tr.onclick = () => openEditInterviewForm(interview._id)
-          tr.append(positionTD, postulantTD, dateTD, statusTD, actionsTD)
-          tableContent.append(tr)  
-          button.onclick=(event)=>{
-            event.stopPropagation()
-            deleteInterview(interview._id)
-          }
-        })
+      response.forEach((interview) => {
+        const tr = document.createElement('tr')
+        const positionTD = document.createElement('td')
+        const postulantTD = document.createElement('td')
+        const dateTD = document.createElement('td')
+        const statusTD = document.createElement('td')
+        const actionsTD = document.createElement('td')
+        const button = document.createElement('button')
+        positionTD.innerText = interview.positionId
+        postulantTD.innerText = interview.postulantId
+        dateTD.innerText = interview.dateTime
+        statusTD.innerText = interview.status
+        button.innerText="Delete"
+        actionsTD.append(button)
+        tr.onclick = () => openEditInterviewForm(interview._id)
+        tr.append(positionTD, postulantTD, dateTD, statusTD, actionsTD)
+        tableContent.append(tr)  
+        button.onclick=(event)=>{
+          event.stopPropagation()
+          deleteInterview(interview._id)
+        }
+      })
     })
     .catch((error)=>{
       console.log(error)
