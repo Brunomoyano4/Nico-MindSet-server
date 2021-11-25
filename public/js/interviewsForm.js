@@ -8,7 +8,6 @@ window.onload = () => {
   const postulantInput = document.getElementById('postulant')
   const dateInput = document.getElementById('date')
   const statusInput = document.getElementById('status')
- 
   const form = document.getElementById('form')
   const saveButton = document.getElementById('saveButton')
   const errorMessage = document.getElementById('error_massage')
@@ -48,7 +47,6 @@ window.onload = () => {
   statusInput.onfocus = ()=> {
     errorStatus.innerText=''
   }
-
   
   if (params.get('_id')) {
     fetch(`${window.location.origin}/api/interviews/${params.get('_id')}`)

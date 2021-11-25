@@ -7,25 +7,24 @@ const openNewInterviewForm = () => {
 };
 
 const deleteInterview = (id) => {
-  console.log(id)
   const options = {
     method: "DELETE"
   };
   url = `${window.location.origin}/api/interviews/${id}`
   fetch(url,options)
-      .then((response) => {
-        if (response.status !== 200 && response.status !== 201) {
-          return response.json().then(({ message }) => {
-            throw new Error(message)
-          })
-        }
-      })
-      .then(() => {
-        window.location.href = `${window.location.origin}/views/interviewsList.html`;
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+    .then((response) => {
+      if (response.status !== 200 && response.status !== 201) {
+        return response.json().then(({ message }) => {
+          throw new Error(message)
+        })
+      }
+    })
+    .then(() => {
+      window.location.href = `${window.location.origin}/views/interviewsList.html`;
+    })
+    .catch((error) => {
+      console.log(error)
+    })
 }
 
 window.onload = () => {
@@ -58,25 +57,7 @@ window.onload = () => {
           tableContent.append(tr)  
           button.onclick=(event)=>{
             event.stopPropagation()
-            const modal=document.getElementById('modalInterview')
-            modal.classList.add('modalInterview')
-            const textTitle=document.createElement('p')
-            const textModal=document.createElement('p')
-            textTitle.innerText='CAUTION:'
-            textTitle.classList.add('title')
-            textModal.innerText='Are you sure you want to delete the interview?'
-            const buttonConfirm=document.createElement('button')
-            const buttonCancel=document.createElement('button')
-            buttonConfirm.innerText="Confirm"
-            buttonCancel.innerText="Cancel"
-            modal.append(textTitle, textModal, buttonCancel, buttonConfirm)
-            buttonConfirm.classList.add('modalInterviewButton')
-            buttonCancel.classList.add('modalInterviewButton')
-            buttonConfirm.onclick = () => deleteInterview(interview._id)
-            buttonCancel.onclick = () => {
-              modal.classList.add('modalInterviewRemove')
-              window.location.href = `${window.location.origin}/views/interviewsList.html`;
-            }
+            deleteInterview(interview._id)
           }
         })
     })

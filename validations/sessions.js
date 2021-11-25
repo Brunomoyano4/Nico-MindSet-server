@@ -3,11 +3,11 @@ const fs = require('fs')
 const validateSessionCreation = (req,res,next) => {
   let psy = post = date = time = stat = "";
   let okey = true;
-  if (!req.body.psychologyId) {
+  if (!req.body.psychology) {
     psy = 'psychologyId, '
     okey = false
   }
-  if (!req.body.postulantId) {
+  if (!req.body.postulant) {
     post = 'postulantId, '
     okey = false
   }
