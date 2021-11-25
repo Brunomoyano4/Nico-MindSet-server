@@ -10,32 +10,22 @@ window.onload = () => {
   };
   
   const deleteAdmin = (id,event) => {
-    // eslint-disable-next-line no-underscore-dangle
     event.stopPropagation();
-    const backgroundModal = document.getElementsByClassName('backgroundModal');
-    const acceptButton = document.getElementsByClassName('acceptButt');
-    const cancelButton = document.getElementsByClassName('closeButt');
-   
-    backgroundModal[0].classList.add('Visible');
-    cancelButton[0].onclick = () => {
-      backgroundModal[0].classList.remove('Visible');
-    }
-    acceptButton[0].onclick = () => {
-      const url = `${window.location.origin}/api/admins/${id}`
-      fetch(url, {
-        method: 'DELETE'
-      })
-      .then((response) => {
-        if (response.status != 200) {
-          return response.json().then(({ ErrMessage }) => {
-            throw new Error(ErrMessage);
-          });
-        }
-        return response.json();
-      })
-      window.location.reload();
-    }
-  };
+    const url = `${window.location.origin}/api/admins/${id}`
+    fetch(url, {
+      method: 'DELETE'
+    })
+    .then((response) => {
+      if (response.status != 200) {
+        return response.json().then(({ ErrMessage }) => {
+          throw new Error(ErrMessage);
+        });
+      }
+      return response.json();
+    })
+    window.location.reload();
+  }
+  
   const navButton = document.getElementById('adminsNav');
   navButton.classList.add('activePage');
 

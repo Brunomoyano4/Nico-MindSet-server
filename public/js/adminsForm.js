@@ -4,7 +4,7 @@ window.onload = () => {
   
     const params = new URLSearchParams(window.location.search);
     saveButton.disabled = !!params.get('adminId');
-         
+
     if (params.get('adminId')) {
       fetch(`${window.location.origin}/api/admins/${params.get('adminId')}`)
         .then((response) => {
@@ -31,7 +31,6 @@ window.onload = () => {
     form.onsubmit = (event) => {
       event.preventDefault();
       saveButton.disabled = true;
-  
       let url;
       const options = {
         headers: {
@@ -45,7 +44,6 @@ window.onload = () => {
           password: passwordInput.value  
         }),
       };
-      console.log(params.get('adminId'));
       if (params.get('adminId')) {
         options.method = 'PUT';
         url = `${window.location.origin}/api/admins/${params.get('adminId')}`;

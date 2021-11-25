@@ -7,8 +7,8 @@ const {
   createApplication,
   deleteApplication,
   getApplications,
-  getApplicationByPositionId,
-  getApplicationByPostulantId,
+  getApplicationById,
+  updateApplication
 } = controller;
 
 const {validateApplicationCreation} = validation
@@ -16,7 +16,7 @@ const {validateApplicationCreation} = validation
 router.post('/', validateApplicationCreation, createApplication);
 router.delete('/:_id', deleteApplication);
 router.get('/', getApplications);
-router.get('/position/:positionId', getApplicationByPositionId);
-router.get('/postulant/:postulantId', getApplicationByPostulantId);
+router.get('/:_id', getApplicationById);
+router.put('/:_id', updateApplication);
 
 module.exports = router;
