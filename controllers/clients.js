@@ -55,8 +55,8 @@ const createClient=(req, res) => {
     customerName: req.body.customerName,
     branch: req.body.branch,
     phone: req.body.phone,
-    email:req.body.email,
-    description:req.body.description
+    email: req.body.email,
+    description: req.body.description
   })
 
   client.save((error, client) => {

@@ -1,6 +1,4 @@
 window.onload = () => {
-  console.log('all set up ✅')
-
   const navButton = document.getElementById('positionsNav');
   navButton.classList.add('activePage');
 
@@ -8,8 +6,6 @@ window.onload = () => {
   const jobInput = document.getElementById('job');
   const descriptionInput = document.getElementById('description');
   const input = document.querySelectorAll('input');
-  const inputVal = document.querySelector('input').value;
-  console.log(inputVal)
   const lettersNumbersSpaces = /^[0-9a-zA-Z]+$/;
 
   const form = document.getElementById('form');
@@ -68,7 +64,6 @@ window.onload = () => {
 
   form.onsubmit = (event) => {
     event.preventDefault();
-    console.log(validateFront())
     if (validateFront() === true){
       (errorMessage.innerText = '')
       saveButton.disabled = true;

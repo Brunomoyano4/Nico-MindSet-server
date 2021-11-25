@@ -7,7 +7,6 @@ const addNewPosition = () => {
 }
 
 const deletePosition = (item) => {
-  console.log('se borro', item)
   const url = `${window.location.origin}/api/positions/${item._id}`;
   fetch(url, {
     method: 'DELETE',
@@ -55,25 +54,7 @@ window.onload = () => {
         actionsTd.append(button);
         button.onclick = (event) => {
           event.stopPropagation(event);
-          const modal=document.getElementById('modalPositions');
-          modal.classList.add('modal');
-          const textTitle=document.createElement('p');
-          const textModal=document.createElement('p');
-          textTitle.innerText='CAUTION:';
-          textTitle.classList.add('title');
-          textModal.innerText='Are you sure you want to delete this position?';
-          const buttonConfirm=document.createElement('button');
-          const buttonCancel=document.createElement('button');
-          buttonConfirm.innerText="Confirm";
-          buttonCancel.innerText="Cancel";
-          modal.append(textTitle, textModal, buttonCancel, buttonConfirm);
-          buttonConfirm.classList.add('modalButton');
-          buttonCancel.classList.add('modalButton');
-          buttonConfirm.onclick = () => deletePosition(item);
-          buttonCancel.onclick = () => {
-            modal.classList.add('modalRemove');
-            window.location.href = `${window.location.origin}/views/positionsList.html`;
-          };
+          deletePosition(item);
         };
         tr.onclick = () => editPosition(item);
         tr.append(clientTd, jobNameTd, jobDescriptionTd, createdAtTd, actionsTd);
