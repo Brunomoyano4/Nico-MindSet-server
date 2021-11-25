@@ -123,7 +123,6 @@ header > nav > a:hover {
   text-align: center;
   color: #fff;
   width: 100%;
-  margin: -16px -16px 16px -16px;
 }
 
 .container input,
@@ -190,7 +189,7 @@ footer > div {
   color: #27ae60;
 }
 
-.modalClient {
+.modalClient .modalSession {
   position: fixed;
   display: flex;
   flex-wrap: wrap;
@@ -207,9 +206,28 @@ footer > div {
   color: #ff0000;
 }
 
+.modalSession > p {
+  text-align: center;
+  font-weight: bold;
+}
+
 .modalClient > p {
   text-align: center;
   font-weight: bold;
+}
+
+.modalSessionRemove {
+  display: flex;
+}
+
+.modalSession > button {
+  background-color: #56be8a;
+  color: #ffffff;
+}
+
+.error {
+  padding: 5px;
+  color: #ff0000;
 }
 
 .modalClientRemove {

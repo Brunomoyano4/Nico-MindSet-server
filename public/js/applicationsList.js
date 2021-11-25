@@ -35,7 +35,7 @@ window.onload = () => {
         const actionsTD = document.createElement("td");
         const deleteBtn = document.createElement("button");
 
-        jobTD.innerText = application.positions.job;
+        jobTD.innerText = application.positions?.job || "-";
         clientTD.innerText = application.client.customerName;
         postulantNameTD.innerText = `${application.postulants.firstName} ${application.postulants.lastName}`;
         resultTD.innerText = application.result;
