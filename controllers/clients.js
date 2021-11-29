@@ -1,5 +1,5 @@
 const fs = require('fs');
-const Clients = require('../models/clients');
+const Clients = require('../models/Clients');
 
 const getClients = (req, res) => {
   Clients.find()
