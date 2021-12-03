@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c5c1d077-5830-4cc8-bac6-70b141abf896",
+		"_postman_id": "f3e75369-d964-4d4e-9c46-bfcdfc7f686a",
 		"name": "MindSet",
 		"description": "# Mindset\n- your staffing provider delivering jobs hiring, career resources, and education based on your career goals.\n\n---\n\n## Api-docs \n- Resources : \n - Admins\n - Postulans\n - Clients\n - Profiles \n - Applications\n - Positions\n - Sessions\n - Interviews\n - Psychologists",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -149,11 +149,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/applications/",
+							"raw": "{{BASE_URL}}/applications/",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"applications",
 								""
@@ -168,11 +167,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/applications/",
+							"raw": "{{BASE_URL}}/applications/",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"applications",
 								""
@@ -187,11 +185,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/applications/postulant/postulantIdTest2",
+							"raw": "{{BASE_URL}}/applications/postulant/postulantIdTest2",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"applications",
 								"postulant",
@@ -214,11 +211,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/applications/position/positionIdTest2",
+							"raw": "{{BASE_URL}}/applications/position/positionIdTest2",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"applications",
 								"position",
@@ -234,11 +230,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/applications/",
+							"raw": "{{BASE_URL}}/applications/",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"applications",
 								""
@@ -258,11 +253,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/clients",
+							"raw": "{{BASE_URL}}/clients",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"clients"
 							]
@@ -276,11 +270,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/clients/61916eead05a860436e05381",
+							"raw": "{{BASE_URL}}/clients/61916eead05a860436e05381",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"clients",
 								"61916eead05a860436e05381"
@@ -304,11 +297,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/clients/61916eead05a860436e05381",
+							"raw": "{{BASE_URL}}/clients/61916eead05a860436e05381",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"clients",
 								"61916eead05a860436e05381"
@@ -323,11 +315,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/clients/61959c0c1a2ef242c80e58e9",
+							"raw": "{{BASE_URL}}/clients/61959c0c1a2ef242c80e58e9",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"clients",
 								"61959c0c1a2ef242c80e58e9"
@@ -351,11 +342,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/clients",
+							"raw": "{{BASE_URL}}/clients",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"clients"
 							]
@@ -374,12 +364,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/interviews",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/interviews",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"interviews"
 							]
@@ -393,12 +381,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/interviews/6192b6489bdf194f3c903951",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/interviews/6192b6489bdf194f3c903951",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"interviews",
 								"6192b6489bdf194f3c903951"
@@ -422,12 +408,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/interviews",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/interviews",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"interviews"
 							]
@@ -441,12 +425,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/interviews/6196c17f37b49257bcbc10c1",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/interviews/6196c17f37b49257bcbc10c1",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"interviews",
 								"6196c17f37b49257bcbc10c1"
@@ -470,12 +452,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/interviews/6196c1a937b49257bcbc10c5",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/interviews/6196c1a937b49257bcbc10c5",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"interviews",
 								"6196c1a937b49257bcbc10c5"
@@ -495,12 +475,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/positions",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/positions",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"positions"
 							]
@@ -524,12 +502,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/positions",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/positions",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"positions"
 							]
@@ -553,12 +529,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/positions/61923c6123114a6a5d9229f6",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/positions/61923c6123114a6a5d9229f6",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"positions",
 								"61923c6123114a6a5d9229f6"
@@ -588,11 +562,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/sessions",
+							"raw": "{{BASE_URL}}/sessions",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"sessions"
 							]
@@ -606,13 +579,51 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/sessions",
+							"raw": "{{BASE_URL}}/sessions",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Session",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Valeria\",\r\n    \"lastName\": \"Benitez\",\r\n    \"userName\": \"vbaudracco96\",\r\n    \"email\": \"veronabaudracco@gmail.com\",\r\n    \"password\": \"newells\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/psychologists/61918cd89337d40e84692214",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"psychologists",
+								"61918cd89337d40e84692214"
+							],
+							"query": [
+								{
+									"key": "first_name",
+									"value": "Valeria",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "hola@hotmail.com",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -624,11 +635,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/sessions/6192bb603561a9d2c42fae84",
+							"raw": "{{BASE_URL}}/sessions/6192bb603561a9d2c42fae84",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"sessions",
 								"6192bb603561a9d2c42fae84"
@@ -643,11 +653,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/sessions/6192bafa304622dfd0d31cff",
+							"raw": "{{BASE_URL}}/sessions/6192bafa304622dfd0d31cff",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"sessions",
 								"6192bafa304622dfd0d31cff"
@@ -668,7 +677,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstName\": \"Valeria\",\r\n    \"lastName\": \"Benitez\",\r\n    \"userName\": \"vbaudracco96\",\r\n    \"email\": \"veronabaudracco@gmail.com\",\r\n    \"password\": \"newells\"\r\n}",
+							"raw": "{\r\n    \"stat\":\"Not Passed\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -676,15 +685,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/psychologists/61918cd89337d40e84692214",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/sessions/61a96b7dddabdfb450643edf",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
-								"psychologists",
-								"61918cd89337d40e84692214"
+								"sessions",
+								"61a96b7dddabdfb450643edf"
 							],
 							"query": [
 								{
@@ -708,12 +715,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/psychologists/",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/psychologists/",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"psychologists",
 								""
@@ -728,12 +733,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/psychologists/61918cd89337d40e84692214",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/psychologists/61918cd89337d40e84692214",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"psychologists",
 								"61918cd89337d40e84692214"
@@ -748,12 +751,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/psychologists/619117c566723624f55b28be",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/psychologists/619117c566723624f55b28be",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"psychologists",
 								"619117c566723624f55b28be"
@@ -777,12 +778,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/psychologists/",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/psychologists/",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"psychologists",
 								""
@@ -802,11 +801,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/postulants",
+							"raw": "{{BASE_URL}}/postulants",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"postulants"
 							]
@@ -829,11 +827,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/postulants",
+							"raw": "{{BASE_URL}}/postulants",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"postulants"
 							]
@@ -847,11 +844,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/postulants/6197decaeb7023b90e75554b",
+							"raw": "{{BASE_URL}}/postulants/6197decaeb7023b90e75554b",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"postulants",
 								"6197decaeb7023b90e75554b"
@@ -866,11 +862,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/postulants/6197decaeb7023b90e75554b",
+							"raw": "{{BASE_URL}}/postulants/6197decaeb7023b90e75554b",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"postulants",
 								"6197decaeb7023b90e75554b"
@@ -894,11 +889,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/postulants/6197decaeb7023b90e75554b",
+							"raw": "{{BASE_URL}}/postulants/6197decaeb7023b90e75554b",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"postulants",
 								"6197decaeb7023b90e75554b"
@@ -918,11 +912,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/profiles",
+							"raw": "{{BASE_URL}}/profiles",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"profiles"
 							]
@@ -936,11 +929,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/profiles/61942cb91a835b73f74fb8c7",
+							"raw": "{{BASE_URL}}/profiles/61942cb91a835b73f74fb8c7",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"profiles",
 								"61942cb91a835b73f74fb8c7"
@@ -964,11 +956,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/profiles/",
+							"raw": "{{BASE_URL}}/profiles/",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"profiles",
 								""
@@ -983,11 +974,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/profiles/6197e465becd60ab102d57ac",
+							"raw": "{{BASE_URL}}/profiles/6197e465becd60ab102d57ac",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"profiles",
 								"6197e465becd60ab102d57ac"
@@ -1011,11 +1001,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/profiles/6197e465becd60ab102d57ac",
+							"raw": "{{BASE_URL}}/profiles/6197e465becd60ab102d57ac",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "3000",
 							"path": [
 								"profiles",
 								"6197e465becd60ab102d57ac"

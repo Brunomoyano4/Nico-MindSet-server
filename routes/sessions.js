@@ -6,6 +6,7 @@ const router = express.Router();
 const {
   getSessions,
   getOneSession,
+  editSession,
   createSession,
   deleteSession
 } = controller;
@@ -19,5 +20,6 @@ router.post('/', /*validateSessionCreation, validateTimeOfSession,*/ createSessi
 router.delete('/:id', deleteSession);
 router.get('/', getSessions);
 router.get('/:id', getOneSession);
+router.put("/:id", editSession)
 
 module.exports = router;
