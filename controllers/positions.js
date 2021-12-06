@@ -1,4 +1,3 @@
-const fs = require('fs')
 const Positions = require('../models/Positions')
 
 const getPositions = (req, res) => {
