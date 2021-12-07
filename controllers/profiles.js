@@ -1,4 +1,3 @@
-const fs = require('fs');
 const Profiles = require('../models/Profiles')
 
 const getProfiles = (req, res) => {
@@ -16,7 +15,7 @@ const getOneProfile = (req, res) => {
       return res.status(200).json(result)
     }) 
     .catch((error) => {
-      return res.status(400).json({
+      return res.status(404).json({
         msg: `No profile with the Id of ${req.params.id}` 
         })
     })
@@ -32,7 +31,7 @@ const createProfile = (req, res) => {
     if (error) {
       return res.status(400).json(error)
     }
-      return res.status(200).json(profile)
+      return res.status(201).json(profile)
   })
 }
 
@@ -45,11 +44,11 @@ const editProfile = (req, res) => {
   ) 
     .then((result) => {
       if (!result) {
-        return res.status(400).json({
+        return res.status(404).json({
           msg:`Profile with id: ${req.params.id} was not found`
         })
       }
-      return res.status(201).json(result)
+      return res.status(200).json(result)
     })
     .catch((error) => {
       return res.status(400).json(error)
@@ -60,7 +59,7 @@ const deleteProfile = (req, res) => {
   Profiles.findByIdAndDelete(req.params.id)
     .then((result) => {
       if(!result) {
-        return res.status(400).json({
+        return res.status(404).json({
           msg: `Profile with id: ${req.params.id} was not found`
         })
       }

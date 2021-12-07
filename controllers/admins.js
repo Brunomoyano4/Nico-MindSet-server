@@ -20,7 +20,7 @@ const createAdmin = (req, res) => {
 const findAllAdmins = (req, res) => {
   Admin.find({})
     .then((data) => {
-      res.send(data);
+      res.status(200).send(data);
     })
     .catch((e) => {
       res.status(500).send({
@@ -88,4 +88,4 @@ module.exports = {
   findOneAdmin,
   updateAdmin,
   deleteAdmin
-} 
+}

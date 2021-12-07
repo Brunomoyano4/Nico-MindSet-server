@@ -1,4 +1,3 @@
-const fs = require("fs");
 const Sessions = require("../models/Sessions");
 
 const getSessions = (req, res) => {
@@ -9,7 +8,7 @@ const getSessions = (req, res) => {
       return res.status(200).json(sessions);
     })
     .catch((error) => {
-      return res.status(400).json(error);
+      return res.status(404).json(error);
     });
 };
 
@@ -22,7 +21,7 @@ const getOneSession = (req, res) => {
     })
     .catch(() => {
       return res
-        .status(400)
+        .status(404)
         .json({ msg: `No session found with the Id of ${req.params.id}` });
     });
 };
@@ -56,11 +55,11 @@ const editSession = (req, res) => {
   ) 
     .then((result) => {
       if (!result) {
-        return res.status(400).json({
+        return res.status(404).json({
           msg:`Session with id: ${req.params.id} was not found`
         })
       }
-      return res.status(201).json(result)
+      return res.status(200).json(result)
     })
     .catch((error) => {
       return res.status(400).json(error)

@@ -1,4 +1,3 @@
-const fs = require('fs')
 const Applications = require('../models/Applications')
 
 const getApplications = (req, res) => {

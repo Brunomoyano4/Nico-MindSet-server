@@ -1,4 +1,3 @@
-const fs = require('fs');
 const Psychologists = require('../models/Psychologists')
 
 const getPsychologists = (req, res) => {
@@ -17,7 +16,7 @@ const getOnePsychologist = (req, res) => {
       return res.status(200).json(result)
     }) 
     .catch((error) => {
-      return res.status(400).json({
+      return res.status(404).json({
         msg: `No psychologist with the Id of ${req.params.id}` 
         })
     })  
@@ -40,20 +39,24 @@ const createPsychologist = (req,res) => {
 }
 
 const editPsychologist = (req, res) => {
-  Psychologists.findOneAndUpdate(req.params.id,
-    {firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    userName: req.body.userName,
-    email: req.body.email,
-    password: req.body.password}, {new : true}
+  Psychologists.findOneAndUpdate(
+    { _id: req.params.id },
+    {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      userName: req.body.userName,
+      email: req.body.email,
+      password: req.body.password,
+    },
+    { new: true }
   ) 
   .then((result) => {
     if (!result) {
-      return res.status(400).json({
+      return res.status(404).json({
         msg:`Psychologist with id: ${req.params.id} was not found`
       })
     }
-    return res.status(201).json(result)
+    return res.status(200).json(result)
   })
   .catch((error) => {
     return res.status(400).json(error)
@@ -64,11 +67,11 @@ const deletePsychologist = (req, res) => {
   Psychologists.findOneAndDelete({_id: req.params.id})
   .then((result) => {
     if(!result) {
-      return res.status(400).json({
+      return res.status(404).json({
         msg: `Psychologist with id: ${req.params.id} was not found`
       })
     }
-    return res.status(201).json(result)
+    return res.status(200).json(result)
   })
   .catch((error) => {
     return res.status(400).json(error)
