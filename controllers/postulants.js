@@ -2,11 +2,12 @@ const Postulants = require("../models/Postulants");
 
 const getPostulants = (req, res) => {
   Postulants.find({})
+    .populate("profiles.profile")
     .then((data) => {
       res.status(200).send(data);
     })
     .catch((err) => {
-      res.status(500).send({
+      res.status(400).send({
         msg:
           err.message || "There was an error while retrieving the postulants",
       });
@@ -42,7 +43,10 @@ const createPostulant = (req, res) => {
     province: req.body.province,
     country: req.body.country,
     telephone: req.body.telephone,
+    contactRange: req.body.contactRange,
+    availabilty: req.body.availabilty,
     experience: req.body.experience,
+    profiles: req.body.profiles,
   });
   newPostulant.save((error, postulant) => {
     if (error) {
