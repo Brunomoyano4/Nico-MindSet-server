@@ -2,7 +2,8 @@ const Interviews = require("../models/Interviews");
 
 const getInterviews = (req, res) => {
   Interviews.find()
-    .populate("postulant")
+    .populate("postulantId")
+    .populate("positionId")
     .then((result) => {
       return res.status(200).json(result);
     })
@@ -13,7 +14,8 @@ const getInterviews = (req, res) => {
 
 const getOneInterview = (req, res) => {
   Interviews.find({ _id: req.params.id })
-    .populate("postulant")
+    .populate("postulantId")
+    .populate("positionId")
     .then((result) => {
       return res.status(200).json(result);
     })
