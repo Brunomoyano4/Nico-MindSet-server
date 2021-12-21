@@ -25,7 +25,7 @@ const getOnePostulant = (req, res) => {
       return res.status(400).json(error);
     }
     return res.status(200).json(postulant);
-  });
+  }).populate("profiles.profile");
 };
 
 const createPostulant = (req, res) => {
