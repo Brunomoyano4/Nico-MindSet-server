@@ -3,18 +3,27 @@ const Firebase = require('../helper/firebase');
 
 const register = async (req, res) => {
   try {
+    const { email, password, displayName, role } = req.body;
+
     const newFirebaseUser = await Firebase.auth().createUser({
-      email: req.body.email,
-      password: req.body.password,
+      displayName,
+      email,
+      password,
     });
-    const userCreated = new Users({
-      email: req.body.email,
-      firebaseUid: newFirebaseUser.uid,
+    // console.log(newFirebaseUser);
+
+    await Firebase.auth().setCustomUserClaims(newFirebaseUser.uid, {
+      role,
     });
-    const userSaved = await userCreated.save();
+    console.log(await Firebase.auth().getUserByEmail(email));
+    // const userCreated = new Users({
+    //   email: req.body.email,
+    //   firebaseUid: newFirebaseUser.uid,
+    // });
+    // const userSaved = await userCreated.save();
     return res.status(201).json({
       message: 'User created',
-      data: userSaved,
+      data: newFirebaseUser.uid,
     });
   } catch (error) {
     return res.status(400).json({ message: error.toString() });

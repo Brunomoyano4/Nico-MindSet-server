@@ -3,7 +3,7 @@ const firebase = require('../helper/firebase');
 const authMiddleware = (req, res, next) => {
   const { token } = req.headers;
   if (!token) {
-    return res.status(400).json({ message: 'Provide a token' });
+    return res.status(400).json({ message: 'Undefined Token' });
   }
   return firebase
     .auth()
