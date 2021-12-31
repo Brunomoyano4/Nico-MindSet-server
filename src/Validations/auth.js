@@ -11,6 +11,11 @@ const required = (req, res, next) => {
   if (!req.body.password) {
     return res.status(400).send({ message: 'Password is required' });
   }
+  if (req.body.password.length < 8) {
+    return res
+      .status(400)
+      .send({ message: 'Password minimum length is 8 characters' });
+  }
   return next();
 };
 
