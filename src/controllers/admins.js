@@ -1,4 +1,5 @@
 const Admin = require('../models/Admins');
+const firebase = require('../helper/firebase');
 
 const createAdmin = (req, res) => {
   const admin = new Admin({
@@ -11,10 +12,10 @@ const createAdmin = (req, res) => {
 
   admin.save((error, admin) => {
     if (error) {
-      return res.status(400).json(error)
+      return res.status(400).json(error);
     }
-    return res.status(201).json(admin)
-  })
+    return res.status(201).json(admin);
+  });
 };
 
 const findAllAdmins = (req, res) => {
@@ -24,62 +25,70 @@ const findAllAdmins = (req, res) => {
     })
     .catch((e) => {
       res.status(500).send({
-        msg: e.message || "There was an error while retrieving admins",
+        msg: e.message || 'There was an error while retrieving admins',
       });
     });
 };
 
 const findOneAdmin = (req, res) => {
-  Admin.findOne({ _id: req.params.id },
-    (error, admin) => {
-      if (!admin) {
-        return res.status(404).json({
-          msg: `Admin with id: ${req.params.id} was not found`
-        })
-      }
-      if (error) {
-        return res.status(400).json(error)
-      }
-      return res.status(200).json(admin)
+  Admin.findOne({ _id: req.params.id }, (error, admin) => {
+    if (!admin) {
+      return res.status(404).json({
+        msg: `Admin with id: ${req.params.id} was not found`,
+      });
     }
-  )
+    if (error) {
+      return res.status(400).json(error);
+    }
+    return res.status(200).json(admin);
+  });
 };
 
 const updateAdmin = (req, res) => {
-  Admin.findByIdAndUpdate(req.params.id,
+  Admin.findByIdAndUpdate(
+    req.params.id,
     req.body,
     { new: true },
     (error, updatedAdmin) => {
       if (!updatedAdmin) {
         return res.status(404).json({
-          msg: `Admin with id: ${req.params.id} was not found`
-        })
+          msg: `Admin with id: ${req.params.id} was not found`,
+        });
       }
       if (error) {
-        return res.status(400).json(error)
+        return res.status(400).json(error);
       }
-      return res.status(200).json(updatedAdmin)
+      return res.status(200).json(updatedAdmin);
     }
-  )
+  );
 };
 
 const deleteAdmin = (req, res) => {
-  Admin.findOneAndRemove({ _id: req.params.id },
+  Admin.findOneAndRemove(
+    { _id: req.params.id },
     { useFindAndModify: false },
     (error, adminDeleted) => {
       if (!adminDeleted) {
         return res.status(404).json({
-          msg: `Admin with id: ${req.params.id} was not found`
-        })
+          msg: `Admin with id: ${req.params.id} was not found`,
+        });
       }
       if (error) {
-        return res.status(400).json(error)
+        return res.status(400).json(error);
       }
-      return res.status(200).send({
-        msg: `Admin ${req.params.id} was deleted successfully`
-      });
+      firebase
+        .Auth()
+        .deleteUser(adminDeleted.firebaseUID)
+        .then(() => {
+          return res.status(200).send({
+            msg: `Admin ${req.params.id} was deleted successfully`,
+          });
+        })
+        .catch((error) => {
+          return res.status(400).json(error);
+        });
     }
-  )
+  );
 };
 
 module.exports = {
@@ -87,5 +96,5 @@ module.exports = {
   findAllAdmins,
   findOneAdmin,
   updateAdmin,
-  deleteAdmin
-}
+  deleteAdmin,
+};

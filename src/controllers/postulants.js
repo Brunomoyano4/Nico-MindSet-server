@@ -1,15 +1,16 @@
-const Postulants = require("../models/Postulants");
+const Postulants = require('../models/Postulants');
+const firebase = require('../helper/firebase');
 
 const getPostulants = (req, res) => {
   Postulants.find({})
-    .populate("profiles.profile")
+    .populate('profiles.profile')
     .then((data) => {
       res.status(200).send(data);
     })
     .catch((err) => {
       res.status(400).send({
         msg:
-          err.message || "There was an error while retrieving the postulants",
+          err.message || 'There was an error while retrieving the postulants',
       });
     });
 };
@@ -25,7 +26,7 @@ const getOnePostulant = (req, res) => {
       return res.status(400).json(error);
     }
     return res.status(200).json(postulant);
-  }).populate("profiles.profile");
+  }).populate('profiles.profile');
 };
 
 const createPostulant = (req, res) => {
@@ -89,9 +90,17 @@ const deletePostulants = (req, res) => {
       if (error) {
         return res.status(400).json(error);
       }
-      return res.status(200).send({
-        msg: `Postulant ${req.params.id} was deleted successfully`,
-      });
+      firebase
+        .Auth()
+        .deleteUser(DeletedPostulant.firebaseUID)
+        .then(() => {
+          return res.status(200).send({
+            msg: `Postulant ${req.params.id} was deleted successfully`,
+          });
+        })
+        .catch((error) => {
+          return res.status(400).json(error);
+        });
     }
   );
 };

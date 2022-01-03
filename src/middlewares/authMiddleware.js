@@ -6,8 +6,6 @@ const admin = 'admin';
 
 const authMiddlewarePostulant = (req, res, next) => {
   const { token } = req.headers;
-  console.log('dentro authMiddlewarePostulant');
-  console.log(req.headers);
   if (!token) {
     return res.status(400).json({ message: 'Undefined Token' });
   }
@@ -15,16 +13,9 @@ const authMiddlewarePostulant = (req, res, next) => {
     .auth()
     .verifyIdToken(token)
     .then((decodedToken) => {
-      console.log(decodedToken);
-      console.log(decodedToken.role);
       const role = decodedToken?.role;
-      console.log(
-        'postulant:',
-        role === postulant || role === psychologist || role === admin
-      );
       if (role === postulant || role === psychologist || role === admin)
         return next();
-      console.log('despues de return');
       throw new Error('No User Privileges');
     })
     .catch((error) => {
@@ -34,7 +25,6 @@ const authMiddlewarePostulant = (req, res, next) => {
 
 const authMiddlewarePsychologist = (req, res, next) => {
   const { token } = req.headers;
-  console.log(req.headers);
   if (!token) {
     return res.status(400).json({ message: 'Undefined Token' });
   }
@@ -42,12 +32,8 @@ const authMiddlewarePsychologist = (req, res, next) => {
     .auth()
     .verifyIdToken(token)
     .then((decodedToken) => {
-      console.log(decodedToken);
-      console.log(decodedToken.role);
       const role = decodedToken?.role;
-      console.log('psychologist:', role === psychologist || role === admin);
       if (role === psychologist || role === admin) return next();
-      console.log('despues de return');
       throw new Error('No User Privileges');
     })
     .catch((error) => {
@@ -57,7 +43,6 @@ const authMiddlewarePsychologist = (req, res, next) => {
 
 const authMiddlewareAdmin = (req, res, next) => {
   const { token } = req.headers;
-  console.log(req.headers);
   if (!token) {
     return res.status(400).json({ message: 'Undefined Token' });
   }
@@ -65,12 +50,8 @@ const authMiddlewareAdmin = (req, res, next) => {
     .auth()
     .verifyIdToken(token)
     .then((decodedToken) => {
-      console.log(decodedToken);
-      console.log(decodedToken.role);
       const role = decodedToken?.role;
-      console.log('admin:', role === admin);
       if (role === admin) return next();
-      console.log('despues de return');
       throw new Error('No User Privileges');
     })
     .catch((error) => {

@@ -1,8 +1,11 @@
-const Users = require('../models/Users');
 const Postulants = require('../models/Postulants');
 const Psychologists = require('../models/Psychologists');
 const Admins = require('../models/Admins');
 const Firebase = require('../helper/firebase');
+
+const postulant = 'postulant';
+const psychologist = 'psychologist';
+const admin = 'admin';
 
 const registerPostulant = async (req, res) => {
   let savedNewPostulant;
@@ -34,26 +37,33 @@ const registerPostulant = async (req, res) => {
       email,
       password,
     });
+    const firebaseUID = newFirebaseUser.uid;
     await Firebase.auth().setCustomUserClaims(newFirebaseUser.uid, {
-      role: 'postulant',
+      role: postulant,
       mongoDBID: savedNewPostulant._id,
     });
 
-    const userCreated = new Users({
-      email,
-      role: 'postulant',
-      firebaseUID: newFirebaseUser.uid,
-      mongoDBID: savedNewPostulant._id,
-    });
-    const { firebaseUID } = await userCreated.save();
+    Postulants.findByIdAndUpdate(
+      savedNewPostulant._id,
+      { firebaseUID },
+      { new: true },
+      (error, updatedPostulant) => {
+        if (!updatedPostulant) {
+          throw new Error(`Postulant with id: ${req.params.id} was not found`);
+        }
+        if (error) {
+          throw new Error(error);
+        }
+      }
+    );
 
     return res.status(201).json({
       message: 'User created',
-      data: { firebaseUID, userData: savedNewPostulant },
+      data: { firebaseUID, mongoDBID: savedNewPostulant._id, role: postulant },
     });
   } catch (error) {
     Postulants.findOneAndRemove(
-      { _id: savedNewPostulant._id },
+      { _id: savedNewPostulant?._id },
       { useFindAndModify: false },
       () => res.status(400).json({ message: error.toString() })
     );
@@ -78,26 +88,37 @@ const registerPsychologist = async (req, res) => {
       email,
       password,
     });
+    const firebaseUID = newFirebaseUser.uid;
     await Firebase.auth().setCustomUserClaims(newFirebaseUser.uid, {
-      role: 'psychologist',
+      role: psychologist,
       mongoDBID: savedNewPsychologist._id,
     });
 
-    const userCreated = new Users({
-      email,
-      role: 'psychologist',
-      firebaseUID: newFirebaseUser.uid,
-      mongoDBID: savedNewPsychologist._id,
-    });
-    const { firebaseUID } = await userCreated.save();
+    Psychologists.findByIdAndUpdate(
+      savedNewPsychologist._id,
+      { firebaseUID },
+      { new: true },
+      (error, updatedPsychologist) => {
+        if (!updatedPsychologist) {
+          throw new Error(`Postulant with id: ${req.params.id} was not found`);
+        }
+        if (error) {
+          throw new Error(error);
+        }
+      }
+    );
 
     return res.status(201).json({
       message: 'User created',
-      data: { firebaseUID, userData: savedNewPsychologist },
+      data: {
+        firebaseUID,
+        mongoDBID: savedNewPsychologist._id,
+        role: psychologist,
+      },
     });
   } catch (error) {
     Psychologists.findOneAndRemove(
-      { _id: savedNewPsychologist._id },
+      { _id: savedNewPsychologist?._id },
       { useFindAndModify: false },
       () => res.status(400).json({ message: error.toString() })
     );
@@ -108,7 +129,7 @@ const registerAdmin = async (req, res) => {
   let savedNewAdmin;
   try {
     const { email, password, userName: displayName } = req.body;
-    const newAdmin = new Admin({
+    const newAdmin = new Admins({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       username: req.body.username,
@@ -122,26 +143,33 @@ const registerAdmin = async (req, res) => {
       email,
       password,
     });
+    const firebaseUID = newFirebaseUser.uid;
     await Firebase.auth().setCustomUserClaims(newFirebaseUser.uid, {
-      role: 'admin',
+      role: admin,
       mongoDBID: savedNewAdmin._id,
     });
 
-    const userCreated = new Users({
-      email,
-      role: 'admin',
-      firebaseUID: newFirebaseUser.uid,
-      mongoDBID: savedNewAdmin._id,
-    });
-    const { firebaseUID } = await userCreated.save();
+    Admins.findByIdAndUpdate(
+      savedNewPsychologist._id,
+      { firebaseUID },
+      { new: true },
+      (error, updatedAdmin) => {
+        if (!updatedAdmin) {
+          throw new Error(`Postulant with id: ${req.params.id} was not found`);
+        }
+        if (error) {
+          throw new Error(error);
+        }
+      }
+    );
 
     return res.status(201).json({
       message: 'User created',
-      data: { firebaseUID, userData: savedNewAdmin },
+      data: { firebaseUID, mongoDBID: savedNewAdmin._id, role: admin },
     });
   } catch (error) {
     Admins.findOneAndRemove(
-      { _id: savedNewAdmin._id },
+      { _id: savedNewAdmin?._id },
       { useFindAndModify: false },
       () => res.status(400).json({ message: error.toString() })
     );
