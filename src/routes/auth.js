@@ -12,6 +12,7 @@ const router = express.Router();
 router.post('/register', validations.required, registerPostulant);
 router.post(
   '/register/psychologist',
+  authMiddlewareAdmin,
   validations.required,
   registerPsychologist
 );

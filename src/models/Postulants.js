@@ -25,10 +25,10 @@ const PostulantsSchema = new Schema(
     province: { type: String, lowercase: true, required: true },
     country: { type: String, lowercase: true, required: true },
     telephone: { type: String, lowercase: true, required: true },
-    availabilty: { type: Boolean, required: true },
+    availability: { type: Boolean },
     contactRange: {
-      from: { type: String, required: true },
-      to: { type: String, required: true },
+      from: { type: String },
+      to: { type: String },
     },
     profiles: [
       {
