@@ -1,13 +1,19 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
-const interviews = require ('../controllers/interviews')
-const missingInputsValidation = require ('../validations/interviews')
+const interviews = require('../controllers/interviews');
+const missingInputsValidation = require('../validations/interviews');
+const { authMiddlewarePostulant } = require('../middlewares/authMiddleware');
 
-router.get("/", interviews.getInterviews)
-router.get("/:id", interviews.getOneInterview)
-router.post("/", missingInputsValidation, interviews.createInterview)
-router.delete("/:id", interviews.deleteInterview)
-router.put("/:id", interviews.editInterview)
+router.get('/', authMiddlewarePostulant, interviews.getInterviews);
+router.get('/:id', authMiddlewarePostulant, interviews.getOneInterview);
+router.post(
+  '/',
+  authMiddlewarePostulant,
+  missingInputsValidation,
+  interviews.createInterview
+);
+router.delete('/:id', authMiddlewarePostulant, interviews.deleteInterview);
+router.put('/:id', authMiddlewarePostulant, interviews.editInterview);
 
-module.exports = router
+module.exports = router;

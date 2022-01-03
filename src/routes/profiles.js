@@ -1,13 +1,19 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
-const profile = require ('../controllers/profiles')
-const {missingInputs} = require ('../validations/profiles')
+const profile = require('../controllers/profiles');
+const { missingInputs } = require('../validations/profiles');
+const { authMiddlewarePsychologist } = require('../middlewares/authMiddleware');
 
-router.get("/", profile.getProfiles)
-router.get("/:id", profile.getOneProfile)
-router.post("/", missingInputs, profile.createProfile)
-router.delete("/:id", profile.deleteProfile)
-router.put("/:id", profile.editProfile)
+router.get('/', authMiddlewarePsychologist, profile.getProfiles);
+router.get('/:id', authMiddlewarePsychologist, profile.getOneProfile);
+router.post(
+  '/',
+  authMiddlewarePsychologist,
+  missingInputs,
+  profile.createProfile
+);
+router.delete('/:id', authMiddlewarePsychologist, profile.deleteProfile);
+router.put('/:id', authMiddlewarePsychologist, profile.editProfile);
 
-module.exports = router
+module.exports = router;

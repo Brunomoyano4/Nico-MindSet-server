@@ -1,13 +1,31 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
-const psychologists = require ('../controllers/psychologists')
-const {createPsychologistValidation, editPsychologistValidation} = require ('../validations/psychologists')
+const psychologists = require('../controllers/psychologists');
+const {
+  createPsychologistValidation,
+  editPsychologistValidation,
+} = require('../validations/psychologists');
+const { authMiddlewarePostulant } = require('../middlewares/authMiddleware');
 
-router.get("/", psychologists.getPsychologists)
-router.get("/:id", psychologists.getOnePsychologist)
-router.post("/", createPsychologistValidation, psychologists.createPsychologist)
-router.delete("/:id", psychologists.deletePsychologist)
-router.put("/:id", editPsychologistValidation, psychologists.editPsychologist)
+router.get('/', authMiddlewarePostulant, psychologists.getPsychologists);
+router.get('/:id', authMiddlewarePostulant, psychologists.getOnePsychologist);
+router.post(
+  '/',
+  authMiddlewarePostulant,
+  createPsychologistValidation,
+  psychologists.createPsychologist
+);
+router.delete(
+  '/:id',
+  authMiddlewarePostulant,
+  psychologists.deletePsychologist
+);
+router.put(
+  '/:id',
+  authMiddlewarePostulant,
+  editPsychologistValidation,
+  psychologists.editPsychologist
+);
 
-module.exports = router
+module.exports = router;
