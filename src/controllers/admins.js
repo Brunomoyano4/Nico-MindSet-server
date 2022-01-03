@@ -58,7 +58,15 @@ const updateAdmin = (req, res) => {
       if (error) {
         return res.status(400).json(error);
       }
-      return res.status(200).json(updatedAdmin);
+      firebase
+        .Auth()
+        .updateUser(updatedAdmin.firebaseUID, {
+          email: req.body.email,
+          password: req.body.password,
+          displayName: req.body.userName,
+        })
+        .then(() => res.status(200).json(updatedAdmin))
+        .catch((error) => res.status(400).json(error));
     }
   );
 };

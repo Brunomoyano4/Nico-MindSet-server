@@ -100,7 +100,9 @@ const registerPsychologist = async (req, res) => {
       { new: true },
       (error, updatedPsychologist) => {
         if (!updatedPsychologist) {
-          throw new Error(`Postulant with id: ${req.params.id} was not found`);
+          throw new Error(
+            `Psychologist with id: ${req.params.id} was not found`
+          );
         }
         if (error) {
           throw new Error(error);
@@ -150,12 +152,12 @@ const registerAdmin = async (req, res) => {
     });
 
     Admins.findByIdAndUpdate(
-      savedNewPsychologist._id,
+      savedNewAdmin._id,
       { firebaseUID },
       { new: true },
       (error, updatedAdmin) => {
         if (!updatedAdmin) {
-          throw new Error(`Postulant with id: ${req.params.id} was not found`);
+          throw new Error(`Admin with id: ${req.params.id} was not found`);
         }
         if (error) {
           throw new Error(error);
