@@ -7,10 +7,13 @@ const {
   deletePostulants,
 } = require('../controllers/postulants');
 const { missingInputs } = require('../validations/postulants');
-const { authMiddlewareAdmin } = require('../middlewares/authMiddleware');
+const {
+  authMiddlewareAdmin,
+  authMiddlewareSelfPostulant,
+} = require('../middlewares/authMiddleware');
 
 router.get('/', authMiddlewareAdmin, getPostulants);
-router.get('/:id', authMiddlewareAdmin, getOnePostulant);
+router.get('/:id', authMiddlewareSelfPostulant, getOnePostulant);
 router.post('/', authMiddlewareAdmin, missingInputs, createPostulant);
 router.put('/:id', authMiddlewareAdmin, editPostulants);
 router.delete('/:id', authMiddlewareAdmin, deletePostulants);

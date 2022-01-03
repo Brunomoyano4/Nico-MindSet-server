@@ -4,6 +4,25 @@ const postulant = 'postulant';
 const psychologist = 'psychologist';
 const admin = 'admin';
 
+const authMiddlewareSelfPostulant = (req, res, next) => {
+  const { token } = req.headers;
+  if (!token) {
+    return res.status(400).json({ message: 'Undefined Token' });
+  }
+  return firebase
+    .auth()
+    .verifyIdToken(token)
+    .then((decodedToken) => {
+      const role = decodedToken?.role;
+      if (role === psychologist || role === admin) return next();
+      if (role === postulant && decodedToken?.mongoDBID) return next();
+      throw new Error('No User Privileges');
+    })
+    .catch((error) => {
+      res.status(401).json({ message: error.toString() });
+    });
+};
+
 const authMiddlewarePostulant = (req, res, next) => {
   const { token } = req.headers;
   if (!token) {
@@ -60,6 +79,7 @@ const authMiddlewareAdmin = (req, res, next) => {
 };
 
 module.exports = {
+  authMiddlewareSelfPostulant,
   authMiddlewarePostulant,
   authMiddlewarePsychologist,
   authMiddlewareAdmin,
