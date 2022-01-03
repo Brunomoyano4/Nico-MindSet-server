@@ -9,13 +9,14 @@ const {
 const { missingInputs } = require('../validations/postulants');
 const {
   authMiddlewareAdmin,
+  authMiddlewarePsychologist,
   authMiddlewareSelfPostulant,
 } = require('../middlewares/authMiddleware');
 
-router.get('/', authMiddlewareAdmin, getPostulants);
+router.get('/', authMiddlewarePsychologist, getPostulants);
 router.get('/:id', authMiddlewareSelfPostulant, getOnePostulant);
 router.post('/', authMiddlewareAdmin, missingInputs, createPostulant);
-router.put('/:id', authMiddlewareAdmin, editPostulants);
+router.put('/:id', authMiddlewarePsychologist, editPostulants);
 router.delete('/:id', authMiddlewareAdmin, deletePostulants);
 
 module.exports = router;

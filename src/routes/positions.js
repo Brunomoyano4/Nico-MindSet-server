@@ -1,13 +1,18 @@
-const express=require("express")
-const router=express.Router()
-const positions=require("../controllers/positions")
-const validatePosition=require("../validations/positions")
+const express = require('express');
+const router = express.Router();
+const positions = require('../controllers/positions');
+const validatePosition = require('../validations/positions');
+const { authMiddlewareAdmin } = require('../middlewares/authMiddleware');
 
+router.post(
+  '/',
+  authMiddlewareAdmin,
+  validatePosition.required,
+  positions.createPosition
+);
+router.get('/', authMiddlewareAdmin, positions.getPositions);
+router.get('/:id', authMiddlewareAdmin, positions.getOnePosition);
+router.put('/:id', authMiddlewareAdmin, positions.updatePosition);
+router.delete('/:id', authMiddlewareAdmin, positions.deletePosition);
 
-router.post("/",validatePosition.required,positions.createPosition)
-router.get("/",positions.getPositions)
-router.get("/:id",positions.getOnePosition)
-router.put("/:id",positions.updatePosition)
-router.delete('/:id',positions.deletePosition)
-
-module.exports=router
+module.exports = router;
