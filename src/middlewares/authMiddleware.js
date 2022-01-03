@@ -8,8 +8,8 @@ const authMiddleware = (req, res, next) => {
   return firebase
     .auth()
     .verifyIdToken(token)
-    .then(() => {
-      next();
+    .then((decodedToken) => {
+      console.log(decodedToken);
     })
     .catch((error) => {
       res.status(401).json({ message: error.toString() });
