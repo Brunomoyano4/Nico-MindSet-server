@@ -72,7 +72,15 @@ const editPostulants = (req, res) => {
       if (error) {
         return res.status(400).json(error);
       }
-      return res.status(200).json(updatedPostulant);
+      firebase
+        .auth()
+        .updateUser(updatedPostulant.firebaseUID, {
+          email: req.body.email,
+          password: req.body.password,
+          displayName: req.body.userName,
+        })
+        .then(() => res.status(200).json(updatedPostulant))
+        .catch((error) => res.status(400).json(error));
     }
   );
 };
@@ -91,7 +99,7 @@ const deletePostulants = (req, res) => {
         return res.status(400).json(error);
       }
       firebase
-        .Auth()
+        .auth()
         .deleteUser(DeletedPostulant.firebaseUID)
         .then(() => {
           return res.status(200).send({

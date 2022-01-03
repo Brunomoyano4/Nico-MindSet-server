@@ -59,7 +59,7 @@ const updateAdmin = (req, res) => {
         return res.status(400).json(error);
       }
       firebase
-        .Auth()
+        .auth()
         .updateUser(updatedAdmin.firebaseUID, {
           email: req.body.email,
           password: req.body.password,
@@ -85,7 +85,7 @@ const deleteAdmin = (req, res) => {
         return res.status(400).json(error);
       }
       firebase
-        .Auth()
+        .auth()
         .deleteUser(adminDeleted.firebaseUID)
         .then(() => {
           return res.status(200).send({

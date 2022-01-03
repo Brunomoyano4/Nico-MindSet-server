@@ -57,7 +57,15 @@ const editPsychologist = (req, res) => {
           msg: `Psychologist with id: ${req.params.id} was not found`,
         });
       }
-      return res.status(200).json(result);
+      firebase
+        .auth()
+        .updateUser(updatedPostulant.firebaseUID, {
+          email: req.body.email,
+          password: req.body.password,
+          displayName: req.body.userName,
+        })
+        .then(() => res.status(200).json(updatedPostulant))
+        .catch((error) => res.status(400).json(error));
     })
     .catch((error) => {
       return res.status(400).json(error);
@@ -73,7 +81,7 @@ const deletePsychologist = (req, res) => {
         });
       }
       firebase
-        .Auth()
+        .auth()
         .deleteUser(result.firebaseUID)
         .then(() => {
           return res.status(200).send({
