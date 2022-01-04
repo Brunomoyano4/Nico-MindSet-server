@@ -16,7 +16,7 @@ const {
 router.get('/', authMiddlewarePsychologist, getPostulants);
 router.get('/:id', authMiddlewareSelfPostulant, getOnePostulant);
 router.post('/', authMiddlewareAdmin, missingInputs, createPostulant);
-router.put('/:id', authMiddlewarePsychologist, editPostulants);
+router.put('/:id', authMiddlewareSelfPostulant, editPostulants);
 router.delete('/:id', authMiddlewareAdmin, deletePostulants);
 
 module.exports = router;

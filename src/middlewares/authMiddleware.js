@@ -13,9 +13,11 @@ const authMiddlewareSelfPostulant = (req, res, next) => {
     .auth()
     .verifyIdToken(token)
     .then((decodedToken) => {
+      console.log(decodedToken?.mongoDBID === req.params.id);
       const role = decodedToken?.role;
       if (role === psychologist || role === admin) return next();
-      if (role === postulant && decodedToken?.mongoDBID) return next();
+      if (role === postulant && decodedToken?.mongoDBID === req.params.id)
+        return next();
       throw new Error('No User Privileges');
     })
     .catch((error) => {
