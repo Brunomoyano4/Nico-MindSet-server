@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const experienceSchema = new Schema({
@@ -11,6 +11,7 @@ const experienceSchema = new Schema({
 
 const PostulantsSchema = new Schema(
   {
+    firebaseUID: { type: String },
     firstName: { type: String, lowercase: true, required: true },
     lastName: { type: String, lowercase: true, required: true },
     userName: { type: String, lowercase: true, required: true },
@@ -24,16 +25,16 @@ const PostulantsSchema = new Schema(
     province: { type: String, lowercase: true, required: true },
     country: { type: String, lowercase: true, required: true },
     telephone: { type: String, lowercase: true, required: true },
-    availabilty: { type: Boolean, required: true },
+    availability: { type: Boolean },
     contactRange: {
-      from: { type: String, required: true },
-      to: { type: String, required: true },
+      from: { type: String },
+      to: { type: String },
     },
     profiles: [
       {
         profile: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "Profile",
+          ref: 'Profile',
         },
         _id: false,
       },
@@ -45,4 +46,4 @@ const PostulantsSchema = new Schema(
   }
 );
 
-module.exports = mongoose.model("Postulants", PostulantsSchema);
+module.exports = mongoose.model('Postulants', PostulantsSchema);
