@@ -9,7 +9,7 @@ const positionsSchema = new Schema(
     profiles: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: 'Profiles',
+      ref: 'Profile',
     },
   },
   {

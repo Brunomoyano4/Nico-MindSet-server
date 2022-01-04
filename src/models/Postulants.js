@@ -39,6 +39,45 @@ const PostulantsSchema = new Schema(
         _id: false,
       },
     ],
+    studies: {
+      primaryStudies: {
+        startDate: { type: Date, required: true },
+        endDate: { type: Date },
+        school: { type: String, required: true },
+      },
+      secondaryStudies: {
+        startDate: { type: Date, required: true },
+        endDate: { type: Date },
+        school: { type: String, required: true },
+      },
+      tertiaryStudies: [
+        {
+          startDate: { type: Date },
+          endDate: { type: Date },
+          description: { type: String },
+          institute: { type: String },
+          _id: false,
+        },
+      ],
+      universityStudies: [
+        {
+          startDate: { type: Date },
+          endDate: { type: Date },
+          description: { type: String },
+          institute: { type: String },
+          _id: false,
+        },
+      ],
+      informalStudies: [
+        {
+          startDate: { type: Date },
+          endDate: { type: Date },
+          description: { type: String },
+          institute: { type: String },
+          _id: false,
+        },
+      ],
+    },
     experience: [experienceSchema],
   },
   {
