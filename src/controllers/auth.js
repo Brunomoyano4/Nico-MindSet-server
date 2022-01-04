@@ -26,7 +26,7 @@ const registerPostulant = async (req, res) => {
       country: req.body.country,
       telephone: req.body.telephone,
       contactRange: req.body.contactRange,
-      availabilty: req.body.availabilty,
+      availability: req.body.availability,
       experience: req.body.experience,
       profiles: req.body.profiles,
     });
