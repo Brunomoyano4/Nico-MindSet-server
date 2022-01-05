@@ -42,12 +42,12 @@ const PostulantsSchema = new Schema(
     studies: {
       primaryStudies: {
         startDate: { type: Date, required: true },
-        endDate: { type: Date },
+        endDate: { type: Date, required: true },
         school: { type: String, required: true },
       },
       secondaryStudies: {
         startDate: { type: Date, required: true },
-        endDate: { type: Date },
+        endDate: { type: Date, required: true },
         school: { type: String, required: true },
       },
       tertiaryStudies: [
