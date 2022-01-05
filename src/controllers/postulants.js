@@ -46,6 +46,7 @@ const createPostulant = (req, res) => {
     telephone: req.body.telephone,
     contactRange: req.body.contactRange,
     availability: req.body.availability,
+    studies: req.body.studies,
     experience: req.body.experience,
     profiles: req.body.profiles,
   });
@@ -61,7 +62,30 @@ const createPostulant = (req, res) => {
 const editPostulants = (req, res) => {
   Postulants.findByIdAndUpdate(
     req.params.id,
-    req.body,
+    {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      userName: req.body.userName,
+      email: req.body.email,
+      password: req.body.password,
+      birthDate: req.body.birthDate,
+      street: req.body.street,
+      streetNumber: req.body.streetNumber,
+      city: req.body.city,
+      postalCode: req.body.postalCode,
+      province: req.body.province,
+      country: req.body.country,
+      telephone: req.body.telephone,
+      contactRange: req.body.contactRange,
+      availability: req.body.availability,
+      'studies.primaryStudies': req.body.studies?.primaryStudies,
+      'studies.secondaryStudies': req.body.studies?.secondaryStudies,
+      'studies.tertiaryStudies': req.body.studies?.tertiaryStudies,
+      'studies.universityStudies': req.body.studies?.universityStudies,
+      'studies.informalStudies': req.body.studies?.informalStudies,
+      experience: req.body.experience,
+      profiles: req.body.profiles,
+    },
     { new: true },
     (error, updatedPostulant) => {
       if (!updatedPostulant) {

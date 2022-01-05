@@ -27,8 +27,9 @@ const registerPostulant = async (req, res) => {
       telephone: req.body.telephone,
       contactRange: req.body.contactRange,
       availability: req.body.availability,
-      experience: req.body.experience,
       profiles: req.body.profiles,
+      experience: req.body.experience,
+      studies: req.body.studies,
     });
     savedNewPostulant = await newPostulant.save();
 

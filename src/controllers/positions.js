@@ -26,25 +26,27 @@ const getOnePosition = (req, res) => {
 }
 
 const updatePosition = (req, res) => {
-  Positions.findByIdAndUpdate(req.params.id,
-    { 
+  Positions.findByIdAndUpdate(
+    req.params.id,
+    {
       clientId: req.body.clientId,
       job: req.body.job,
       description: req.body.description,
+      profiles: req.body.profiles,
     },
-    { new: true }, 
+    { new: true },
     (error, newPosition) => {
-      if(!newPosition) {
+      if (!newPosition) {
         return res.status(404).json({
-          msg: `Position with id: ${req.params.id} was not found`
-        })
+          msg: `Position with id: ${req.params.id} was not found`,
+        });
       }
-      if(error) {
-        return res.status(400).json(error)
+      if (error) {
+        return res.status(400).json(error);
       }
-      return res.status(200).json(newPosition)
+      return res.status(200).json(newPosition);
     }
-  )
+  );
 }
 
 const createPosition=(req, res) => {
@@ -52,6 +54,7 @@ const createPosition=(req, res) => {
     clientId: req.body.clientId,
     job: req.body.job,
     description: req.body.description,
+    profiles: req.body.profiles,
   })
 
   position.save((error, position) => {
