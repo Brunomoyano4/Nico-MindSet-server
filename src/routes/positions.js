@@ -10,7 +10,7 @@ router.post(
   validatePosition.required,
   positions.createPosition
 );
-router.get('/', authMiddlewareAdmin, positions.getPositions);
+router.get('/', positions.getPositions);
 router.get('/:id', authMiddlewareAdmin, positions.getOnePosition);
 router.put('/:id', authMiddlewareAdmin, positions.updatePosition);
 router.delete('/:id', authMiddlewareAdmin, positions.deletePosition);
