@@ -13,17 +13,20 @@ const getPositions = (req, res) => {
 };
 
 const getOnePosition = (req, res) => {
-  Positions.findById(req.params.id, (error, Positions) => {
-    if (!Positions) {
-      return res.status(404).json({
-        msg: `Position with id: ${req.params.id} was not found`,
-      });
-    }
-    if (error) {
+  Positions.findById(req.params.id)
+    .populate('clientId', 'customerName')
+    .populate('profiles')
+    .then((Positions) => {
+      if (!Positions) {
+        return res.status(404).json({
+          msg: `Position with id: ${req.params.id} was not found`,
+        });
+      }
+      return res.status(200).json(Positions);
+    })
+    .catch((error) => {
       return res.status(400).json(error);
-    }
-    return res.status(200).json(Positions);
-  });
+    });
 };
 
 const updatePosition = (req, res) => {
