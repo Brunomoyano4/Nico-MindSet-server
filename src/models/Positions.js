@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 
 const positionsSchema = new Schema(
   {
-    clientId: { type: mongoose.Schema.Types.ObjectId, required: true },
+    clientId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'Clients',
+    },
     job: { type: String, required: true },
     description: { type: String, required: true },
     profiles: {
