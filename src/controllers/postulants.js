@@ -30,6 +30,30 @@ const getOnePostulant = (req, res) => {
 };
 
 const createPostulant = (req, res) => {
+  const studies = req.body.studies;
+  let postulantStudies = {
+    primaryStudies : studies.primaryStudies,
+    secondaryStudies: studies.secondaryStudies
+  }
+
+  if ( studies ) {
+    if ( studies.tertiaryStudies ) {
+      postulantStudies.tertiaryStudies = studies.tertiaryStudies.filter(study => {
+        return study != null
+      })
+    }
+    if ( studies.universityStudies ) {
+      postulantStudies.universityStudies = studies.universityStudies.filter(study => {
+        return study != null
+      })
+    }
+    if ( studies.informalStudies ) {
+      postulantStudies.informalStudies = studies.informalStudies.filter(study => {
+        return study != null
+      })
+    }
+  }
+
   const newPostulant = new Postulants({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -46,10 +70,11 @@ const createPostulant = (req, res) => {
     telephone: req.body.telephone,
     contactRange: req.body.contactRange,
     availability: req.body.availability,
-    studies: req.body.studies,
     experience: req.body.experience,
     profiles: req.body.profiles,
+    studies: postulantStudies
   });
+  
   newPostulant.save((error, postulant) => {
     if (error) {
       return res.status(400).json(error);
